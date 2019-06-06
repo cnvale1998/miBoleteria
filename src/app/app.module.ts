@@ -8,6 +8,7 @@ import { PasoDosComponent } from './paso-dos/paso-dos.component';
 import { PasoTresComponent } from './paso-tres/paso-tres.component';
 import { PasoCuatroComponent } from './paso-cuatro/paso-cuatro.component';
 import { PasoCincoComponent } from './paso-cinco/paso-cinco.component';
+import { ControllerApiComponent } from './controller-api/controller-api.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PasoCincoComponent } from './paso-cinco/paso-cinco.component';
     PasoDosComponent,
     PasoTresComponent,
     PasoCuatroComponent,
-    PasoCincoComponent
+    PasoCincoComponent,
+    ControllerApiComponent
   ],
   imports: [
     BrowserModule,
