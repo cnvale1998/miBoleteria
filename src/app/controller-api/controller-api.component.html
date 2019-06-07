@@ -1,3 +1,16 @@
-<p>
-  aquí está Manu
-</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pruebas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let valor_actual of arreglo; index as i">
+      <th scope="row">{{i+1}}</th>
+      <td>{{valor_actual.NOMBRE}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+

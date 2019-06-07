@@ -9,6 +9,8 @@ import { PasoTresComponent } from './paso-tres/paso-tres.component';
 import { PasoCuatroComponent } from './paso-cuatro/paso-cuatro.component';
 import { PasoCincoComponent } from './paso-cinco/paso-cinco.component';
 import { ControllerApiComponent } from './controller-api/controller-api.component';
+import { APIControllersService } from './APIControllers/apicontrollers.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { ControllerApiComponent } from './controller-api/controller-api.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [APIControllersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
