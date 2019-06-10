@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PasoUnoComponent } from './paso-uno/paso-uno.component';
-import { PasoDosComponent } from './paso-dos/paso-dos.component';
 
-const routes: Routes = [
-{path:"inicio", component:PasoUnoComponent},
-{path:"paso2", component: PasoDosComponent},
+import { Paso1Component } from './entrada/paso1/paso1.component';
+import { EntradaComponent } from './entrada/entrada/entrada.component';
+import { Paso2Component } from './entrada/paso2/paso2.component';
+import { RegistroComponent } from './registro/registro.component';
+
+const routes: Routes =[
+{path:"inicio", component:Paso1Component},
+{path:"entrada", component: EntradaComponent},
+{path:"registro", component: RegistroComponent},
 {path:'', redirectTo:'inicio', pathMatch:'full'}
 ];
 

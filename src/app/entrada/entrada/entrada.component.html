@@ -1,0 +1,132 @@
+<header>
+
+    <div class="nav_sup">
+        <ul class="nav nav-pills pull-right">
+            <li ><a routerLink="/inicio">INICIO</a></li>
+            <li class="separador">|</li>
+
+            <li><a routerLink="/registro">REGISTRAR/<span class="celeste">INICIAR</span></a></li><!-- si se ha iniciado sesion poner clase ocultar y display none-->
+            <li class="ocultar" style="display: none"><a  href="#">MI CUENTA</a></li><!-- si no se ha iniciado sesion poner clase ocultar y display none-->
+            <li class="separador">|</li>
+            <li><a href="#">CONTACTO</a></li>
+        </ul>
+        <div class="logo_nav"><img src="./assets/img/logo.png"></div>
+        <img  class="img_paso" src="./assets/img/paso2_bg.png">
+        <!-- INFO SESION-->
+        <div class="span4 logged "> <!-- añadir class ocultarLog para no mostrar el div SI NO SE HA INICIADO SESION -->
+            <div class="item_nombre"><h4>Bienvenido: <small id="nombreUsuario">pepe perez</small></h4></div>
+            <div class="item_salir"><a id="cerrar"  href="#" >Salir</a></div>
+        </div> 
+
+
+    </div>
+
+</header>
+
+<div class=" cont_entrada">
+    <div class="row-fluid ">
+        <div class="span12 sombraCont">
+            <!-- sidebar-->
+            <div class="span3" id="sidebar">
+                <div class="row">
+                    <img src="./assets/img/icon-cca-sidebar.png">
+                </div>
+                <div class="row">
+                    <div class="info_detalle">
+                        <h5>PELICULA SELECCIONADA</h5>
+                        <p>
+                            Complejo: <span>Ambassador</span><br/>
+                            Pel&iacute;cula<span> ALADDIN - 2D SUB</span><br/>
+                            Fecha: <span>Miércoles 22 de Mayo</span><br/>
+                            Horario: <span>17:40</span><br/>
+                        </p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="info_detalle">
+                        <h5>TIPO DE ENTRADA</h5>
+                        <p>
+                            Tipo de Ticket: <span>1xGENERAL</span><br/>
+                            Butaca: <span>66</span><br/>
+                            Candy: <span>$0.00</span><br/>
+                            Cargo administrativo: <span>$15,00 x Ticket</span><br/>
+                            Total:<span> $255.00</span><small> Incluyendo IVA</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--fin sidebar-->
+            <div class="span9" id="contenedor">
+                <!--comienzo de los divs de los pasos -->
+                   <div [ngSwitch]="paso">
+                    <div *ngSwitchCase="2">
+                        <app-paso2></app-paso2>
+                       
+                    </div>
+                    <div *ngSwitchCase="3">
+                        <app-paso3></app-paso3>
+                    </div>
+                       <div *ngSwitchCase="4">
+                        <app-paso4></app-paso4>
+                    </div>
+                       <div *ngSwitchCase="5">
+                        <app-paso5></app-paso5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div style="position:relative">
+    <div class="row-fluid " style="position: absolute; z-index:1;top:-14px;">
+        <div class="span10">
+            <!-- no cambiar el orden de los divs-->
+            <!--boton butacas-->
+            <div  class="button butacas" [ngClass]="{'ocultar': paso!=3}"><!-- para no mostrar añadir class ocultar a este div-->
+                <button onclick=""><span>Selecciona</span> tus Butacas</button>
+
+            </div>
+            <!-- boton anular operacion-->
+            <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                <button onclick=""><span>Anular</span></button>
+            </div>
+            <!--navbar de pasos-->
+            <nav id="pasos-footer" class="pasos-footer">
+                <ul>
+                    <li><a class="uno active" href="#" alt="TU CIUDAD">Paso 1</a></li><!-- class active cambia la img del paso a activo-->
+                    <li><a class="dos active" href="#">Paso 2</a></li>
+                    <li><a   class="tres " [ngClass]="{'active': paso >=3}" href="#">Paso 3</a></li>
+                    <li><a class="cuatro " [ngClass]="{'active': paso >=4}"  href="#">Paso 4</a></li>
+                    <li><a class="cinco " [ngClass]="{'active': paso==5}" href="#">Paso 5</a></li>
+                </ul>
+            </nav>
+
+
+
+        </div>
+
+        <div class="span2">
+            <div class="button continuar " [ngClass]="{'ocultar': paso==5}" ><!-- para no mostrar añadir class ocultar a este div-->
+                <button (click)="this.pasarPaso()"><span>Continuar</span></button>
+            </div>
+
+            <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                <button onclick=""><span>Finalizar</span></button>
+                <!--funcionamiento: para cualquiera de los botones 
+                por ejemplo en el paso 1 al elegir la ciudad en el form tenes un boton oculto que haga el submit
+                <input type="submit" id="ciudad" name="ciudad" class="hide" />
+                entonces al hacer click en el boton que es visible la accion es hacer click en el boton oculto que hace el submit del form
+                 <button onclick="ciudad.click();"><span>Continuar</span></button>
+                -->
+
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" style="position: absolute;z-index:0;top:-25px">
+        <img src="./assets/img/bg_shadow.png">
+    </div>
+</div>
