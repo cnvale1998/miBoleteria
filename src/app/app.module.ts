@@ -11,6 +11,8 @@ import { Paso2Component } from './entrada/paso2/paso2.component';
 import { Paso3Component } from './entrada/paso3/paso3.component';
 import { Paso4Component } from './entrada/paso4/paso4.component';
 import { Paso5Component } from './entrada/paso5/paso5.component';
+import {ControllerApiComponent} from './controller-api/controller-api.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { Paso5Component } from './entrada/paso5/paso5.component';
     Paso2Component,
     Paso3Component,
     Paso4Component,
-    Paso5Component
+    Paso5Component,
+    ControllerApiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [APIControllersService],
   bootstrap: [AppComponent]

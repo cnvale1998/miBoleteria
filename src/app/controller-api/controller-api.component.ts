@@ -15,8 +15,7 @@ export class ControllerApiComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.ObtenerCartelera('2019-06-14');
-   
+    this.ObtenerCartelera('2019-06-8');
       
   }
   ObtenerCartelera(fecha:String){
@@ -24,5 +23,5 @@ export class ControllerApiComponent implements OnInit {
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.arreglo = res; });
 
   }
-
+  
 }
