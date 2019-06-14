@@ -1,0 +1,329 @@
+  /*---------iniciar sesion-----*/
+
+            #log.content {
+                margin: 0 auto;
+                max-width: 572px;
+                width: 482px;
+                height: 155px;
+                background: url(./../../assets/img/bg_box.png) no-repeat;
+                padding: 40px 40px 40px 50px;   
+                margin-top: 100px;
+                margin-left: 195px;
+            }
+
+            #p0.pasos {
+                top: 20px;
+                left: 450px;
+                position: absolute;
+                background: url(./../../assets/img/bg_login.png) no-repeat left top;
+            }
+            #cont_log{
+                background: url(./../../assets/img/bg_login.png) no-repeat center top -10px;
+                padding-bottom: 82px;
+            }
+            #cont_log #logo{ 
+                margin: 0 0 0 260px;
+
+                padding-top: 108px;}
+            #boton_continuar {
+
+                max-width: 572px;
+                height: 82px; 
+                margin-left: 200px;
+            }
+            /*formulario iniciar sesion*/
+            #cont_log h4{
+                font-family: 'PT Sans', sans-serif;
+                font-weight: lighter;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: -1px;
+                color: white;
+                font-size: 15px;
+            }
+            #cont_log strong{
+                font-family: myriad-pro,"Arial black", Arial;
+            }
+            #cont_log .form-horizontal{
+                margin-top: 30px;
+                margin-left: 25px;
+            }
+            #cont_log small{
+                font-family: 'Verdana';
+                font-size: 9px;
+                line-height: 14px;
+                color: #666;
+            }
+            .footer_inf{
+                margin-top: 0px ;
+            }
+            input.input_bg{
+                border: 1px solid #432a43;
+                background: #000;
+                width: 200px;
+                float: left;
+                position: relative;
+                border-radius: 0px;
+                color:white;
+                font-family:  'PT Sans', sans-serif;
+                font-weight: lighter;
+                font-size: 14px;
+
+                padding: 0 5px 0 15px;
+            }
+            #cont_log .control-group{
+                margin-bottom: 0px;
+            }
+
+            #cont_log .cerrar{
+                float: right;
+                position: relative;
+                top: -35px;
+                right: -30px;
+            }
+            /*botones*/
+            div.button.btn_log {
+                float: right;
+            }
+            div.button.btn_log button {
+                border: none;
+
+                font-family: myriad-pro,"Arial black", Arial;
+                font-size: 13px;
+                color: #fff;
+                text-transform: uppercase;
+                max-width: 240px;
+                height: 30px;
+            }
+
+            .boton_gris button{background: #24241a;}
+            .boton_violeta button{background: #c111c3;}
+            #ingresar button {width:130px;color: #000;}
+            #rec_clave button{width:202px;}
+            #regis button{width:135px;}
+            #rec_clave span{
+                color: #92928d;
+                font-family:  'PT Sans', sans-serif;
+            }
+            #cont_log .button{
+                margin-right: 5px;
+            }
+            #cont_log .logo_small{
+                position: relative;
+                top: 155px;
+                left: 90px;
+                float: right;
+
+            }
+            .candado{    position: relative;
+                         top: -142px;
+                         left: 2px;
+                         float: right;
+            }
+            /*----------ventana modal registrar----*/
+            /*para todas las ventanas modal*/
+            .modal{
+                width: 760px;
+                margin-left: -380px;
+                border-radius: 0px;
+                background: black;
+            }
+            .modal-header{
+                font-family: myriad-pro,"Arial black", Arial,sans-serif;
+                line-height: 60px;
+                height: 60px;
+                text-align: right;
+                padding: 10px 10px;
+                background: url(./../../assets/img/popin-title-bg.png) no-repeat top left;
+                font-size: 26px;
+                color:white;
+            }
+            
+            /*para la ventana registrar*/
+            #registrarse_modal .cerrar_modal{
+                height: 30px;
+                font-family: myriad-pro,"Arial black", Arial,sans-serif;
+                background: #000;
+                text-align: right;
+            }
+            #registrarse_modal .cerrar{
+                float: right;
+                padding: 5px;
+            }
+
+            #registrarse_modal h4{
+                font-family: 'PT Sans', sans-serif;
+                font-weight: lighter;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: -1px;
+                color: white;
+                font-size: 18px;
+            }
+            #registrarse_modal strong{
+                font-family: myriad-pro,"Arial black", Arial;
+            }
+            #registrarse_modal  small{
+                font-family: 'Verdana';
+                font-size: 9px;
+                line-height: 14px;
+                color: #666;
+            }
+            input.input_mod{
+                border: 0;
+                line-height: 24px;
+                font-size: 11px;
+                color: #d1d0d0;
+                width: 640px;
+                padding: 0 10px;
+                background: #4d4d4d;
+                margin: 1px 0;
+                outline: none;
+                border-radius: 0px;
+            }
+            #registrarse_modal form{
+                padding: 12px 40px 0 55px;
+            }
+            #registrarse_modal .cont{
+                width: 760px;
+                position: relative;
+                left: 0px;
+                top: -21px;
+                background: url(./../../assets/img/popin-micuenta-bg.jpg) #454545 no-repeat left;
+            }
+            input[type="password"].input_mod{
+                width: 315px;
+            }
+            .selectReg{
+                border: 0;
+                line-height: 24px;
+                font-size: 11px;
+                color: #d1d0d0;
+                width: 330px;
+                padding: 0 10px;
+                background: #4d4d4d;
+                margin: 1px 0;
+                outline: none;
+                border-radius: 0px;
+            }
+            
+            
+   /*--------estilo ventana modal------------*/         
+            
+.backdrop{ 
+
+
+background-color:rgba(0,0,0,0.6);
+
+
+position:fixed;
+
+
+top:0;
+
+
+left:0;
+
+
+width:100%;
+
+
+height:100vh;
+
+
+}
+.modal{
+overflow: auto;
+}
+
+/*----------ventana modal registrar----*/
+            /*para todas las ventanas modal*/
+            .modal{
+                width: 760px;
+                margin-left: -380px;
+                border-radius: 0px;
+                background: black;
+            }
+            .modal-header{
+                font-family: myriad-pro,"Arial black", Arial,sans-serif;
+                line-height: 60px;
+                height: 60px;
+                text-align: right;
+                padding: 10px 10px;
+                background: url(./../../assets/img/popin-title-bg.png) no-repeat top left;
+                font-size: 26px;
+                color:white;
+            }
+            .modal-backdrop {
+                background-color: #08576e;
+            }
+            /*para la ventana registrar*/
+            #registrarse_modal .cerrar_modal{
+                height: 30px;
+                font-family: myriad-pro,"Arial black", Arial,sans-serif;
+                background: #000;
+                text-align: right;
+            }
+            #registrarse_modal .cerrar{
+                float: right;
+                padding: 5px;
+            }
+            #registrarse_modal .modal-body{
+                 max-height: 500px;
+            }   
+            #registrarse_modal h4{
+                font-family: 'PT Sans', sans-serif;
+                font-weight: lighter;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: -1px;
+                color: white;
+                font-size: 18px;
+            }
+            #registrarse_modal strong{
+                font-family: myriad-pro,"Arial black", Arial;
+            }
+            #registrarse_modal  small{
+                font-family: 'Verdana';
+                font-size: 9px;
+                line-height: 14px;
+                color: #666;
+            }
+            input.input_mod{
+                border: 0;
+                line-height: 24px;
+                font-size: 11px;
+                color: #d1d0d0;
+                width: 640px;
+                padding: 0 10px;
+                background: #4d4d4d;
+                margin: 1px 0;
+                outline: none;
+                border-radius: 0px;
+            }
+            #registrarse_modal form{
+                padding: 12px 40px 0 55px;
+            }
+            #registrarse_modal .cont{
+                width: 760px;
+                position: relative;
+                left: 0px;
+                top: -21px;
+                background: url(./../../assets/img/popin-micuenta-bg.jpg) #454545 no-repeat left;
+            }
+            input[type="password"].input_mod{
+                width: 315px;
+            }
+            .selectReg{
+                border: 0;
+                line-height: 24px;
+                font-size: 11px;
+                color: #d1d0d0;
+                width: 330px;
+                padding: 0 10px;
+                background: #4d4d4d;
+                margin: 1px 0;
+                outline: none;
+                border-radius: 0px;
+            }/* You can add global styles to this file, and also import other style files */
+            
