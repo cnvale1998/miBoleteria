@@ -8,7 +8,7 @@
                                     <li class="cinema">CINEMACENCER SAN LUIS - <span class="city">San Luis</span></li>
 
                                     <div *ngFor="let pelicula of peliculas">
-                                    <li><a onclick="">{{pelicula.NOMBRE}}</a></li>
+                                    <li><a (click)="guardarId(pelicula.ID_PELICULA)">{{pelicula.NOMBRE}}</a></li>
                                     
                                     </div>
 
@@ -25,12 +25,12 @@
                             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
                                 <ul>
                                     <li class="date">Miércoles 22 de Mayo </li>
-                                    <li><a (click)="mostrarValor('22:40')">22:40</a></li>
+                                    <li><a (click)="guardarHorario('22:40')">22:40</a></li>
                                 </ul>
 
                                 <ul>
                                     <li class="date">Jueves 23 de Mayo </li>
-                                    <li><a (click)="mostrarValor('16:00')">16:00</a></li>
+                                    <li><a (click)="guardarHorario('16:00')">16:00</a></li>
                                     <li><a onclick="">19:50</a></li>
                                 </ul>
 

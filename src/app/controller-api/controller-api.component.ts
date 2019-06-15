@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { APIControllersService } from '../APIControllers/apicontrollers.service';
+import { APIControllersService } from '../Controladores/APIControllers/apicontrollers.service';
+
 
 @Component({
   selector: 'app-controller-api',
@@ -7,7 +8,8 @@ import { APIControllersService } from '../APIControllers/apicontrollers.service'
   styleUrls: ['./controller-api.component.css']
 })
 export class ControllerApiComponent implements OnInit {
-  arreglo:any[];
+   peliculas: any[];
+   
   
   constructor(private conector:APIControllersService) {
     
@@ -15,12 +17,16 @@ export class ControllerApiComponent implements OnInit {
    }
 
   ngOnInit() {
+   
     this.ObtenerCartelera('2019-06-8');
+    
+    
+    
       
   }
   ObtenerCartelera(fecha:String){
 
-    this.conector.ObetenerCartelera(fecha).subscribe(res => {this.arreglo = res; });
+    this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
   

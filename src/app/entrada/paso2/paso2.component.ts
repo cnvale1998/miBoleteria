@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {APIControllersService} from '../../APIControllers/apicontrollers.service';
+import {APIControllersService} from '../../Controladores/APIControllers/apicontrollers.service';
+import { EntradaControllersService } from 'src/app/Controladores/entrada-controllers.service';
 @Component({
   selector: 'app-paso2',
   templateUrl: './paso2.component.html',
@@ -7,7 +8,11 @@ import {APIControllersService} from '../../APIControllers/apicontrollers.service
 })
 export class Paso2Component implements OnInit {
   peliculas:any[];
-  constructor(private conector:APIControllersService) { }
+  horario:number;
+  constructor(private conector:APIControllersService,private entradaControllers:EntradaControllersService) { 
+
+
+  }
 
   ngOnInit() {
     this.ObtenerCartelera('2019-06-8');
@@ -18,8 +23,14 @@ export class Paso2Component implements OnInit {
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
-  mostrarValor(valor:String){
+  guardarHorario(valor:number){
+    this.horario= valor;
     console.log(valor);
+
+  }
+  guardarId(id: number){
+    this.entradaControllers.setIdPeliculaEntrada(id);
+    console.log(this.entradaControllers.getIdPeliculaEntrada());
 
   }
 }

@@ -6,9 +6,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let valor_actual of arreglo; index as i">
+    <tr *ngFor="let valor_actual of peliculas; index as i">
       <th scope="row">{{i+1}}</th>
-      <td>{{valor_actual.NOMBRE}}</td>
+      <td *ngIf="valor_actual.NOMBRE!='X-MEN: DARK PHOENIX 2D CAST'">{{valor_actual.NOMBRE}}</td>
     </tr>
     
   </tbody>

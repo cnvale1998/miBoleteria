@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class APIControllersService {
   
+  
   constructor(private conector: HttpClient) { 
       
 
   }
+  
   ObetenerCartelera(fecha: String){    
     return this.conector.get<any[]>(`http://localhost:3000/API/Cartelera/${fecha}`);
   }
