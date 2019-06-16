@@ -107,7 +107,7 @@
 
 
 
-        </div>
+        </div> 
 
         <div class="span2">
             <div class="button continuar " [ngClass]="{'ocultar': paso==5}" ><!-- para no mostrar añadir class ocultar a este div-->
@@ -115,7 +115,7 @@
             </div>
 
             <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                <button onclick=""><span>Finalizar</span></button>
+                <button (click)="generarPDF()"><span>Finalizar</span></button>
                 <!--funcionamiento: para cualquiera de los botones 
                 por ejemplo en el paso 1 al elegir la ciudad en el form tenes un boton oculto que haga el submit
                 <input type="submit" id="ciudad" name="ciudad" class="hide" />
