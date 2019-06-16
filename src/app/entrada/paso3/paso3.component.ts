@@ -8,11 +8,11 @@ import { EntradaControllersService } from 'src/app/Controladores/entrada-control
     styleUrls: ['./../entrada/entrada.component.css']
 })
 export class Paso3Component implements OnInit {
-
+  beneficios: any[];
   constructor(private conector:APIControllersService, private entradaControllers:EntradaControllersService) { }
 
   ngOnInit() {
-    console.log(this.entradaControllers.getIdPeliculaEntrada());
+    this.conector.BuscarBeneficiosDisponibles().subscribe(res => {this.beneficios = res; })
   }
 
 }

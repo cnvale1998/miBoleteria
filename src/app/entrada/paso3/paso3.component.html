@@ -1,5 +1,74 @@
 <div id="cont_paso3" ><!--añadir class ocultar para no mostrar el div,y que no se reserve espacio para el elemento-->
-    <div class="row-fluid">
-        <h1>ESTE ES EL PASO 3</h1>
-    </div>
+    <div class="row-fluid" style="padding-top: 40px;">
+
+        <div >
+
+            <!--<div class="left fl">
+
+                <h2></h2>
+
+                <h3 class="selectedMovieTitle">AVENGERS: ENDGAME - 2D CAST</h3>
+
+                <img id="selectedMovieSrc" src="Mi%20Boleteria_archivos/1895_img2.jpg" alt="https://miboleteria.com.ar/images/img_movies/1895_img2.jpg">
+
+                <div id="selectedMovieRating" class="rating">
+
+                    <div class="ratingTitle">Clasificación:</div>
+
+                    <div class="ratingDetail">Apta para mayores de 13 años</div>
+
+                </div>
+                
+            </div>-->
+
+            <div >
+
+                <table >
+
+                    <thead>
+
+                        <tr>
+
+                            <th  scope="col"><span >Tipo de</span> Tickets</th>
+
+                            <th scope="col">Cant:</th>
+
+                            <th scope="col">Costo:</th>
+
+                            <th scope="col">  Subtotal:</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody *ngFor="let beneficio of beneficios" ><tr>
+<td >{{beneficio.NOMBRE}}</td>
+<td >
+<select >
+<option value="0" >0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+</td>
+<td >$240.00</td>
+<td >   $0</td>
+</tr>
+
+
+
+
+
+                    </tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
