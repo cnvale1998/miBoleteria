@@ -1,0 +1,110 @@
+/*---------iniciar sesion-----*/
+
+            #log.content {
+                margin: 0 auto;
+                max-width: 572px;
+                width: 482px;
+                height: 155px;
+                background: url(./../../assets/img/bg_box.png) no-repeat;
+                padding: 40px 40px 40px 50px;   
+                margin-top: 100px;
+                margin-left: 195px;
+            }
+
+            #p0.pasos {
+                top: 20px;
+                left: 450px;
+                position: absolute;
+                background: url(./../../assets/img/bg_login.png) no-repeat left top;
+            }
+            #cont_log{
+                background: url(./../../assets/img/bg_login.png) no-repeat center top -10px;
+                padding-bottom: 82px;
+            }
+            #cont_log #logo{ 
+                margin: 0 0 0 260px;
+
+                padding-top: 108px;}
+            #boton_continuar {
+
+                max-width: 572px;
+                height: 82px; 
+                margin-left: 200px;
+            }
+            /*formulario iniciar sesion*/
+            #cont_log h4{
+                font-family: 'PT Sans', sans-serif;
+                font-weight: lighter;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: -1px;
+                color: white;
+                font-size: 15px;
+            }
+            #cont_log strong{
+                font-family: myriad-pro,"Arial black", Arial;
+            }
+            #cont_log .form-horizontal{
+                margin-top: 30px;
+                margin-left: 25px;
+            }
+            #cont_log small{
+                font-family: 'Verdana';
+                font-size: 9px;
+                line-height: 14px;
+                color: #666;
+            }
+            .footer_inf{
+                margin-top: 0px ;
+            }
+            input.input_bg{
+                border: 1px solid #432a43;
+                background: #000;
+                width: 200px;
+                float: left;
+                position: relative;
+                border-radius: 0px;
+                color:white;
+                font-family:  'PT Sans', sans-serif;
+                font-weight: lighter;
+                font-size: 14px;
+
+                padding: 0 5px 0 15px;
+            }
+            #cont_log .control-group{
+                margin-bottom: 0px;
+            }
+
+            #cont_log .cerrar{
+                float: right;
+                position: relative;
+                top: -35px;
+                right: -30px;
+            }
+            /*botones*/
+           
+            .boton_violeta button{background: #c111c3;}
+            #ingresar button {width:130px;color: #000;}
+            #rec_clave button{width:202px;}
+            #regis button{width:135px;}
+            #rec_clave span{
+                color: #92928d;
+                font-family:  'PT Sans', sans-serif;
+            }
+            #cont_log .button{
+                margin-right: 5px;
+            }
+            #cont_log .logo_small{
+                position: relative;
+                top: 155px;
+                left: 90px;
+                float: right;
+
+            }
+            .candado{    position: relative;
+                         top: -142px;
+                         left: 2px;
+                         float: right;
+            }
+           
+  

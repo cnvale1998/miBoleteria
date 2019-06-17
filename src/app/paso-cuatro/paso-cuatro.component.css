@@ -1,0 +1,61 @@
+#cont_paso4{
+    background: #fff url(./../../assets/img/fondo_cont4.jpg) no-repeat;
+    height: 420px;
+}
+.letra h5{
+    color:#000;
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 0px;
+    font-size: 15px; 
+}
+#cant{
+    width: 170px;
+}
+#tipo{
+    text-align: right;
+    width: 250px;
+}
+#cost{
+    width: 90px;
+    text-align: left;
+}
+#cont_paso4 select{
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    border-radius: 0px;
+    margin:15px;
+}
+.azul{
+    color:#3B6ECE;
+}
+#azulV{
+    color:#1e6b99;
+    font-size: 12px;
+    float: right;
+    margin-right: 55px;
+}
+#masInfo{
+    font-size: 13px;
+    margin-left: 30px;
+}
+#cont_paso4 .span10{
+    float:right;
+}
+#tCandy{
+    font-size: 12px;
+}
+#cont_paso4 .gris{
+    line-height: 1;
+}
+.modal#combos_modal{
+    width: 600px;
+    margin-left: -300px;
+    border-radius: 0px;
+    background: black;
+}
+#combos_modal .modal-body{
+    position:relative;
+    margin-top:-20px;
+    background:#dadada;
+}

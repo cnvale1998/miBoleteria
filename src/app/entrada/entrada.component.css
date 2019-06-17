@@ -1,0 +1,300 @@
+
+            /*estilo para comprar entrada------*/
+            /*----nav pasos*/
+            nav.pasos-footer {
+                padding: 27px 30px 0 0;
+                float:right;
+            }
+            nav.pasos-footer ul, nav.pasos-footer ul li {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            nav.pasos-footer ul li {
+                float: left;
+                display: inline;
+                margin-right: -5px;
+            }
+            nav.pasos-footer ul li {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav.pasos-footer a {
+                height: 22px;
+                display: block;
+                background: url(./../../assets/img/bg_menu.png);
+                overflow: hidden;
+                text-indent: -9999px;
+                cursor: default;
+            }
+
+
+            nav.pasos-footer a.uno.active {
+                background-position: 0 0;
+                cursor: pointer;
+            }
+            nav.pasos-footer a.uno {
+                width: 108px;
+                background-position: 0 -30px;
+            }
+            nav.pasos-footer a.dos.active {
+                background-position: -108px 0;
+                cursor: pointer;
+            }
+
+            nav.pasos-footer a.dos {
+                width: 94px;
+                background-position: -108px -30px;
+            }
+            nav.pasos-footer a.tres {
+                width: 99px;
+                background-position: -202px -30px;
+            }
+            nav.pasos-footer a.tres.active {
+                background-position: -202px 0;
+                cursor: pointer;
+            }
+            nav.pasos-footer a.cuatro {
+                width: 95px;
+                background-position: -301px -30px;
+            }
+            nav.pasos-footer a.cuatro.active {
+                background-position: -301px 0;
+                cursor: pointer;
+            }
+            nav.pasos-footer a.cinco {
+                width: 49px;
+                background-position: -395px -30px;
+            }
+            nav.pasos-footer a.cinco.active {
+                background-position: -395px 0;
+                cursor: pointer;
+            }
+
+
+            .ocultarLog{
+                visibility: hidden;
+            }
+            /*boton butacas*/
+            div.button.butacas {
+                background: url(./../../assets/img/bg_buttonbutacas.png) 0 0 no-repeat;
+                height: 56px;
+                width: 317px;
+                float: right;
+                position: relative;
+                padding-top: 13px;
+            }
+            div.button.butacas button {
+                border: none;
+                padding: 0;
+                width: 317px;
+                background: #c111c3;
+                height: 30px;
+                font-family: myriad-pro,"Arial black", Arial;
+                font-size: 14px;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            div.button.butacas span {
+                color: #000;
+            }
+            /*boton comprar*/
+
+            div.button.comprar {
+                background: url(./../../assets/img/btn_comprar.png) top right no-repeat;
+                position: absolute;
+                right: 0;
+                bottom: 5px;
+            }
+
+            div.button.comprar button {
+                height: 30px;
+                background: #619d12 url(./../../assets/img/ico_comprar.png) 80px 1px no-repeat;
+                margin-right: 25px;
+                border: none;
+                width: 120px;
+                text-align: left;
+                font-family: myriad-pro,"Arial black", Arial;
+                font-size: 13px;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            div.button.comprar button span {
+                padding-left: 17px;
+            }
+            /*boton anular*/
+            div.button.anular {
+                float: right;
+                margin-top: 14px;
+            }
+            div.button.anular button {
+                border: none;
+                background: #5b5b53;
+                font-family: myriad-pro,"Arial black", Arial;
+                font-size: 13px;
+                color: #fff;
+                text-transform: uppercase;
+                width: 100px;
+                height: 30px;
+            }
+            /*-------------------------------------------*/
+            /*clases para el contenedor de comprar entrada*/
+            .cont_entrada{
+                position: relative;
+                top: -40px;
+                margin-top:0px;
+                height: 420px;
+            }
+            #sidebar{
+                height: 420px;
+                background: #000 url(./../../assets/img/bg_sidebar.png) no-repeat;
+                font-size: 14px;
+                line-height: 1;
+                padding-left: 30px;
+            }
+            #sidebar img{
+                margin-left: 40px;
+                margin-top: 10px;
+            }
+            .span9#contenedor{
+                margin:0px;
+                height: 420px;
+                width:733px;
+
+            }
+            #cont_paso2{ 
+                background: #fff url(./../../assets/img/fondo_cont2.jpg) no-repeat;
+                height: 420px;
+            }
+           
+          
+            .sombraCont{
+                width: 960px;
+                height: 366px;
+                -moz-box-shadow: 0px 0px 5px 0px #000;
+                /* -webkit-box-shadow: 0px 0px 5px 0px #000; */
+                box-shadow: 0px 0px 5px 0px #000;
+
+            }
+            .info_detalle{
+
+                padding: 0 10px 40px 20px;
+                background: url(./../../assets/img/arrow.png) 0 2px no-repeat;
+            }
+            .info_detalle h5{
+                color:#ffffff;
+                font-family: myriad-pro,"Arial black", Arial;
+                text-shadow: 2px 2px 4px #000;
+                letter-spacing: 0px;
+                font-size: 14px;  
+            }
+            .info_detalle p{
+                font: 12px 'Tahoma';
+                margin: 0;
+                color: #ffffff;
+
+            }
+            .info_detalle span{    
+                color: #01c5fe;
+            }
+            /*-------------------------------------------------*/
+            .titulo{
+                font-family: myriad-pro,"Arial black", Arial;
+                color: #000;
+                letter-spacing: -1px;
+            }
+            .titulo span{
+                color: #e20000;
+            }
+            .titulo#horario{
+                margin-left:15px;
+                margin-top:20px
+            }
+
+            li.cinema {
+                list-style: disc url(./../../assets/img/ico_cinema.png);
+                color: #000;
+                text-transform:uppercase;
+                pointer-events: none;
+            }
+            #cartelera{
+                height:320px;
+            }
+            #cartelera  ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                color: #000;
+                font: 13px 'Tahoma';
+
+            }
+            #cartelera li{
+                text-transform:uppercase;
+            }
+            #cartelera a {
+                color: #949393;
+                text-decoration: none;
+            }
+            .city {
+                color: #949393;
+                text-transform: none;
+            }
+            #cartelera a:hover {
+                color: #555;
+            }
+            #cartelera li:hover {
+                list-style: disc url(./../../assets/img/ico_movie.png);
+            }
+            #info_cartelera{
+                margin-left:15px;
+                margin-top: 10px;
+            }
+            div.hints {
+                width: 320px;
+                bottom: -50px;
+            }
+            div.hints p {
+                line-height: 14px;
+                margin: 0;
+                font-size: 9px;
+                color: #949393;
+            }
+            .matinee {
+                color: #3bc0f2;
+            }
+            .trasnoche {
+                color: #e41111;
+            }
+            .date {
+                width: 100%;
+                clear: both;
+                color: #000;
+                cursor: text;
+            }
+            #horarios{
+                font-size: 13px;
+                height:280px; 
+                width:310px;
+            }
+            #horarios  ul {
+                list-style-type: none;
+                margin: 0;
+                margin-bottom: 25px;
+                font-family: 'Tahoma';
+            }
+            #horarios a {
+                float: left;
+                display: inline;
+                color: #949393;
+                font-size: 13px;
+                padding: 0 7px 0 0;
+                clear: none;
+                cursor: pointer;
+            }
+            .span3#sidebar{
+                width: 227px;
+            }
+
+            

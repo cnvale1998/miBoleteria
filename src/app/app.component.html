@@ -5,17 +5,16 @@
 
   <div class="container-narrow">
     <router-outlet></router-outlet>
-
     <footer>
       <div class="footer_inf">
           <div class="row-fluid">
               <div class="span8 footer_menu">
-                  <a href="#">Inicio |</a>
-                  <a href="#">Cómo Comprar |</a>
-                  <a href="#">Registrar/Ingresar/Mi Cuenta |</a>
-                  <a href="#">Contacto |</a>
-                  <a href="#">Clasificaciones |</a>
-                  <a href="#">Terminos y Condiciones </a>
+                  <a routerLink="/inicio">Inicio |</a>
+                  <a routerLink="/comoComprar">Cómo Comprar |</a>
+                  <a routerLink="/registro">Registrar/Ingresar/Mi Cuenta |</a>
+                  <a routerLink="/contacto">Contacto |</a>
+                  <a routerLink="/clasificaciones">Clasificaciones |</a>
+                  <a target="blank" routerLink="./assets/terminosPdf/terminos.pdf">Terminos y Condiciones </a>
               </div>
 
               <div class="span3 dinamix" style="float:right;">

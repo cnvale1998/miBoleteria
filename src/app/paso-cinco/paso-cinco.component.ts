@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{NgForm}from'@angular/forms';
 
 @Component({
   selector: 'app-paso-cinco',
@@ -11,5 +12,8 @@ export class PasoCincoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ public finalizar(paso5Form:NgForm): void {
+        let value=paso5Form.value;
+        console.log("llegueee paso5. Tarjeta:"+value.tarjeta+".Acepta terminos y condiciones: "+value.terminos);
+  }
 }

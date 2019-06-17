@@ -1,228 +1,423 @@
 /* You can add global styles to this file, and also import other style files */
-	/*comienzo estilo en comun*/
-    html {
-        background: url(assets/img/bg-tile.jpg) fixed center top;
-    }
-    body {
-        width:100%;
-        background: url(assets/img/main-bg.jpg) no-repeat fixed center top;
-    }
-    html,body { 
-        overflow:hidden; 
-    }
-    .container-narrow {
-        margin: 0 auto;
-        max-width: 960px;
+/*comienzo estilo en comun*/
+html {
+    background: url(assets/img/bg-tile.jpg) fixed center top;
+}
+body {
+    width:100%;
+    background: url(assets/img/main-bg.jpg) no-repeat fixed center top;
+}
+html,body { 
+    overflow:hidden; 
+}
+.container-narrow {
+    margin: 0 auto;
+    max-width: 960px;
 
-    }
+}
 
-    /*header*/
-    .nav_sup .nav{
-        margin-top: 35px;
-    }
+/*header*/
+.nav_sup .nav{
+    margin-top: 35px;
+}
 
-    .nav_sup a{
-        font-family: 'PT Sans', sans-serif;
-        font-size: 16px;
-        text-transform: uppercase;
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .nav>li>a:hover, .nav>li>a:focus {
-text-decoration: none;
-background-color: transparent;}
-    .logo_nav{
-        width: 423px;
-        padding-top: 5px;
-    }
-    
-    .celeste{
-        color: #01c5fe;
-    }
-    .separador{
-        margin-top:6px;
-        background: url(assets/img/sep.png) top center no-repeat;
-        text-indent: -1px;
-    }
-    .logged{
-        position: relative;
-        top: -47px;
-        padding-left: 55px;
-        font-family: 'PT Sans',sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-        color: white;
-    }
-    .logged h4{
-        margin:3px;
-    }
-    .logged h4 small{
-        color:white;
-    }
-    #nombreUsuario{
-        display: inline-flex;
-        max-width: 180px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-transform: capitalize;
-    }
-    .item_nombre{
-        float: left;
-        line-height: 28px;
-        padding: 0 14px;
-        background: #9a1599;
-        margin-right: 10px;
-    }
-    .item_salir{
-        float: left;
-        line-height: 27px;
-        padding: 0 10px;
-        background: #017392;
-    }
-    .item_salir a{
-        font-size: 13px;
-    }
-    .img_paso{
-        position: relative;
-        top: -32px;
-        margin-left: 30px;
-    }
-    .container-wrapper {
-        background: url(assets/img/linea_morada.png) repeat-x left -60px;
-    }
-    /*cont entrada*/
-    div.button.continuar {
-        background: url(assets/img/bg_button.png) 110px 0 repeat-y;
-        height: 43px;
-        width: 155px;
-        float: right;
-        position: relative;
-    }
-    div.button.continuar button {
-        border: none;
-        padding: 0;
-        width: 155px;
-        background: url(assets/img/button_arrow.png) top right no-repeat;
-        height: 30px;
-        padding-right: 25px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-    div.button.continuar span {
-        width: 130px;
-        height: 30px;
-        background: #000;
-        display: block;
-        float: left;
-        line-height: 30px;
-        font-family: myriad-pro,"Arial black", Arial;
-        font-size: 14px;
-        color: #fff;
-        text-transform: uppercase;
-    }
-  /*-------------------footer------------------------*/
-              .footer_inf{  
-      margin-top: 55px;
-        border-top: 1px solid #615b59;
-    }
- .footer_btom{
-        margin-top: -20px;
-    }
+.nav_sup a{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;}
+.logo_nav{
+    width: 423px;
+    padding-top: 5px;
+}
+
+.celeste{
+    color: #01c5fe;
+}
+.separador{
+    margin-top:6px;
+    background: url(assets/img/sep.png) top center no-repeat;
+    text-indent: -1px;
+}
+.logged{
+    position: relative;
+    top: -47px;
+    padding-left: 55px;
+    font-family: 'PT Sans',sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+.logged h4{
+    margin:3px;
+}
+.logged h4 small{
+    color:white;
+}
+#nombreUsuario{
+    display: inline-flex;
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+.item_nombre{
+    float: left;
+    line-height: 28px;
+    padding: 0 14px;
+    background: #9a1599;
+    margin-right: 10px;
+}
+.item_salir{
+    float: left;
+    line-height: 27px;
+    padding: 0 10px;
+    background: #017392;
+}
+.item_salir a{
+    font-size: 13px;
+}
+.img_paso{
+    position: relative;
+    top: -32px;
+    margin-left: 30px;
+}
+.container-wrapper {
+    background: url(assets/img/linea_morada.png) repeat-x left -60px;
+}
+/*cont entrada*/
+div.button.continuar {
+    background: url(assets/img/bg_button.png) 110px 0 repeat-y;
+    height: 43px;
+    width: 155px;
+    float: right;
+    position: relative;
+}
+div.button.continuar button {
+    border: none;
+    padding: 0;
+    width: 155px;
+    background: url(assets/img/button_arrow.png) top right no-repeat;
+    height: 30px;
+    padding-right: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+div.button.continuar span {
+    width: 130px;
+    height: 30px;
+    background: #000;
+    display: block;
+    float: left;
+    line-height: 30px;
+    font-family: myriad-pro,"Arial black", Arial;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+}
+/*-------------------footer------------------------*/
+.footer_inf{  
+    margin-top:55px;
+    border-top: 1px solid #615b59;
+}
+.footer_btom{
+    margin-top: -20px;
+}
 .footer_menu a ,.footer_btom p {
-        color: #737373;
-        font-size: 12px;
-    }
+    color: #737373;
+    font-size: 12px;
+}
 .dinamix{
-        width: 213px;
-        height: 39px;
-        top: 5px;
-        right: 8px;
-    }
+    width: 213px;
+    height: 39px;
+    top: 5px;
+    right: 8px;
+}
 /*-----------*/
-      
-  .ocultar{
-        visibility: hidden;
-        display: none;
-    } 
-    
+
+.ocultar{
+    visibility: hidden;
+    display: none;
+} 
+
 /*hasta aca llega el estilo en comun---------------------------------------------------*/      
 
+
+
+
+/*---------estilo paso 1 elegir ciudad-----*/
+
+#paso0.content {
+    margin: 0 auto;
+    max-width: 572px;
+    width: 482px;
+    height: 155px;
+    background: url(assets/img/bg_inicio.jpg);
+    padding: 40px 40px 40px 50px;   
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+#p0.pasos {
+    top: 20px;
+    left: 450px;
+    position: absolute;
+    background: url(assets/img/step0-bg.png) no-repeat left top;
+}
+#cont_p0{
+    background: url(assets/img/step0-bg.png) no-repeat center top;
+    margin-top: 20px;
+}
+#cont_p0 #logo{  margin: 0 0 0 264px;}
+#boton_continuar {
+
+    max-width: 572px;
+    height: 82px; 
+    margin-left: 200px;
+}
+/*formulario elegir ciudad*/
+#cont_p0 h4{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -1px;
+    color: white;
+    font-size: 18px;
+}
+#cont_p0 strong{
+    font-family: myriad-pro,"Arial black", Arial;
+}
+.selectCiudad{
+    border: 1px solid #432a43;
+    background: #000;
+    width: 290px;
+    float: left;
+    position: relative;
+    border-radius: 0px;
+    color:white;
+    background:  url(assets/img/combo_arrow.png) no-repeat right black;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    font-family:  'PT Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+
+    padding: 0 5px 0 15px;
+}
+
+#cont_p0 .form-horizontal{
+    margin-top: 30px;
+    margin-left: -44px;
+}
+#cont_p0 small{
+    font-family: 'Verdana';
+    font-size: 9px;
+    line-height: 14px;
+    color: #7a5c7a;
+}
+.modal-backdrop {
+    background-color: #08576e;
+    pointer-events: none;
+}
+.myriad{
+    font-family: myriad-pro,"Arial black", Arial;
+}
+.rojo{
+    color: #e20000;
+}
+.gris{
+    color:#5b5b53;
+}
+.bold{
+    font-weight: bold;
+}
+.violeta{
+    color: #731a6f;
+}
+.errorForm{
+    color: #f81c1c;
+    background: url(./assets/img/icon-exclamation.png) no-repeat left center;
+    font-size: 12px;
+    padding: 9px 0 9px 34px;
+}    
+
+
+
+/*--------estilo ventana modal------------*/         
+
+.backdrop{ 
+    background-color:rgba(0,0,0,0.6);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+}
+.modal{
+    overflow: auto;
+}
+
+/*----------ventana modal registrar----*/
+/*para todas las ventanas modal*/
+.modal{
+    width: 760px;
+    margin-left: -380px;
+    border-radius: 0px;
+    background: black;
+}
+.modal-header{
+    font-family: myriad-pro,"Arial black", Arial,sans-serif;
+    line-height: 60px;
+    height: 60px;
+    text-align: right;
+    padding: 10px 10px;
+    background: url(./assets/img/popin-title-bg.png) no-repeat top left;
+    font-size: 26px;
+    color:white;
+    border:none;
+}
+
+.modal-backdrop {
+    background-color: #08576e;
+}
+/*para la ventana registrar*/
+.cerrar_modal{
+    height: 30px;
+    font-family: myriad-pro,"Arial black", Arial,sans-serif;
+    background: #000;
+    text-align: right;
+}
+.cerrar{
+    float: right;
+    padding: 5px;
+}
+#registrarse_modal .modal-body,#contacto_modal .modal-body {
+    max-height: 500px;
+}   
+#registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4{
+    font-family: 'PT Sans', sans-serif;
+    font-weight: lighter;
+    margin: 0;
+    letter-spacing: -1px;
+    color: white;
+    font-size: 16px;
+}
+#registrarse_modal strong,#contacto_modal strong,#clasificaciones_modal strong,#comoComprar_modal strong{
+    font-family: myriad-pro,"Arial black", Arial;
+}
+#registrarse_modal  small,#contacto_modal small{
+    font-family: 'Verdana';
+    font-size: 9px;
+    line-height: 14px;
+    color: #666;
+}
+input.input_mod{
+    border: 0;
+    line-height: 24px;
+    font-size: 11px;
+    color: #d1d0d0;
+    width: 640px;
+    padding: 0 10px;
+    background: #4d4d4d;
+    margin: 1px 0;
+    outline: none;
+    border-radius: 0px;
+}
+.textmod{
+    background: #4d4d4d;
+    border-radius: 0px;
+    width: 640px;
+    border: none;
+    height: 200px;
+    margin: 1px 0;
+
+}
+div.button.btn_log {
+    float: right;
+}
+div.button.btn_log button {
+    border: none;
+
+    font-family: myriad-pro,"Arial black", Arial;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    max-width: 240px;
+    height: 30px;
+}
+
+.boton_gris button{background: #24241a;}
+#contacto_modal button{width:135px;}
+#registrarse_modal form, #contacto_modal form{
+    padding: 12px 40px 0 55px;
+}
+#registrarse_modal .cont, #contacto_modal .cont{
+    width: 760px;
+    position: relative;
+    left: 0px;
+    top: -21px;
+    background: url(./assets/img/popin-micuenta-bg.jpg) #454545 no-repeat left;
+}
+.recuadro{
+    position: relative;
+    top: -15px;
+     background: url(./assets/img/popin-tile1.png) #404141 repeat-y top left;
+    padding: 35px 10px 15px 40px;
    
-  
-  
-    /*---------estilo paso 1 elegir ciudad-----*/
+}
 
-    #paso0.content {
-        margin: 0 auto;
-        max-width: 572px;
-        width: 482px;
-        height: 155px;
-        background: url(assets/img/bg_inicio.jpg);
-        padding: 40px 40px 40px 50px;   
-        margin-top: 100px;
-        margin-left: 200px;
-    }
+.contNegro{
+    width: 760px;
+    position: relative;
+    left: 0px;
+    top: -21px;
+    background: #1c1c1c;
+}
+.head_modal{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
-    #p0.pasos {
-        top: 20px;
-        left: 450px;
-        position: absolute;
-        background: url(assets/img/step0-bg.png) no-repeat left top;
-    }
-    #cont_p0{
-        background: url(assets/img/step0-bg.png) no-repeat center top;
-        margin-top: 20px;
-    }
-    #cont_p0 #logo{  margin: 0 0 0 264px;}
-    #boton_continuar {
+.letra_clasif{
+    color:#000;
+    text-shadow: 0px 1px 2px #000;
+    letter-spacing: -0.5px;
+    font-size: 20px; 
+}
 
-        max-width: 572px;
-        height: 82px; 
-        margin-left: 200px;
-    }
-    /*formulario elegir ciudad*/
-    #cont_p0 h4{
-        font-family: 'PT Sans', sans-serif;
-        font-weight: lighter;
-        text-transform: uppercase;
-        margin: 0;
-        letter-spacing: -1px;
-        color: white;
-        font-size: 18px;
-    }
-    #cont_p0 strong{
-        font-family: myriad-pro,"Arial black", Arial;
-    }
-    .selectCiudad{
-        border: 1px solid #432a43;
-        background: #000;
-        width: 290px;
-        float: left;
-        position: relative;
-        border-radius: 0px;
-        color:white;
-        background:  url(assets/img/combo_arrow.png) no-repeat right black;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        -ms-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-        font-family:  'PT Sans', sans-serif;
-        font-weight: lighter;
-        font-size: 14px;
-
-        padding: 0 5px 0 15px;
-    }
-
-    #cont_p0 .form-horizontal{
-        margin-top: 30px;
-        margin-left: -44px;
-    }
-    #cont_p0 small{
-        font-family: 'Verdana';
-        font-size: 9px;
-        line-height: 14px;
-        color: #7a5c7a;
-    }
+.letraGrisTaho{
+    font-size: 11px;
+    font-family: Tahoma;
+    color: #d0d0d0;
+}
+.cuerpo_modal{
+height: 320px;
+    width: 700px;
+    margin-left: 10px;
+}
+input[type="password"].input_mod{
+    width: 315px;
+}
+.selectReg{
+    border: 0;
+    line-height: 24px;
+    font-size: 11px;
+    color: #d1d0d0;
+    width: 330px;
+    padding: 0 10px;
+    background: #4d4d4d;
+    margin: 1px 0;
+    outline: none;
+    border-radius: 0px;
+}/* You can add global styles to this file, and also import other style files */

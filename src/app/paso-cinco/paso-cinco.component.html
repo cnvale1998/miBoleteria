@@ -1,3 +1,50 @@
-<p>
-  paso-cinco works!
-</p>
+<div id="cont_paso5">
+    <div class="row-fluid">
+        <div class="span12"  >
+            <h5 class="letra myriad bold"><span class="rojo">FINALIZA TU </span>OPERACI&Oacute;N</h5>
+            <small>Para completar su operaci&oacute;n verifique que todos los datos, tanto de la pel&iacute;cula, d&iacute;a, horario como los personales sean correctos. Luego presione el botón FINALIZAR. Muchas gracias.</small>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span7">
+            <h6><span class="celeste myriad" id="info">UD. NO HA INGRESADO EN EL SISTEMA, POR FAVOR HAGA CLICK SOBRE EL BOT&Oacute;N REGISTRAR/INGRESAR EN LA PARTE SUPERIOR DEL SITIO.</span></h6>
+        </div> 
+        
+    </div>
+    <div class="row-fluid">
+        <div class="span6"><h5 class="letra myriad bold"><span class="rojo">TIPO</span> DE OPERACI&Oacute;N</h5></div>
+        <div class="span5 text-right">
+            <div class="button morado">
+                <button ><span>Compra</span></button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row-fluid">
+        <div class="span3">
+    <img  src="./assets/img/nps-verisign-logo.png" alt="img tipo operaci&oacute;n">
+    </div>
+        <div class="span8">
+            <small >El total de su operación es de <span class="bold">$4095.00</span>. Para finalizar con su pedido, por favor ingrese la informaci&oacute;n solicitada y haga click en el bot&oacute;n finalizar".</small>
+     <form ngNativeValidate  class="form-horizontal" #paso5Form="ngForm" (ngSubmit)=(finalizar(paso5Form)) >
+
+                    <div class="control-group" id="r1Div">
+                        <label class="control-label" for="r4"><h6><strong >Tipo de Tarjeta:</strong></h6></label>
+                        <div class="controls">
+                             <select id="tarjeta" name="tarjeta" required [(ngModel)]="tarjeta" >
+                              <option value="">Seleccione...</option>
+                              <option value="1">Visa Cr&eacute;dito</option>
+                              <option value="2">Visa Dedito (Red Banelco)</option>
+                            </select>
+                            <input type="submit" id="formulario" name="formulario" class="hide" />
+
+                        </div>
+                        <label ><input type="checkbox" id="terminos" name="terminos" [(ngModel)]="terminos" required><small>Acepto <span class="celeste">T&eacute;rminos y condiciones.</span> Una vez realizada la compra, la transacci&oacute;n no puede ser revertida.<span class="rojo"> Recuerde que al retirar sus entradas deber&aacute; contar con el DNI y la tarjeta de cr&eacute;dito con la cual realizar&aacute; la compra.</span></small></label>
+                    </div>
+
+         <div class="errorForm">Debe aceptar los Términos y Condiciones para continuar..</div>
+                </form>
+        </div>
+    </div>
+</div>

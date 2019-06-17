@@ -1,0 +1,38 @@
+<div id="contacto_modal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+    <div class="cerrar_modal">
+        <a data-dismiss="modal" aria-hidden="true"  (click)="this.back()"> <div class="cerrar"><h4><strong>CERRAR <span class="celeste">X</span></strong></h4></div></a>
+    </div>
+    <div class="modal-header">
+
+        <h3 id="myModalLabelA" >FORMULARIO DE CONTACTO</h3>
+    </div>
+    <div class="cont">
+        <div class="modal-body">
+            <div class="row-fluid"> 
+                <div class="span6"><img src="assets/img/logo-med.png"></div><div class="span6" style="margin-top: 20px;"><h4><strong> <span class="celeste">COMUN&Iacute;QUESE </span></strong>CON NUESTRO SOPORTE T&Eacute;CNICO</h4></div></div>
+            <form ngNativeValidate #contactoForm="ngForm" (ngSubmit)=(registrarConsulta(contactoForm))>
+                  
+                  <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" placeholder="NOMBRE"  required />
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" placeholder="APELLIDO"  required />
+                 <input type="email" id="email" name="email" [(ngModel)]="email"  class="input-block-level input_mod" placeholder="EMAIL"  required />
+               
+             <input type="text" id="ciudad" name="ciudad" [(ngModel)]="ciudad" class="input-block-level input_mod" placeholder="CIUDAD" required/>
+             <textarea required  id="consulta" name="consulta"  [(ngModel)]="consulta" class="input-block-level textmod" placeholder="MENSAJE"  ></textarea>
+
+
+            <div class="row-fluid" style="margin-top: 10px;width:640px;">
+                <div class="button btn_log boton_gris" id="regis">
+                    <button type="submit"><span>Enviar</span></button>
+                </div>
+            </div>
+            <div class="row-fluid"><small >EL SITIO NO ACEPTA RESERVAS. SOLO PERMITE COMPRAS ONLINE</small></div>
+        </form> 
+        
+
+
+    </div>
+
+</div>
+</div>
+

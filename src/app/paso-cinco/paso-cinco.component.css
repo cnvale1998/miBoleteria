@@ -1,0 +1,45 @@
+
+#cont_paso5{
+    background: #fff url(./../../assets/img/fondo_cont5.jpg) no-repeat;
+    height: 420px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+h5.letra {
+    color:#000;
+    text-shadow: 0px 0px 1px #000;
+    letter-spacing: -0.5px;
+    font-size: 16px; 
+}
+#cont_paso5 #info{
+    font-size: 12px;
+}
+#cont_paso5 .span7{
+    margin-left: 180px;
+    margin-top:17px;
+}
+
+div.button.morado button {
+    border: none;
+    background: #9a1599;
+    font-family: myriad-pro,"Arial black", Arial;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100px;
+    height: 30px;
+    pointer-events: none;
+    margin-right: 35px;
+    margin-top:10px;
+}
+#finalizar  select{
+    width: 230px;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 0px;
+    margin:15px;
+}
+#finalizar label,#finalizar h4{
+    line-height: 15px;
+}

@@ -1,3 +1,89 @@
-<p>
-  paso-cuatro works!
-</p>
+<div id="cont_paso4" >
+    <div class="row-fluid" style="padding:15px;">
+        <div class="span2"></div>
+        <div class="span10"> 
+            <table>
+                <thead>
+                    <tr>
+                        <th id="tipo"><h5 class="letra myriad bold"><span class="violeta">TIPO DE </span>PRODUCTO</h5></th>
+                        <th id="cant"><h5 class="letra myriad bold">CANT:</h5></th>
+                        <th id="cost"><h5 class="letra myriad bold">COSTO:</h5></th>
+                        <th><h5 class="letra myriad bold">SUBTOTAL:</h5></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ><td colspan="4"><a style='cursor: pointer;' data-toggle="modal" data-target="#combos_modal" ><h5 class="azul myriad" id="masInfo"><u>HACE CLICK AQUÍ PARA MÁS INFORMACIÓN SOBRE NUESTROS PRODUCTOS</u></h5></a></td></tr>
+                    <tr>
+                        <td><div class="text-right violeta">@COMBO MAXIMIZADO 1:</div></td>
+                        <td>
+                            <div class="text-center"><select id="selc1">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td ><span class="bold">$270.00</span></td>
+                        <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-right violeta">@COMBO FAMILIA 2:</div></td>
+                        <td>
+                            <div class="text-center"><select id="selc2">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select></div>
+                        </td>
+                        <td><span class="bold">$390.00</span></td>
+                        <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span class="bold" id="azulV">Incluye IVA</span></td>
+                        <td class="text-center"><span class="bold rojo" id="tCandy">TOTAL CANDY:</span></td>
+                        <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"></div>
+        <div class="span9"><small class="gris">Le recordamos que si selecciona productos de Candy solo podrá utilizar la opción de compra con tarjeta de crédito o débito para finalizar su operación.</small></div>
+
+    </div>
+</div>
+<div id="combos_modal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+    <div class="cerrar_modal">
+        <a data-dismiss="modal" aria-hidden="true" > <div class="cerrar"><h4><strong>CERRAR <span class="celeste">X</span></strong></h4></div></a>
+    </div>
+    <div class="modal-header ">
+
+        <h3 id="myModalLabelA" >INFORMACI&Oacute;N PRODUCTOS CANDY</h3>
+    </div>
+  
+        <div class="modal-body" >
+                <img style='width: 600px;position: relative;margin-top: -20px;' src="./assets/img/candy.jpg">
+            </div>
+
+   
+</div>
