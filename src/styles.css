@@ -1,1 +1,228 @@
 /* You can add global styles to this file, and also import other style files */
+	/*comienzo estilo en comun*/
+    html {
+        background: url(assets/img/bg-tile.jpg) fixed center top;
+    }
+    body {
+        width:100%;
+        background: url(assets/img/main-bg.jpg) no-repeat fixed center top;
+    }
+    html,body { 
+        overflow:hidden; 
+    }
+    .container-narrow {
+        margin: 0 auto;
+        max-width: 960px;
+
+    }
+
+    /*header*/
+    .nav_sup .nav{
+        margin-top: 35px;
+    }
+
+    .nav_sup a{
+        font-family: 'PT Sans', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .nav>li>a:hover, .nav>li>a:focus {
+text-decoration: none;
+background-color: transparent;}
+    .logo_nav{
+        width: 423px;
+        padding-top: 5px;
+    }
+    
+    .celeste{
+        color: #01c5fe;
+    }
+    .separador{
+        margin-top:6px;
+        background: url(assets/img/sep.png) top center no-repeat;
+        text-indent: -1px;
+    }
+    .logged{
+        position: relative;
+        top: -47px;
+        padding-left: 55px;
+        font-family: 'PT Sans',sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: white;
+    }
+    .logged h4{
+        margin:3px;
+    }
+    .logged h4 small{
+        color:white;
+    }
+    #nombreUsuario{
+        display: inline-flex;
+        max-width: 180px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
+    }
+    .item_nombre{
+        float: left;
+        line-height: 28px;
+        padding: 0 14px;
+        background: #9a1599;
+        margin-right: 10px;
+    }
+    .item_salir{
+        float: left;
+        line-height: 27px;
+        padding: 0 10px;
+        background: #017392;
+    }
+    .item_salir a{
+        font-size: 13px;
+    }
+    .img_paso{
+        position: relative;
+        top: -32px;
+        margin-left: 30px;
+    }
+    .container-wrapper {
+        background: url(assets/img/linea_morada.png) repeat-x left -60px;
+    }
+    /*cont entrada*/
+    div.button.continuar {
+        background: url(assets/img/bg_button.png) 110px 0 repeat-y;
+        height: 43px;
+        width: 155px;
+        float: right;
+        position: relative;
+    }
+    div.button.continuar button {
+        border: none;
+        padding: 0;
+        width: 155px;
+        background: url(assets/img/button_arrow.png) top right no-repeat;
+        height: 30px;
+        padding-right: 25px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    div.button.continuar span {
+        width: 130px;
+        height: 30px;
+        background: #000;
+        display: block;
+        float: left;
+        line-height: 30px;
+        font-family: myriad-pro,"Arial black", Arial;
+        font-size: 14px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+  /*-------------------footer------------------------*/
+              .footer_inf{  
+      margin-top: 55px;
+        border-top: 1px solid #615b59;
+    }
+ .footer_btom{
+        margin-top: -20px;
+    }
+.footer_menu a ,.footer_btom p {
+        color: #737373;
+        font-size: 12px;
+    }
+.dinamix{
+        width: 213px;
+        height: 39px;
+        top: 5px;
+        right: 8px;
+    }
+/*-----------*/
+      
+  .ocultar{
+        visibility: hidden;
+        display: none;
+    } 
+    
+/*hasta aca llega el estilo en comun---------------------------------------------------*/      
+
+   
+  
+  
+    /*---------estilo paso 1 elegir ciudad-----*/
+
+    #paso0.content {
+        margin: 0 auto;
+        max-width: 572px;
+        width: 482px;
+        height: 155px;
+        background: url(assets/img/bg_inicio.jpg);
+        padding: 40px 40px 40px 50px;   
+        margin-top: 100px;
+        margin-left: 200px;
+    }
+
+    #p0.pasos {
+        top: 20px;
+        left: 450px;
+        position: absolute;
+        background: url(assets/img/step0-bg.png) no-repeat left top;
+    }
+    #cont_p0{
+        background: url(assets/img/step0-bg.png) no-repeat center top;
+        margin-top: 20px;
+    }
+    #cont_p0 #logo{  margin: 0 0 0 264px;}
+    #boton_continuar {
+
+        max-width: 572px;
+        height: 82px; 
+        margin-left: 200px;
+    }
+    /*formulario elegir ciudad*/
+    #cont_p0 h4{
+        font-family: 'PT Sans', sans-serif;
+        font-weight: lighter;
+        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: -1px;
+        color: white;
+        font-size: 18px;
+    }
+    #cont_p0 strong{
+        font-family: myriad-pro,"Arial black", Arial;
+    }
+    .selectCiudad{
+        border: 1px solid #432a43;
+        background: #000;
+        width: 290px;
+        float: left;
+        position: relative;
+        border-radius: 0px;
+        color:white;
+        background:  url(assets/img/combo_arrow.png) no-repeat right black;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        font-family:  'PT Sans', sans-serif;
+        font-weight: lighter;
+        font-size: 14px;
+
+        padding: 0 5px 0 15px;
+    }
+
+    #cont_p0 .form-horizontal{
+        margin-top: 30px;
+        margin-left: -44px;
+    }
+    #cont_p0 small{
+        font-family: 'Verdana';
+        font-size: 9px;
+        line-height: 14px;
+        color: #7a5c7a;
+    }
