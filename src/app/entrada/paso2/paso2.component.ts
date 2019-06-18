@@ -8,7 +8,7 @@ import { EntradaControllersService } from 'src/app/Controladores/entrada-control
 })
 export class Paso2Component implements OnInit {
   peliculas:any[];
-  horario:number;
+  
   constructor(private conector:APIControllersService,private entradaControllers:EntradaControllersService) { 
 
 
@@ -23,14 +23,17 @@ export class Paso2Component implements OnInit {
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
-  guardarHorario(valor:number){
-    this.horario= valor;
-    console.log(valor);
-
+  guardarFecha(fecha:String){
+    this.entradaControllers.setFecha(fecha);
+    
   }
   guardarId(id: number){
     this.entradaControllers.setIdPeliculaEntrada(id);
     console.log(this.entradaControllers.getIdPeliculaEntrada());
 
   }
+guardarNombrePelicula(nombre: String){ 
+    this.entradaControllers.setNombrePelicula(nombre);
+}
+
 }

@@ -10,10 +10,26 @@ export class EntradaControllersService {
   
   setIdPeliculaEntrada(id:number){
     this.entrada.setIdPeliculaEntrada(id);
-    //console.log(id + " Service");
+    //console.log(id + " Service"); 
   }
   getIdPeliculaEntrada():number{
     return this.entrada.getIdPeliculaEntrada();
+  }
+
+setNombrePelicula(nombre:String){
+    this.entrada.setNombrePelicula(nombre);
+  }
+getNombrePelicula():String{
+    //console.log(this.ID_PELICULA+ " get");
+    return this.entrada.getNombrePelicula();
+  }
+
+setFecha(fecha:String){
+    this.entrada.setFecha(fecha);
+  }
+getFecha():String{
+    //console.log(this.ID_PELICULA+ " get");
+    return this.entrada.getFecha();
   }
   
 }

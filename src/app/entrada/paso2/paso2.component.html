@@ -8,7 +8,7 @@
                                     <li class="cinema">CINEMACENCER SAN LUIS - <span class="city">San Luis</span></li>
 
                                     <div *ngFor="let pelicula of peliculas">
-                                    <li><a (click)="guardarId(pelicula.ID_PELICULA)">{{pelicula.NOMBRE}}</a></li>
+                                    <li><a (click)="guardarNombrePelicula(pelicula.NOMBRE)">{{pelicula.NOMBRE}}</a></li>
                                     
                                     </div>
 
@@ -24,58 +24,17 @@
                             <h4 class="titulo" id="horario"><span>HORARIOS</span></h4>
                             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
                                 <ul>
-                                    <li class="date">Miércoles 22 de Mayo </li>
-                                    <li><a (click)="guardarHorario('22:40')">22:40</a></li>
+                                    <li class="date">Miércoles 19 de junio </li>
+                                    <li><a (click)="guardarFecha('19/06/2019 22:40 hs')">22:40</a></li>
                                 </ul>
 
                                 <ul>
-                                    <li class="date">Jueves 23 de Mayo </li>
-                                    <li><a (click)="guardarHorario('16:00')">16:00</a></li>
-                                    <li><a onclick="">19:50</a></li>
+                                    <li class="date">Jueves 20 de junio </li>
+                                    <li><a (click)="guardarFecha('20/06/2019 16 hs')">16:00</a></li>
+                                   
                                 </ul>
 
-                                <ul>
-                                    <li class="date">Viernes 24 de Mayo </li>
-                                    <li><a onclick="">15:00</a></li>
-                                    <li><a onclick="">18:50</a></li>
-                                    <li><a onclick="">19:30</a></li>
-                                    <li><a onclick="">21:30</a></li>
-                                </ul>
-
-                                <ul>
-                                    <li class="date">Sábado 25 de Mayo </li>
-                                    <li><a onclick="">19:30</a></li>
-                                    <li><a onclick="">21:30</a></li>
-                                </ul>
-
-                                <ul>
-                                    <li class="date">Domingo 26 de Mayo </li>
-                                    <li><a onclick="">15:00</a></li>
-                                    <li><a onclick="">18:50</a></li>
-                                    <li><a onclick="">19:30</a></li>
-                                    <li><a onclick="">21:30</a></li>
-
-
-                                </ul>
-                                <ul>
-                                    <li class="date">Lunes 27 de Mayo </li>
-                                    <li><a onclick="">15:00</a></li>
-                                    <li><a onclick="">18:50</a></li>
-                                </ul>
-                                <ul>
-                                    <li class="date">Martes 28 de Mayo </li>
-                                    <li><a onclick="">15:00</a></li>
-                                    <li><a onclick="">18:50</a></li>
-                                    <li><a onclick="">19:30</a></li>
-                                    <li><a onclick="">21:30</a></li>
-                                </ul>
-                                <ul>
-                                    <li class="date">Miércoles 29 de Mayo </li>
-                                    <li><a onclick="">15:00</a></li>
-                                    <li><a onclick="">18:50</a></li>
-                                    <li><a onclick="">19:30</a></li>
-                                    <li><a onclick="">21:30</a></li>
-                                </ul>
+                               
 
                             </div>
                             <div class="hints">
