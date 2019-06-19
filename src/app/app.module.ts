@@ -14,7 +14,8 @@ import { ClasificacionesComponent } from './clasificaciones/clasificaciones.comp
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { RegistroComponent } from './registro/registro.component';
-
+import {ApiControladorService} from './controladores/apiControlador/api-controlador.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +34,10 @@ import { RegistroComponent } from './registro/registro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiControladorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

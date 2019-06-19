@@ -19,7 +19,26 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+
+
+                    <tbody *ngFor="let beneficio of beneficios" ><tr>
+                        <td ><div class="text-right">{{beneficio.NOMBRE}}</div></td>
+                        <td >
+                            <div class="text-center"><select id="selc1">
+                        <option value="0" >0</option>
+                        <option value="1">2</option>
+                        </select></div>
+                        </td>
+                        <td ><span class="bold">$120.00</span></td>
+                        <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                        </tr>
+                        
+                        
+                        
+                        
+                        
+                        </tbody>
+                   <!--<tbody>
                         <tr>
                             <td><div class="text-right">GENERAL 3D:</div></td>
                             <td><div class="text-center"><select id="selc1">
@@ -101,7 +120,7 @@
                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
                         </tr>
                         
-                    </tbody>
+                    </tbody>--> 
                 </table>
                 <fieldset>
                         <legend></legend>
