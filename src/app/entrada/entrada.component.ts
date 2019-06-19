@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import * as jsPDF from 'jspdf';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
+import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 
 @Component({
   selector: 'app-entrada',
@@ -12,7 +13,7 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
 export class EntradaComponent implements OnInit {
   private paso:number;
   private idCiudad:number;
-  constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService) { 
+  constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
       if(this._route.snapshot.paramMap.get('idCiudad')){
         this.idCiudad=Number(this._route.snapshot.paramMap.get('idCiudad'));
@@ -55,6 +56,8 @@ export class EntradaComponent implements OnInit {
     documento.text("$120.00", 42, 41);
     
     documento.output("dataurlnewwindow");
+
+    this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula}).subscribe();
 }
 
 }

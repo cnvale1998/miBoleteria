@@ -5,6 +5,24 @@ import { Injectable } from '@angular/core';
 })
 export class EntradaControladorService {
   private nombrePelicula: String="";
+  private horarioPelicula: String="";
+  private idPelicula: number=0;
+    /**
+     * Getter $idPelicula
+     * @return {number}
+     */
+	public get $idPelicula(): number {
+		return this.idPelicula;
+	}
+
+    /**
+     * Setter $idPelicula
+     * @param {number} value
+     */
+	public set $idPelicula(value: number) {
+		this.idPelicula = value;
+	}
+  
 
     /**
      * Getter $nombrePelicula
@@ -37,7 +55,7 @@ export class EntradaControladorService {
 	public set $horarioPelicula(value: String) {
 		this.horarioPelicula = value;
 	}
-  private horarioPelicula: String="";
+  
 
     
   

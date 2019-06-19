@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,4 +28,14 @@ export class ApiControladorService {
   BuscarBeneficiosDisponibles(){    
     return this.conector.get<any[]>(`http://localhost:3000/API/Beneficios/`);
 }
+
+GuardarEntrada(reserva: any): Observable<any>{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
+   return this.conector.post<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
+}
+
 }

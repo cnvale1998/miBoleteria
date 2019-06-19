@@ -16,7 +16,7 @@ export class PasoDosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ObtenerCartelera('2019-06-8');
+    this.ObtenerCartelera('2019-06-6');
     
   }
   ObtenerCartelera(fecha:String){
@@ -29,8 +29,9 @@ export class PasoDosComponent implements OnInit {
     
   }
   
-guardarNombrePelicula(nombre: String){ 
+guardarPelicula(nombre: String, id:number){ 
     this.entradaControlador.$nombrePelicula=nombre;
+    this.entradaControlador.$idPelicula=id;
 }
 
 }
