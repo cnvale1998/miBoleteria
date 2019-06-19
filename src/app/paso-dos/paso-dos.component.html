@@ -5,43 +5,12 @@
             <div class="modal-body" id="cartelera"><!--------ESTE DIV TIENE UN SCROLLBAR ------->
 
                 <ul>
-                    <li class="cinema">Ambassador - <span class="city">Mar del Plata</span></li>
+                    <li class="cinema">CINEMACENCER SAN LUIS - <span class="city">San Luis</span></li>
 
-
-                    <li><a href="#">AVENGERS: ENDGAME - 2D CAST</a></li>
-                    <li><a href="#">LA MALDICION DE LA LLORONA - 2D CAST</a></li>
-                    <li><a href="#">ALADDIN - 2D CAST</a></li>
-                    <li><a href="#">EL SOL TAMBIEN ES UNA ESTRELLA - 2D CAST</a></li>
-
-
-
-                </ul>
-
-                <ul>
-                    <li class="cinema">Los Gallegos shopping - <span class="city">Mar del Plata</span></li>
-
-
-                    <li><a href="#">AVENGERS: ENDGAME - 2D SUB</a></li>
-                    <li><a href="#">AVENGERS: ENDGAME - 3D CAST</a></li>
-                    <li><a href="#">POKEMON: DETECTIVE PIKACHU - 2D CAST</a></li>
-                    <li><a href="#">ALADDIN - 2D CAST</a></li>
-
-
-                </ul>
-
-                <ul>
-                    <li class="cinema">Cines del Paseo - <span class="city">Mar del Plata</span></li>
-
-
-                    <li><a href="#">AVENGERS: ENDGAME - 3D CAST</a></li>
-                    <li><a href="#">POKEMON: DETECTIVE PIKACHU - 2D CAST</a></li>
-                    <li><a href="#">ALADDIN - 2D CAST</a></li>
-                    <li><a href="#">AVENGERS: ENDGAME - 3D CAST</a></li>
-                    <li><a href="#">POKEMON: DETECTIVE PIKACHU - 2D CAST</a></li>
-                    <li><a href="#">ALADDIN - 2D CAST</a></li>
-                    <li><a href="#">AVENGERS: ENDGAME - 3D CAST</a></li>
-                    <li><a href="#">POKEMON: DETECTIVE PIKACHU - 2D CAST</a></li>
-                    <li><a href="#">ALADDIN - 2D CAST</a></li>
+                    <div *ngFor="let pelicula of peliculas">
+                    <li><a (click)="guardarNombrePelicula(pelicula.NOMBRE)" >{{pelicula.NOMBRE}}</a></li>
+                    
+                    </div>
 
 
                 </ul>
@@ -53,6 +22,18 @@
             <h4 class="titulo" id="horario"><span>HORARIOS</span></h4>
             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
                 <ul>
+                    <li class="date">Miércoles 19 de junio </li>
+                    <li><a (click)="guardarFecha('19/06/2019 22:40 hs')">22:40</a></li>
+                </ul>
+
+                <ul>
+                    <li class="date">Jueves 20 de junio </li>
+                    <li><a (click)="guardarFecha('20/06/2019 16 hs')">16:00</a></li>
+                   
+                </ul>
+               
+               
+                <!-- <ul>
                     <li class="date">Miércoles 22 de Mayo </li>
                     <li><a href="">22:40</a></li>
                 </ul>
@@ -104,7 +85,7 @@
                     <li><a href="#">18:50</a></li>
                     <li><a href="#">19:30</a></li>
                     <li><a href="#">21:30</a></li>
-                </ul>
+                </ul>-->
 
             </div>
             <div class="hints">

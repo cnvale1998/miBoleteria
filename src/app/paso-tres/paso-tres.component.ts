@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 
 @Component({
   selector: 'app-paso-tres',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasoTresComponent implements OnInit {
 
-  constructor() { }
+  beneficios: any[];
+  constructor(private conector:ApiControladorService ) { }
 
   ngOnInit() {
-  }
+    this.conector.BuscarBeneficiosDisponibles().subscribe(res => {this.beneficios = res; })
+}
 
 }
