@@ -98,12 +98,14 @@
     <div class="modal-header">
 
         <h3 id="myModalLabelA" >REGISTRARME EN MIBOLETERIA</h3>
+      
     </div>
     <div class="cont">
         <div class="modal-body">
             <div class="row-fluid"> 
                 <div class="span6"><img src="assets/img/logo-med.png"></div><div class="span6" style="margin-top: 20px;"><h4><strong> <span class="celeste">LLENE </span></strong>CON SUS <strong> <span class="celeste">DATOS PERSONALES</span></strong></h4></div></div>
-            <form ngNativeValidate #registroForm="ngForm" (ngSubmit)=(registrarUsuario(registroForm))>
+              
+                <form ngNativeValidate #registroForm="ngForm" (ngSubmit)=(registrarUsuario(registroForm))>
                   
                   <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" placeholder="NOMBRE"  required />
                 <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" placeholder="APELLIDO"  required />
@@ -126,7 +128,7 @@
                 </div> 
                        
                 <div style="margin-left: 332px;width: 328px">
-                    <input type="password" id="pass2" name="pass2"  oninvalid="this.setCustomValidity('Las contraseñas no son iguales')" [(ngModel)]="pass2"  style="width: 308px"  class="input-block-level input_mod" placeholder="Confirmar Contrase&ntilde;a" required/>
+                    <input type="password" id="pass2" name="pass2" [(ngModel)]="pass2"  style="width: 308px"  class="input-block-level input_mod" placeholder="Confirmar Contrase&ntilde;a" required/>
                 </div>
                 <input type="text" id="direc" name="direc"  [(ngModel)]="direc"  class="input-block-level input_mod" placeholder="DIRECCI&Oacute;N"  required />
 
@@ -140,19 +142,23 @@
             </div>
             <div style="margin-left: 332px;width: 328px">
                 <input type="text" id="ciudad" name="ciudad" [(ngModel)]="ciudad" style="width: 308px"  class="input-block-level input_mod" placeholder="CIUDAD" required/>
-                
+                <input type="number" id="contador" name="contador" style="visibility: hidden;display: none;" value="{{contador}}">
             </div>
 
             <input type="number" step="1" id="codPostal" name="codPostal" [(ngModel)]="codPostal" class="input-block-level input_mod" placeholder="C&Oacute;DIGO POSTAL"  required />
-            <input type="text" id="telefono" name="telefono"  pattern="\d*" [(ngModel)]="telefono" class="input-block-level input_mod" placeholder="TEL&Eacute;FONO"  required />
-            <input type="email" id="email" name="email" [(ngModel)]="email"  class="input-block-level input_mod" placeholder="EMAIL"  required />
+           <input type="email" id="email" name="email"(change)="usuarioExiste(email)"  [(ngModel)]="email"  class="input-block-level input_mod" placeholder="EMAIL"  required />
 
+            <input type="text" id="telefono" name="telefono"  pattern="\d*" [(ngModel)]="telefono" class="input-block-level input_mod" placeholder="TEL&Eacute;FONO"  required />
+            
             <div class="row-fluid" style="margin-top: 10px;width:640px;">
                 <div class="button btn_log boton_gris" id="regis">
-                    <button type="submit"><span>registrarme</span></button>
+                    <button type="submit" (click)="contador==0" ><span>registrarme</span></button>
                 </div>
             </div>
-            <div class="row-fluid"><small >LOS DATOS QUE TE SOLICITAMOS A CONTINUACIÓN SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small></div>
+            <div class="row-fluid">
+                <div class="errorForm" *ngIf="contador==1"  >ERROR: EL CORREO INGRESADO PERTENECE A UN USUARIO YA REGISTRADO</div>
+                <small >LOS DATOS QUE TE SOLICITAMOS A CONTINUACIÓN SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small>
+            </div>
         </form> 
         
 

@@ -1,20 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from './usuario';//pongo que voy a usar esas clases del modelo
+import { ApiControladorService } from './../controladores/apiControlador/api-controlador.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GestorUsuarioService {
-  constructor(){ }
- 
-  public crearUsuario(email: string,pass: string,codPostal:number, direccion:string,idCiudad: number,nombre: string,apellido: string,tipoDoc: string,nroDoc: string,fechaNac: string,telefono: string) {
-   
-    let user=new Usuario(email,pass,codPostal, direccion,idCiudad,nombre,apellido,tipoDoc,nroDoc,fechaNac,telefono);
-    user.saveUser();
     
+  constructor(private conector:ApiControladorService){ }
+  
+  public crearUsuario(email: string,pass: string,codPostal:number, direccion:string) {
+     this.conector.crearUsuario({EMAIL:email,CONTRASENIA:pass,CODPOSTAL:codPostal,DIRECCION:direccion});
   }
-  public existe(correo:string):boolean{
-      return false;
+  
+  public existe(correo:string){
+    
+      return this.conector.usuarioExiste(correo).pipe(
+     map(datos => {
+         return datos[0]['contador'];
+        })
+      );
+    /*  .subscribe(data => {
+         if(data[0]!= null){
+            if(data[0]['email'] != ''){
+                console.log("si existe");
+                console.log(data[0]['EMAIL']);
+                return true;
+            }
+         }
+         else{
+             console.log("no existe");
+             return false;
+         }
+     });
+     */
   }
 }
 /*import { Injectable } from '@angular/core';

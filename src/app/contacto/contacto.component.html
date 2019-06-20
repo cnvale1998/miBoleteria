@@ -11,13 +11,13 @@
         <div class="modal-body">
             <div class="row-fluid"> 
                 <div class="span6"><img src="assets/img/logo-med.png"></div><div class="span6" style="margin-top: 20px;"><h4><strong> <span class="celeste">COMUN&Iacute;QUESE </span></strong>CON NUESTRO SOPORTE T&Eacute;CNICO</h4></div></div>
-            <form ngNativeValidate #contactoForm="ngForm" (ngSubmit)=(registrarConsulta(contactoForm))>
+            <form ngNativeValidate #consultaForm="ngForm" (ngSubmit)=(registrarConsulta(consultaForm))>
                   
-                  <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" placeholder="NOMBRE"  required />
-                <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" placeholder="APELLIDO"  required />
-                 <input type="email" id="email" name="email" [(ngModel)]="email"  class="input-block-level input_mod" placeholder="EMAIL"  required />
+                  <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" maxlength="50" placeholder="NOMBRE"  required />
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" maxlength="50" placeholder="APELLIDO"  required />
+                 <input type="email" id="email" name="email" [(ngModel)]="email"  class="input-block-level input_mod"   maxlength="100" placeholder="EMAIL"  required />
                
-             <input type="text" id="ciudad" name="ciudad" [(ngModel)]="ciudad" class="input-block-level input_mod" placeholder="CIUDAD" required/>
+             <input type="text" id="ciudad" name="ciudad"  maxlength="100" [(ngModel)]="ciudad" class="input-block-level input_mod" placeholder="CIUDAD" required/>
              <textarea required  id="consulta" name="consulta"  [(ngModel)]="consulta" class="input-block-level textmod" placeholder="MENSAJE"  ></textarea>
 
 

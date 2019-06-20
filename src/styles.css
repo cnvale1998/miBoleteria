@@ -303,7 +303,7 @@ div.button.continuar span {
     padding: 5px;
 }
 #registrarse_modal .modal-body,#contacto_modal .modal-body {
-    max-height: 500px;
+    max-height: 550px;
 }   
 #registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4{
     font-family: 'PT Sans', sans-serif;

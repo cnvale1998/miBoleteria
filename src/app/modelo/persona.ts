@@ -60,8 +60,4 @@ export class Persona{
     public getTelefono():string{return this.telefono;}
     public getPersonaTipo():string{return this.personaTipo;}
     
-    public save(){
-         console.log("Se creo la persona!. Nombre="+this.nombre+" |Apellido= "+this.apellido+"| Email="+this.email+"| telefono="+this.telefono+"| idCiudad="+this.idCiudad);
-     
-    }//guardo el objeto en la base de datos
 }

@@ -30,7 +30,7 @@ export class Usuario extends Persona{
     
     public saveUser(){
          console.log("Se creo usuario! codPostal :"+this.codPostal+"| direccion: "+this.direccion);
-         super.save();
+         //super.save();
        
     }//guardo el objeto en la base de datos
 }
