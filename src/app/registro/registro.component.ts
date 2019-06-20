@@ -13,21 +13,23 @@ declare var $: any;
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-    private provincias:Array<Provincia>;
+    private provincias:any[]=[];
     private contador:number=2;
+    private passMatch: boolean=true;
+    
    constructor( private gestorPersona:GestorPersonaService,
                 private gestorUsuario:GestorUsuarioService,
                 private gestorProvincia:GestorProvinciaService,
                 private _location: Location) {
   }
    ngOnInit() {
-       this.provincias=this.gestorProvincia.getProvincias();
+       this.gestorProvincia.getProvincias().subscribe(res => {this.provincias = res;});
   }
   
    public registrarUsuario(registroForm:NgForm): void {
         let value=registroForm.value;
        if(value.pass!=value.pass2){
-           alert("Las contraseñas no son iguales");
+           this.passMatch=false;
        }
        else{
           

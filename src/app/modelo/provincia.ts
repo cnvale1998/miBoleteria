@@ -1,17 +1,18 @@
+
 export class Provincia{
-    private id: number;
+    private id_provincia: number;
     private nombre: string;
-    constructor(id: number,nombre: string){
-        this.id=id;
+    constructor(id_provincia: number,nombre: string){
+        this.id_provincia=id_provincia;
         this.nombre=nombre;
     }
     
-    public setId(id:number){
-      this.id=id;
+    public setIdProvincia(id_provincia:number){
+      this.id_provincia=id_provincia;
     }
     public setNombre(nombre:string){
       this.nombre=nombre;
     }
-    public getId():number{return this.id;}
+    public getIdProvincia():number{return this.id_provincia;}
     public getNombre():string{return this.nombre;}
 }

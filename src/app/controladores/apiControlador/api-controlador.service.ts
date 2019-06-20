@@ -48,11 +48,13 @@ GuardarEntrada(reserva: any): Observable<any>{
   crearPersona(datos:Object){  
        this.conector.post('http://localhost:3000/API/Personas/', datos ).subscribe(res => console.log(res));
  }
+ 
  usuarioExiste(email: string){
-     
      return this.conector.get(`http://localhost:3000/API/Usuarios/${email}`);
-   
  }
+  ObtenerProvincias(){ 
+    return this.conector.get(`http://localhost:3000/API/Provincias/`);
+  }
  
 
 

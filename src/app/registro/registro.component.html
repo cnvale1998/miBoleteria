@@ -135,7 +135,7 @@
                 <div style="float: left;width: 330px;">
                     <select id="provincia" name="provincia"  [(ngModel)]="provincia" class="selectReg"  required>
                        <option value="">(Elija su provincia)</option>
-                        <option *ngFor="let provincia of provincias" [value]="provincia.getId()">
+                        <option *ngFor="let provincia of provincias" [value]="provincia.getIdProvincia()">
                             {{provincia.getNombre()}}
                     </option>
                 </select>
@@ -156,8 +156,9 @@
                 </div>
             </div>
             <div class="row-fluid">
-                <div class="errorForm" *ngIf="contador==1"  >ERROR: EL CORREO INGRESADO PERTENECE A UN USUARIO YA REGISTRADO</div>
-                <small >LOS DATOS QUE TE SOLICITAMOS A CONTINUACIÓN SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small>
+                <div class="errorForm" *ngIf="passMatch==false"  >ERROR: LAS CONTRASE&Ntilde;AS NO SON IGUALES.</div>
+                <div class="errorForm" *ngIf="contador==1"  >ERROR: EL CORREO INGRESADO PERTENECE A UN USUARIO YA REGISTRADO.</div>
+                <small >LOS DATOS QUE TE SOLICITAMOS A CONTINUACI&Oacute;N SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small>
             </div>
         </form> 
         
