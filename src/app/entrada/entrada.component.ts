@@ -13,6 +13,8 @@ import { ApiControladorService } from '../controladores/apiControlador/api-contr
 export class EntradaComponent implements OnInit {
   private paso:number;
   private idCiudad:number;
+  private mensaje_alerta:String="";
+  private alerta:boolean=false;
   constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
       if(this._route.snapshot.paramMap.get('idCiudad')){
@@ -24,8 +26,44 @@ export class EntradaComponent implements OnInit {
   ngOnInit() {
   }
    public pasarPaso(){
-      this.paso= this.paso+1;
-      this.location.go("entrada/"+this.paso);
+     //console.log(this.entradaControlador.$fecha)
+     switch(this.paso){
+      case 2:{  
+              if(this.entradaControlador.$nombrePelicula==""){
+                this.mensaje_alerta="No ha seleccionado una pelicula";
+                this.alerta=true;
+            }else{
+              if(this.entradaControlador.$fecha==null){
+                this.mensaje_alerta="No ha seleccionado un horario";
+                this.alerta=true;
+              }else{this.alerta=false;
+                this.paso= this.paso+1;
+                this.location.go("entrada/"+this.paso);} 
+
+            } 
+          
+        
+      }break;
+      case 3:{if(this.entradaControlador.$idBeneficio==0){
+                this.mensaje_alerta="No ha seleccionado un metodo de pago";
+                this.alerta=true;
+              }
+              else{
+              this.alerta=false;
+              this.paso= this.paso+1;
+              this.location.go("entrada/"+this.paso);
+              }
+      } break;
+      case 4:{
+              this.alerta=false;
+              this.paso= this.paso+1;
+              this.location.go("entrada/"+this.paso);
+
+
+      }break;
+     }
+      
+      
   }
 
   generarPDF() {
@@ -52,12 +90,15 @@ export class EntradaComponent implements OnInit {
     documento.setFontStyle("normal");
     documento.setTextColor(0, 0, 0);
     documento.text(this.entradaControlador.$nombrePelicula, 42, 25);
-    documento.text(this.entradaControlador.$horarioPelicula, 42, 33);
-    documento.text("$120.00", 42, 41);
+    documento.text(this.entradaControlador.$fecha, 42, 33);
+    documento.text("$"+this.entradaControlador.$precioEntrada.toString(), 42, 41);
     
     documento.output("dataurlnewwindow");
 
-    this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula}).subscribe();
+    this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
+      PRECIO:this.entradaControlador.$precioEntrada,
+      ID_BENEFICIO: this.entradaControlador.$idBeneficio
+    }).subscribe();
 }
 
 }

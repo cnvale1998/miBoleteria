@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{NgForm}from'@angular/forms';
+import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
+import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 
 @Component({
   selector: 'app-paso-cinco',
@@ -8,7 +10,7 @@ import{NgForm}from'@angular/forms';
 })
 export class PasoCincoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService) { }
 
   ngOnInit() {
   }

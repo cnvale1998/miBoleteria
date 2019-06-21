@@ -35,7 +35,7 @@ GuardarEntrada(reserva: any): Observable<any>{
       'Content-Type':  'application/json'
     })
   };
-   return this.conector.post<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
+   return this.conector.put<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
 }
   crearConsulta(datos:Object){  
     this.conector.post('http://localhost:3000/API/Consultas/', datos ).subscribe(res => console.log(res));
