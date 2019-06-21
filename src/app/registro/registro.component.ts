@@ -35,7 +35,7 @@ export class RegistroComponent implements OnInit {
           
             let value=registroForm.value;  
             this.gestorPersona.crearPersona(1,value.nombre,value.apellido,value.email,value.tipoDoc,value.nroDoc,"",value.telefono,"usuario");
-            this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc);
+            this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc,value.provincia,value.ciudad);
             $('#registrarse_modal').modal('hide');
             registroForm.reset();
         }

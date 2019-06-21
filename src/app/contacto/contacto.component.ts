@@ -24,7 +24,7 @@ export class ContactoComponent implements AfterViewInit {
      
         let value=consultaForm.value;
         this.gestorPersona.crearPersona(1,value.nombre,value.apellido,value.email,"","","","","consultaBoleteria");
-        this.gestorConsulta.crearConsulta(value.email,"consultaBoleteria",value.consulta);
+        this.gestorConsulta.crearConsulta(value.email,"consultaBoleteria",value.consulta,value.ciudad);
         $('#contacto_modal').modal('hide');
         this.back();
   }

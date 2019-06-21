@@ -10,8 +10,8 @@ export class GestorUsuarioService {
     
   constructor(private conector:ApiControladorService){ }
   
-  public crearUsuario(email: string,pass: string,codPostal:number, direccion:string) {
-     this.conector.crearUsuario({EMAIL:email,CONTRASENIA:pass,CODPOSTAL:codPostal,DIRECCION:direccion});
+  public crearUsuario(email: string,pass: string,codPostal:number, direccion:string,provincia:number,ciudad:string) {
+     this.conector.crearUsuario({EMAIL:email,CONTRASENIA:pass,CODPOSTAL:codPostal,DIRECCION:direccion,ID_PROVINCIA:provincia,CIUDAD:ciudad});
   }
   
   public existe(correo:string){
