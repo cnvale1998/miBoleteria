@@ -12,8 +12,22 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr ><td colspan="4"><a style='cursor: pointer;' data-toggle="modal" data-target="#combos_modal" ><h5 class="azul myriad" id="masInfo"><u>HACE CLICK AQUÍ PARA MÁS INFORMACIÓN SOBRE NUESTROS PRODUCTOS</u></h5></a></td></tr>
+                <tbody *ngFor="let combo of combos">
+                        <tr>
+                                <td><div class="text-right violeta">@{{combo.NOMBRE}}:</div></td>
+                                <td>
+                                    <div class="text-center"><select id="selc1">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                           
+                                        </select>
+                                    </div>
+                                </td>
+                                <td ><span class="bold">$270.00</span></td>
+                                <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                            </tr>
+                    <!--<tr ><td colspan="4"><a style='cursor: pointer;' data-toggle="modal" data-target="#combos_modal" ><h5 class="azul myriad" id="masInfo"><u>HACE CLICK AQUÍ PARA MÁS INFORMACIÓN SOBRE NUESTROS PRODUCTOS</u></h5></a></td></tr>
                     <tr>
                         <td><div class="text-right violeta">@COMBO MAXIMIZADO 1:</div></td>
                         <td>
@@ -60,7 +74,7 @@
                         <td><span class="bold" id="azulV">Incluye IVA</span></td>
                         <td class="text-center"><span class="bold rojo" id="tCandy">TOTAL CANDY:</span></td>
                         <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                    </tr>
+                    </tr>-->
                 </tbody>
             </table>
         </div>

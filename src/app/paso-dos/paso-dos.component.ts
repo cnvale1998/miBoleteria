@@ -16,7 +16,8 @@ export class PasoDosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ObtenerCartelera('2019-06-6');
+    var hoy=new Date();
+    this.ObtenerCartelera(this.calcularPeriodo(hoy));
     
   }
   ObtenerCartelera(fecha:String){
@@ -24,8 +25,8 @@ export class PasoDosComponent implements OnInit {
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
-  guardarFecha(fecha:string){
-    this.entradaControlador.$horarioPelicula=fecha;
+  guardarFecha(fecha:Date){
+    this.entradaControlador.$fecha=fecha;
     
   }
   
@@ -33,5 +34,24 @@ guardarPelicula(nombre: String, id:number){
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
 }
+
+calcularPeriodo(hoy:Date):String{
+  let diaSemana:number=hoy.getDay();
+  let diasRestantes:number;
+  let fechaFin:Date=new Date();
+  let fecha:String;
+  if (diaSemana<=3){
+    diasRestantes=3-diaSemana;
+    //console.log(diaSemana + "restante: "+diasRestantes);
+  }
+  else{
+    diasRestantes=10-diaSemana;
+    //console.log(diaSemana + "restante: "+diasRestantes);
+  }
+  fechaFin.setDate(hoy.getDate()+diasRestantes);
+  fecha=fechaFin.getFullYear()+"-"+(fechaFin.getMonth()+1)+"-"+fechaFin.getDate();
+  return fecha;
+}
+
 
 }

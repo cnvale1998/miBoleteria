@@ -5,8 +5,101 @@ import { Injectable } from '@angular/core';
 })
 export class EntradaControladorService {
   private nombrePelicula: String="";
-  private horarioPelicula: String="";
+  private fecha:Date;
   private idPelicula: number=0;
+  private idBeneficio:number=0;
+  private precioEntrada:number=0;
+  private precioCombo:number=0;
+  private idCombo:number=0;
+    /**
+     * Getter $precioCombo
+     * @return {number}
+     */
+	public get $precioCombo(): number {
+		return this.precioCombo;
+	}
+
+    /**
+     * Getter $idCombo
+     * @return {number}
+     */
+	public get $idCombo(): number {
+		return this.idCombo;
+	}
+
+    /**
+     * Setter $precioCombo
+     * @param {number} value
+     */
+	public set $precioCombo(value: number) {
+		this.precioCombo = value;
+	}
+
+    /**
+     * Setter $idCombo
+     * @param {number} value
+     */
+	public set $idCombo(value: number) {
+		this.idCombo = value;
+	}
+
+
+    /**
+     * Getter $precioEntrada
+     * @return {number}
+     */
+	public get $precioEntrada(): number {
+		return this.precioEntrada;
+	}
+
+    /**
+     * Setter $precioEntrada
+     * @param {number} value
+     */
+	public set $precioEntrada(value: number) {
+		this.precioEntrada = value;
+	}
+  
+    /**
+     * Getter $idBeneficio
+     * @return {number}
+     */
+	public get $idBeneficio(): number {
+		return this.idBeneficio;
+	}
+
+    /**
+     * Setter $idBeneficio
+     * @param {number} value
+     */
+	public set $idBeneficio(value: number) {
+		this.idBeneficio = value;
+	}
+  
+    /**
+     * Getter $fecha
+     * @return {Date}
+     */
+	public get $fecha(): Date {
+		return this.fecha;
+	}
+
+    /**
+     * Setter $nombrePelicula
+     * @param {String} value
+     */
+	public set $nombrePelicula(value: String) {
+		this.nombrePelicula = value;
+	}
+
+    /**
+     * Setter $fecha
+     * @param {Date} value
+     */
+	public set $fecha(value: Date) {
+		this.fecha = value;
+	}
+  
     /**
      * Getter $idPelicula
      * @return {number}
@@ -32,30 +125,7 @@ export class EntradaControladorService {
 		return this.nombrePelicula;
 	}
 
-    /**
-     * Getter $horarioPelicula
-     * @return {String}
-     */
-	public get $horarioPelicula(): String {
-		return this.horarioPelicula;
-	}
-
-    /**
-     * Setter $nombrePelicula
-     * @param {String} value
-     */
-	public set $nombrePelicula(value: String) {
-		this.nombrePelicula = value;
-	}
-
-    /**
-     * Setter $horarioPelicula
-     * @param {String} value
-     */
-	public set $horarioPelicula(value: String) {
-		this.horarioPelicula = value;
-	}
-  
+    
 
     
   

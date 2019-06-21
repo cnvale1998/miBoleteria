@@ -26,7 +26,7 @@
     <img  src="./assets/img/nps-verisign-logo.png" alt="img tipo operaci&oacute;n">
     </div>
         <div class="span8">
-            <small >El total de su operación es de <span class="bold">$4095.00</span>. Para finalizar con su pedido, por favor ingrese la informaci&oacute;n solicitada y haga click en el bot&oacute;n finalizar".</small>
+            <small >El total de su operación es de <span class="bold">${{this.entradaControlador.precioEntrada+this.entradaControlador.precioCombo}}</span>. Para finalizar con su pedido, por favor ingrese la informaci&oacute;n solicitada y haga click en el bot&oacute;n finalizar".</small>
      <form ngNativeValidate  class="form-horizontal" #paso5Form="ngForm" (ngSubmit)=(finalizar(paso5Form)) >
 
                     <div class="control-group" id="r1Div">
