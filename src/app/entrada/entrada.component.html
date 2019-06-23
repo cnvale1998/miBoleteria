@@ -1,30 +1,7 @@
-<header>
-
-    <div class="nav_sup">
-        <ul class="nav nav-pills pull-right">
-            <li ><a routerLink="/inicio">INICIO</a></li>
-            <li class="separador">|</li>
-
-            <li><a routerLink="/registro">REGISTRAR/<span class="celeste">INICIAR</span></a></li><!-- si se ha iniciado sesion poner clase ocultar y display none-->
-            <li class="ocultar" style="display: none"><a  href="#">MI CUENTA</a></li><!-- si no se ha iniciado sesion poner clase ocultar y display none-->
-            <li class="separador">|</li>
-            <li><a routerLink="/contacto">CONTACTO</a></li>
-        </ul>
-        <div class="logo_nav"><img src="./assets/img/logo.png"></div>
-        <img  class="img_paso" src="./assets/img/paso{{paso}}_bg.png"> 
-        <!-- INFO SESION-->
-        <div class="span4 logged "> <!-- añadir class ocultarLog para no mostrar el div SI NO SE HA INICIADO SESION -->
-            <div class="item_nombre"><h4>Bienvenido: <small id="nombreUsuario">pepe perez</small></h4></div>
-            <div class="item_salir"><a id="cerrar"  href="#" >Salir</a></div>
-		</div> 
-
-
-    </div>
-
-</header>
-
+<app-header [paso]="paso"></app-header>
+<div class="row-fluid ">
 <div class=" cont_entrada">
-    <div class="row-fluid ">
+    
         <div class="span12 sombraCont">
             <!-- sidebar-->
             <div class="span3" id="sidebar">
@@ -88,7 +65,8 @@
 
 </div>
 
-
+<div class="row-fluid" style="margin-top:14px">
+    
 <div style="position:relative">
     <div class="row-fluid " style="position: absolute; z-index:1;top:-14px;">
         <div class="span10">
@@ -139,3 +117,4 @@
         <img src="./assets/img/bg_shadow.png">
     </div>
 </div>
+    </div>

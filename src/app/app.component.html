@@ -9,12 +9,17 @@
       <div class="footer_inf">
           <div class="row-fluid">
               <div class="span8 footer_menu">
-                  <a routerLink="/inicio">Inicio |</a>
-                  <a routerLink="/comoComprar">Cómo Comprar |</a>
-                  <a routerLink="/registro">Registrar/Ingresar/Mi Cuenta |</a>
-                  <a routerLink="/contacto">Contacto |</a>
-                  <a routerLink="/clasificaciones">Clasificaciones |</a>
-                  <a target="blank" routerLink="./assets/terminosPdf/terminos.pdf">Terminos y Condiciones </a>
+                  <a routerLink="/inicio"> Inicio |</a>
+                  <a routerLink="/comoComprar"> Cómo Comprar |</a>
+                
+                       <a *ngIf="isUserLoggedIn==true  else notShow" href="#"> Mi Cuenta |</a>
+                 
+                   <ng-template #notShow>
+                       <a routerLink="/registro"> Registrar/Ingresar |</a>
+                   </ng-template>
+                  <a routerLink="/contacto"> Contacto |</a>
+                  <a routerLink="/clasificaciones"> Clasificaciones |</a>
+                  <a target="blank" routerLink="./assets/terminosPdf/terminos.pdf"> Terminos y Condiciones </a>
               </div>
 
               <div class="span3 dinamix" style="float:right;">

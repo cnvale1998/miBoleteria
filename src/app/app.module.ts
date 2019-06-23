@@ -16,6 +16,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { RegistroComponent } from './registro/registro.component';
 import {ApiControladorService} from './controladores/apiControlador/api-controlador.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ClasificacionesComponent,
     ComoComprarComponent,
     ContactoComponent,
-    RegistroComponent
+    RegistroComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

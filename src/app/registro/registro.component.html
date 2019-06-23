@@ -8,7 +8,7 @@
         <div  *ngIf="show; else notShow">
         <div id="div_recup_clave" name="div_recup_clave"   >
             <div class="row-fluid">
-                <form  class="form-horizontal ">
+                <form  class="form-horizontal " >
 
                     <div class="control-group" id="r1Div">
                         <label class="control-label" for="r4"><h4><strong >E-MAIL:</strong></h4></label>
@@ -43,12 +43,12 @@
             </div>
         <ng-template id="div_sesion"  name="div_sesion"   #notShow >
             <div class="row-fluid">
-                <form class="form-horizontal" >
+                <form class="form-horizontal"  ngNativeValidate #loginForm="ngForm" (ngSubmit)=(iniciarSesion(loginForm))>
 
                     <div class="control-group" id="r1Div">
                         <label class="control-label" for="r1"><h4><strong class="celeste">E-MAIL:</strong></h4></label>
                         <div class="controls">
-                            <input type="email"  maxlength="100"  id="r1" name="r1" class="input_bg"  required />
+                            <input type="email"  maxlength="100"  id="correo" name="correo" [(ngModel)]="correo"  class="input_bg"  required />
 
 
                         </div>
@@ -56,7 +56,7 @@
                     <div class="control-group" id="r2Div">
                         <label class="control-label" for="r2"><h4><strong>CONTRASE&Ntilde;A:</strong></h4></label>
                         <div class="controls">
-                            <input type="password"  maxlength="100"  id="r2" name="r2" class="input_bg"  required />
+                            <input type="password"  maxlength="100"  id="contrasenia" name="contrasenia" [(ngModel)]="contrasenia" class="input_bg"  required />
                             <input type="submit" id="r3" name="r3" class="hide" />
                         </div>
                     </div>

@@ -21,50 +21,61 @@ export class RegistroComponent implements OnInit {
                 private gestorUsuario:GestorUsuarioService,
                 private gestorProvincia:GestorProvinciaService,
                 private _location: Location) {
-  }
-   ngOnInit() {
-       this.gestorProvincia.getProvincias().subscribe(res => {this.provincias = res;});
-  }
-  
-   public registrarUsuario(registroForm:NgForm): void {
-        let value=registroForm.value;
-       if(value.pass!=value.pass2){
-           this.passMatch=false;
-       }
-       else{
-          
-            let value=registroForm.value;  
-            this.gestorPersona.crearPersona(1,value.nombre,value.apellido,value.email,value.tipoDoc,value.nroDoc,"",value.telefono,"usuario");
-            this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc,value.provincia,value.ciudad);
-            $('#registrarse_modal').modal('hide');
-            registroForm.reset();
-        }
-  }
-  public usuarioExiste(email:string){
-      if(email){
-        this.gestorUsuario.existe(email).subscribe(res => {this.contador = res;});
-      }
-  }
-   public back(){
-      this._location.back();
-  }
-  /*
-  public passwordMatchValidator(group: FormGroup): any {
-  if (group) {
-    if (group.get("password").value !==group.get("confirm").value) {
-      return { notMatching : true };
     }
-  }
- 
-  return null;
+ngOnInit() {
+    this.gestorProvincia.getProvincias().subscribe(res => {this.provincias = res;});
+}
+
+public registrarUsuario(registroForm:NgForm): void {
+    let value=registroForm.value;
+    
+    if(value.pass!=value.pass2){
+        this.passMatch=false;
+    }
+    else{
+
+        let value=registroForm.value;  
+        this.gestorPersona.crearPersona(1,value.nombre,value.apellido,value.email,value.tipoDoc,value.nroDoc,"",value.telefono,"usuario");
+        this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc,value.provincia,value.ciudad);
+        $('#registrarse_modal').modal('hide');
+        registroForm.reset();
+    }
+}
+
+public usuarioExiste(email:string){
+    if(email){
+        this.gestorUsuario.existe(email).subscribe(res => {this.contador = res;});
+    }
+}
+
+public back(){
+   this._location.back();
+}
+
+public iniciarSesion(loginForm:NgForm) {
+    let value=loginForm.value;
+    
+    this.gestorUsuario.iniciarSesion(value.correo, value.contrasenia);
+}
+
+
+/*
+public passwordMatchValidator(group: FormGroup): any {
+if (group) {
+ if (group.get("password").value !==group.get("confirm").value) {
+   return { notMatching : true };
+ }
+}
+
+return null;
 }*/
-  
-  
-  /*public iniciarSesion(sesionForm:NgForm):void{
-      let value=sesionForm.value;
-      if(this.gestorUsuario.existe(value.r1,value.r2)){
-          
-      }
-       sesionForm.reset();
-  }*/
+
+
+/*public iniciarSesion(sesionForm:NgForm):void{
+   let value=sesionForm.value;
+   if(this.gestorUsuario.existe(value.r1,value.r2)){
+
+   }
+    sesionForm.reset();
+}*/
 }

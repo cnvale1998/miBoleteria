@@ -142,8 +142,6 @@
             /*-------------------------------------------*/
             /*clases para el contenedor de comprar entrada*/
             .cont_entrada{
-                position: relative;
-                top: -40px;
                 margin-top:0px;
                 height: 420px;
             }
@@ -297,4 +295,7 @@
                 width: 227px;
             }
 
-            
+            .cont_entrada .span12{
+                position: relative;
+                top:-40px;
+            }

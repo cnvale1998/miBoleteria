@@ -1,0 +1,28 @@
+<header>
+
+    <div class="nav_sup">
+        <ul class="nav nav-pills pull-right">
+            <li ><a routerLink="/inicio">INICIO</a></li>
+            <li class="separador">|</li>
+            <li *ngIf="isUserLoggedIn==true else notShow"><a  href="#">MI CUENTA</a></li>
+            <ng-template #notShow>
+                <li><a routerLink="/registro">REGISTRAR/<span class="celeste">INICIAR</span></a></li>
+            </ng-template>
+            <li class="separador">|</li>
+            <li><a routerLink="/contacto">CONTACTO</a></li>
+        </ul>
+        <div class="logo_nav"><img src="./assets/img/logo.png"></div>
+        <img  class="img_paso" src="./assets/img/paso{{paso}}_bg.png"> 
+        <!-- INFO SESION-->
+
+        <div class="span4 logged " [ngClass]="{'noMostrar': isUserLoggedIn ==false}"> 
+            <div class="item_nombre">
+                <h4>Bienvenido: <small *ngIf="isUserLoggedIn==true" id="nombreUsuario">{{usuario.getNombre()}} {{usuario.getApellido()}}</small></h4></div>
+            <div class="item_salir" style='cursor: pointer;' ><a id="cerrar"  (click)="cerrarSesion()">Salir</a></div>
+            
+        </div> 
+
+
+    </div>
+
+</header>

@@ -7,7 +7,16 @@
     </div>
     <div class="row-fluid">
         <div class="span7">
-            <h6><span class="celeste myriad" id="info">UD. NO HA INGRESADO EN EL SISTEMA, POR FAVOR HAGA CLICK SOBRE EL BOT&Oacute;N REGISTRAR/INGRESAR EN LA PARTE SUPERIOR DEL SITIO.</span></h6>
+            <div style="margin-bottom: 20px;"  *ngIf="isUserLoggedIn==false"><h6 ><span class="celeste myriad" id="info">UD. NO HA INGRESADO EN EL SISTEMA, POR FAVOR HAGA CLICK SOBRE EL BOT&Oacute;N REGISTRAR/INGRESAR EN LA PARTE SUPERIOR DEL SITIO.</span></h6></div>
+            <div class="datos" *ngIf="isUserLoggedIn==true">
+                <ul class="datos">
+                    <li>Nombre:  <span class="celeste">{{usuario.getNombre()}} {{usuario.getApellido()}}</span></li>
+                     <li>Email  <span class="celeste">{{usuario.getEmail()}}</span></li>
+                      <li>DNI:  <span class="celeste">{{usuario.getNroDoc()}}</span></li>
+                      <li>Telefono:  <span class="celeste">{{usuario.getTelefono()}}</span></li>
+                </ul>
+            </div>
+       
         </div> 
         
     </div>
