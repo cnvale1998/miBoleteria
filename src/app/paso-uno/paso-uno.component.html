@@ -10,7 +10,9 @@
 
                           <select id="ciudad" name="ciudad" [(ngModel)]="ciudad"  class="selectCiudad" required>
                               <option value="">(ELIJA UNA  CIUDAD)</option>
-                              <option value="1">SAN LUIS</option>
+                               <option  *ngFor="let ciudad of ciudades" [value]="ciudad.getNombre()">
+                                    {{ciudad.getNombre()}}
+                                 </option>
 
 
 

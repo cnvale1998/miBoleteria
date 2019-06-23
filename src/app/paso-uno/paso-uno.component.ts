@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{NgForm}from'@angular/forms';
 import {Router} from '@angular/router';
+import { GestorCiudadService } from './../modelo/gestor-ciudad.service';
+import { Ciudad } from './../modelo/ciudad';
 
 @Component({
   selector: 'app-paso-uno',
@@ -8,13 +10,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./paso-uno.component.css']
 })
 export class PasoUnoComponent implements OnInit {
+  private ciudades:any[]=[];
+  constructor(private _route: Router,private gestorCiudad:GestorCiudadService) { }
 
-  constructor(private _route: Router) { }
-
-  ngOnInit() {
+   ngOnInit() {
+       this.gestorCiudad.getCiudades().subscribe(res => {this.ciudades = res;});
   }
+  
  public elegirCiudad(ciudadForm:NgForm): void{
-         let idCiudad=Number(ciudadForm.value.ciudad);
-         this._route.navigate(["/entrada/2/"+idCiudad]);
+         let idCiudad=Number(ciudadForm.value.ciudad);//es un string ---se puede guardar en la sesion
+         
+         this._route.navigate(["/entrada/2/"]);
   }
 }

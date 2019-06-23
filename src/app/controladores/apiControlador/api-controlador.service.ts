@@ -61,6 +61,10 @@ GuardarEntrada(reserva: any): Observable<any>{
   ObtenerProvincias(){ 
     return this.conector.get(`http://localhost:3000/API/Provincias/`);
   }
+  
+  ObtenerCiudades(){ 
+     return this.conector.get(`http://localhost:3000/API/Ciudades/`);
+  }
  
 
 
