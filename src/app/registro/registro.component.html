@@ -124,11 +124,11 @@
                     <input type="text" id="nroDoc" name="nroDoc" minlength="7" maxlength="8"  pattern="\d*" [(ngModel)]="nroDoc" style="width: 308px"  class="input-block-level input_mod" placeholder="NRO DE DOCUMENTO" required/>
                 </div>
                 <div style="float: left;width: 330px;">
-                    <input type="password" id="pass"name="pass"  [(ngModel)]="pass"   style="width: 330px;"  class="input-block-level input_mod" placeholder="Contrase&ntilde;a" required/>
+                    <input type="password" id="pass"name="pass"  minlength="6"  [(ngModel)]="pass"   style="width: 330px;"  class="input-block-level input_mod" placeholder="Contrase&ntilde;a" required/>
                 </div> 
                        
                 <div style="margin-left: 332px;width: 328px">
-                    <input type="password" id="pass2" name="pass2" [(ngModel)]="pass2"  style="width: 308px"  class="input-block-level input_mod" placeholder="Confirmar Contrase&ntilde;a" required/>
+                    <input type="password" id="pass2" name="pass2"  minlength="6" [(ngModel)]="pass2"  style="width: 308px"  class="input-block-level input_mod" placeholder="Confirmar Contrase&ntilde;a" required/>
                 </div>
                 <input type="text" id="direc" name="direc"  [(ngModel)]="direc"  class="input-block-level input_mod" placeholder="DIRECCI&Oacute;N"  required />
 

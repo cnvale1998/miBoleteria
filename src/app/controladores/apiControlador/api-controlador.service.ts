@@ -42,7 +42,7 @@ GuardarEntrada(reserva: any): Observable<any>{
   }
   
   crearUsuario(datos:Object){
-       this.conector.post('http://localhost:3000/API/Usuarios/', datos ).subscribe(res => console.log(res));
+       this.conector.post('http://localhost:3000/API/Usuarios/', datos ).subscribe((res) =>{ console.log(res);alert(res["message"]);});
  }
   
   crearPersona(datos:Object){  

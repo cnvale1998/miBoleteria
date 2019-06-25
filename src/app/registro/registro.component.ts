@@ -16,7 +16,7 @@ export class RegistroComponent implements OnInit {
     private provincias:any[]=[];
     private contador:number=2;
     private passMatch: boolean=true;
-    
+    private existe:boolean;
    constructor( private gestorPersona:GestorPersonaService,
                 private gestorUsuario:GestorUsuarioService,
                 private gestorProvincia:GestorProvinciaService,
