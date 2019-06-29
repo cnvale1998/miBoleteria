@@ -107,4 +107,15 @@
                          float: right;
             }
            
-        
+  input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #4d4d4d inset !important;  
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: #d1d0d0 !important;
+}
+#correo  {
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+}

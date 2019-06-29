@@ -38,7 +38,7 @@ GuardarEntrada(reserva: any): Observable<any>{
    return this.conector.put<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
 }
   crearConsulta(datos:Object){  
-    this.conector.post('http://localhost:3000/API/Consultas/', datos ).subscribe(res => console.log(res));
+    this.conector.post('http://localhost:3000/API/Consultas/', datos ).subscribe((res) =>{ console.log(res);alert(res["message"]);});
   }
   
   crearUsuario(datos:Object){

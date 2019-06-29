@@ -11,15 +11,16 @@ import { Ciudad } from './../modelo/ciudad';
 })
 export class PasoUnoComponent implements OnInit {
   private ciudades:any[]=[];
+   private ciudad={'status':""};
   constructor(private _route: Router,private gestorCiudad:GestorCiudadService) { }
 
    ngOnInit() {
        this.gestorCiudad.getCiudades().subscribe(res => {this.ciudades = res;});
   }
+
   
  public elegirCiudad(ciudadForm:NgForm): void{
-         let idCiudad=Number(ciudadForm.value.ciudad);//es un string ---se puede guardar en la sesion
-         
+         let idCiudad=(ciudadForm.value.ciudad);//es un string ---se puede guardar en la sesion
          this._route.navigate(["/entrada/2/"]);
   }
 }

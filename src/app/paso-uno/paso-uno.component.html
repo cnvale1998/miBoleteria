@@ -1,36 +1,35 @@
 <div id="cont_p0">
-          <div id="logo"><a href="#"><img src="../../assets/img/logo.png" alt=""></a></div>
-          <div id="paso0" class="content">
-              <h4>Para acceder a <strong><span class="celeste">MiBoleteria</span> debes seleccionar</strong> tu <strong class="celeste">ciudad</strong></h4>
+    <div id="logo"><a href="#"><img src="../../assets/img/logo.png" alt=""></a></div>
+    <div id="paso0" class="content">
+        <h4>Para acceder a <strong><span class="celeste">MiBoleteria</span> debes seleccionar</strong> tu <strong class="celeste">ciudad</strong></h4>
 
-              <form ngNativeValidate ngNativeValidate #ciudadForm="ngForm" (ngSubmit)=(elegirCiudad(ciudadForm)) class="form-horizontal">
-                  <div class="control-group" id="r1Div">
-                      <label class="control-label" for="r1"><h4><strong class="celeste">Ciudad:</strong></h4></label>
-                      <div class="controls">
+        <form ngNativeValidate ngNativeValidate #ciudadForm="ngForm" (ngSubmit)=(elegirCiudad(ciudadForm)) class="form-horizontal">
+              <div class="control-group" id="r1Div">
+                <label class="control-label" for="r1"><h4><strong class="celeste">Ciudad:</strong></h4></label>
+                <div class="controls">
 
-                          <select id="ciudad" name="ciudad" [(ngModel)]="ciudad"  class="selectCiudad" required>
-                              <option value="">(ELIJA UNA  CIUDAD)</option>
-                               <option  *ngFor="let ciudad of ciudades" [value]="ciudad.getNombre()">
-                                    {{ciudad.getNombre()}}
-                                 </option>
+                    <select id="ciudad" name="ciudad" [(ngModel)]="ciudad.status"  class="selectCiudad " required oninvalid="this.setCustomValidity('Debes elegir una ciudad')"
+ oninput="setCustomValidity('')">
+                        <option [value]="''" [selected]="ciudad.status ==''" disabled >(ELIJA UNA  CIUDAD)</option>
+                        <option  *ngFor="let ciudad of ciudades" [value]="ciudad.getNombre()">
+                            {{ciudad.getNombre()}}
+                    </option>
 
+                </select>
+             
+                <small><br><br>Seleccioná tu ciudad para acceder a la compra de entradas de tu localidad bajo los servicios de Miboleteria.com.ar.</small>
+              
+            </div>
 
+        </div>
+        <input type="submit" id="ciudadF" name="ciudadF" class="hide" />
 
-                          </select>
-                          <small><br><br>Seleccioná tu ciudad para acceder a la compra de entradas de tu localidad bajo los servicios de Miboleteria.com.ar.</small>
-                       <div class="errorForm">Debe seleccionar una Ciudad</div>
-                      </div>
-                      
-                  </div>
-                  <input type="submit" id="ciudadF" name="ciudadF" class="hide" />
-                 
-              </form>
-          </div>
-          <div id="boton_continuar">
-              <div class="button continuar" >
-                  <button onclick="ciudadF.click();"><span>Continuar</span></button>
-              </div>
-          </div>
+    </form>
+</div>
+<div id="boton_continuar">
+    <div class="button continuar" >
+        <button onclick="ciudadF.click();"><span>Continuar</span></button>
+    </div>
+</div>
 
-      </div>
-      
+</div>
