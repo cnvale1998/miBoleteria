@@ -1,0 +1,33 @@
+<div id="cuenta_modal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+   <div class="cerrar_modal">
+        <a data-dismiss="modal" aria-hidden="true" > <div class="cerrar" (click)="this.back()"><h4><strong>CERRAR <span class="celeste">X</span></strong></h4></div></a>
+    </div>
+    <div class="modal-header">
+
+        <h3 id="myModalLabelA" >MI CUENTA</h3>
+      
+    </div>
+    <div class="cont">
+        <div class="modal-body">
+            <div class="row-fluid"> 
+                <div class="center">
+                <div class="span6">
+                    <img src="assets/img/logo-med.png">
+                </div>
+                <div class="span6" style="margin-top: 20px;"><h4  style="margin-left: 60px;text-transform: uppercase"><strong> <span class="celeste" *ngIf="isUserLoggedIn==true">BIENVENIDO </span></strong>{{usuario.getNombre()}} {{usuario.getApellido()}}</h4></div>
+                </div>
+              </div>
+                   <form ngNativeValidate #registroForm="ngForm" (ngSubmit)=(registrarUsuario(registroForm))>
+                  
+                  <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" placeholder="NOMBRE"  required />
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" placeholder="APELLIDO"  required />
+               
+        </form> 
+        
+
+
+    </div>
+
+</div>
+    </div>
+

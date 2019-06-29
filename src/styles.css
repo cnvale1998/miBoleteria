@@ -305,7 +305,7 @@ div.button.continuar span {
 #registrarse_modal .modal-body,#contacto_modal .modal-body {
     max-height: 550px;
 }   
-#registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4{
+#registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4,#cuenta_modal h4{
     font-family: 'PT Sans', sans-serif;
     font-weight: lighter;
     margin: 0;
@@ -362,7 +362,7 @@ div.button.btn_log button {
 #registrarse_modal form, #contacto_modal form{
     padding: 12px 40px 0 55px;
 }
-#registrarse_modal .cont, #contacto_modal .cont{
+#registrarse_modal .cont, #contacto_modal .cont,#cuenta_modal .cont{
     width: 760px;
     position: relative;
     left: 0px;

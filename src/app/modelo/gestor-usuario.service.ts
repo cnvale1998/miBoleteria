@@ -51,9 +51,9 @@ export class GestorUsuarioService {
     }
     
      public cerrarSesion() {
-       // localStorage.removeItem("infoUsuario");
-       // localStorage.removeItem("sesionIniciada");
-        localStorage.clear();
+        localStorage.removeItem("infoUsuario");
+        localStorage.removeItem("sesionIniciada");
+        //localStorage.clear();
         this.userLoggedIn = false;
         this.navegar();//TENGO QUE HACER UN RELOAD
     }
@@ -97,5 +97,19 @@ export class GestorUsuarioService {
       });
     return encrypted.toString();
   }
+  decrypt(data: string) {
+    let _key = CryptoJS.enc.Utf8.parse("0123456789123456");
+    let _iv = CryptoJS.enc.Utf8.parse("0123456789123456");
+
+    data = CryptoJS.AES.decrypt(
+      data , _key, {
+        keySize: 16,
+        iv: _iv,
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+      }).toString(CryptoJS.enc.Utf8);
+      
+      return data;
+  } 
    
 }

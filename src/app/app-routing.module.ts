@@ -7,7 +7,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ClasificacionesComponent } from './clasificaciones/clasificaciones.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
-
+import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 
 const routes: Routes =[
 {path:"inicio", component:PasoUnoComponent},
@@ -16,6 +16,7 @@ const routes: Routes =[
 {path:"registro", component: RegistroComponent},
 {path:"contacto", component: ContactoComponent},
 {path:"clasificaciones", component: ClasificacionesComponent},
+{path:"miCuenta", component: MiCuentaComponent},
 {path:"comoComprar", component: ComoComprarComponent},
 {path:'', redirectTo:'inicio', pathMatch:'full'}
 ];

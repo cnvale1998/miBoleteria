@@ -12,7 +12,7 @@
                   <a routerLink="/inicio"> Inicio |</a>
                   <a routerLink="/comoComprar"> Cómo Comprar |</a>
                 
-                       <a *ngIf="isUserLoggedIn==true  else notShow" href="#"> Mi Cuenta |</a>
+                       <a *ngIf="isUserLoggedIn==true  else notShow" routerLink="/miCuenta"> Mi Cuenta |</a>
                  
                    <ng-template #notShow>
                        <a routerLink="/registro"> Registrar/Ingresar |</a>
