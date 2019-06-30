@@ -8,7 +8,16 @@
                     <li class="cinema">CINEMACENCER SAN LUIS - <span class="city">San Luis</span></li>
 
                     <div *ngFor="let pelicula of peliculas">
-                    <li><a  (click)="guardarPelicula(pelicula.NOMBRE,pelicula.ID_PELICULA)" >{{pelicula.NOMBRE}}</a></li>
+                    <li *ngIf="pelicula.ID_PELICULA!=this.entradaControlador.$idPelicula; else seleccionado"><a (click)="guardarPelicula(pelicula.NOMBRE,pelicula.ID_PELICULA)" >{{pelicula.NOMBRE}}</a>
+                        
+                       
+                    </li>
+                    <ng-template #seleccionado  >
+                            <li >
+                                <a [ngStyle]="{'color': 'blue'}">{{pelicula.NOMBRE}}</a>
+                            </li>
+                            
+                    </ng-template>
                     
                     </div>
 
@@ -21,16 +30,30 @@
         <div class="span3">
             <h4 class="titulo" id="horario"><span>HORARIOS</span></h4>
             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
-                <ul>
-                    <li class="date">Miércoles 19 de junio </li>
-                    <li><a (click)="guardarFecha('19/06/2019 22:40 hs')">22:40</a></li>
+                <ul *ngIf="this.entradaControlador.$fecha!='2019-07-01 22:40:00'; else seleccionadoFecha1" >
+                    <li class="date">Lunes 1 de julio </li>
+                    <li><a (click)="guardarFecha('2019-07-01 22:40:00')">22:40</a></li>
                 </ul>
+                <ng-template #seleccionadoFecha1  >
+                        <ul >
+                                <li class="date">Lunes 1 de julio </li>
+                                <li><a  [ngStyle]="{'color': 'blue'}" >22:40</a></li>
+                            </ul>
+                        
+                </ng-template>
 
-                <ul>
-                    <li class="date">Jueves 20 de junio </li>
-                    <li><a (click)="guardarFecha('20/06/2019 16 hs')">16:00</a></li>
+                <ul *ngIf="this.entradaControlador.$fecha!='2019-07-02 16:00:00'; else seleccionadoFecha2">
+                    <li class="date">Martes 2 de julio </li>
+                    <li><a (click)="guardarFecha('2019-07-02 16:00:00')">16:00</a></li>
                    
                 </ul>
+                <ng-template #seleccionadoFecha2  >
+                        <ul >
+                                <li class="date">Martes 2 de julio </li>
+                    <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
+                            </ul>
+                        
+                </ng-template>
                
                
                 <!-- <ul>

@@ -10,6 +10,7 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
 export class PasoDosComponent implements OnInit {
   peliculas:any[];
   
+  
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ) { 
 
 
@@ -27,12 +28,14 @@ export class PasoDosComponent implements OnInit {
   }
   guardarFecha(fecha:Date){
     this.entradaControlador.$fecha=fecha;
+   /// window.alert(this.entradaControlador.$fecha);
     
   }
   
 guardarPelicula(nombre: String, id:number){ 
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
+    
 }
 
 calcularPeriodo(hoy:Date):String{

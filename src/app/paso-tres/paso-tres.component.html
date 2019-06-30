@@ -27,14 +27,14 @@
                         <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarBeneficio(beneficio.ID_BENEFICIO)">
                         <option value="2" >2</option>
                         <option value="4">4</option>
-                        </select></div>
+                        </select></div> 
                         </td>
                         <td ><span class="bold" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
                         <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
                         </tr>
                         
                         
-                        
+                         
                         
                         
                         </tbody>

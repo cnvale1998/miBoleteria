@@ -9,7 +9,7 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
 })
 export class PasoTresComponent implements OnInit {
 
-  beneficios: any[];
+  beneficios: any[]; 
   opcionSeleccionado: number  = 0;
   constructor(private conector:ApiControladorService, private entradaControlador:EntradaControladorService ) { }
 
@@ -22,5 +22,5 @@ capturarBeneficio(id_beneficio:number){
     this.entradaControlador.$idBeneficio=id_beneficio;
     this.entradaControlador.$precioEntrada=240*(this.opcionSeleccionado/2);
 }
-
+ 
 }

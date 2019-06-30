@@ -9,13 +9,24 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
   styleUrls: ['./paso-cinco.component.css']
 })
 export class PasoCincoComponent implements OnInit {
-
+  tarjeta: string="";
+  terminos: boolean=false;
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+
+    
   }
- public finalizar(paso5Form:NgForm): void {
+
+  guardarTarjeta(){
+    this.entradaControlador.$tarjeta=this.tarjeta;
+  }
+  guardarTerminos(){
+
+    this.entradaControlador.$terminos=this.terminos;
+  }
+ /** public finalizar(paso5Form:NgForm): void {
         let value=paso5Form.value;
         console.log("llegueee paso5. Tarjeta:"+value.tarjeta+".Acepta terminos y condiciones: "+value.terminos);
-  }
+  }*/
 }

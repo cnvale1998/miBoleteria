@@ -24,7 +24,7 @@
     <div class="row-fluid">
         <div class="span3">
     <img  src="./assets/img/nps-verisign-logo.png" alt="img tipo operaci&oacute;n">
-    </div>
+    </div> 
         <div class="span8">
             <small >El total de su operación es de <span class="bold">${{this.entradaControlador.precioEntrada+this.entradaControlador.precioCombo}}</span>. Para finalizar con su pedido, por favor ingrese la informaci&oacute;n solicitada y haga click en el bot&oacute;n finalizar".</small>
      <form ngNativeValidate  class="form-horizontal" #paso5Form="ngForm" (ngSubmit)=(finalizar(paso5Form)) >
@@ -32,18 +32,18 @@
                     <div class="control-group" id="r1Div">
                         <label class="control-label" for="r4"><h6><strong >Tipo de Tarjeta:</strong></h6></label>
                         <div class="controls">
-                             <select id="tarjeta" name="tarjeta" required [(ngModel)]="tarjeta" >
-                              <option value="">Seleccione...</option>
-                              <option value="1">Visa Cr&eacute;dito</option>
-                              <option value="2">Visa Dedito (Red Banelco)</option>
+                             <select id="tarjeta" name="tarjeta" required [(ngModel)]="tarjeta" (change)="guardarTarjeta()" >
+                              
+                              <option>Visa Cr&eacute;dito</option>
+                              <option>Visa Dedito (Red Banelco)</option> 
                             </select>
                             <input type="submit" id="formulario" name="formulario" class="hide" />
 
                         </div>
-                        <label ><input type="checkbox" id="terminos" name="terminos" [(ngModel)]="terminos" required><small>Acepto <span class="celeste">T&eacute;rminos y condiciones.</span> Una vez realizada la compra, la transacci&oacute;n no puede ser revertida.<span class="rojo"> Recuerde que al retirar sus entradas deber&aacute; contar con el DNI y la tarjeta de cr&eacute;dito con la cual realizar&aacute; la compra.</span></small></label>
+                        <label ><input type="checkbox" id="terminos" name="terminos" [(ngModel)]="terminos" (change)="guardarTerminos()" required><small>Acepto <span class="celeste">T&eacute;rminos y condiciones.</span> Una vez realizada la compra, la transacci&oacute;n no puede ser revertida.<span class="rojo"> Recuerde que al retirar sus entradas deber&aacute; contar con el DNI y la tarjeta de cr&eacute;dito con la cual realizar&aacute; la compra.</span></small></label>
                     </div>
 
-         <div class="errorForm">Debe aceptar los Términos y Condiciones para continuar..</div>
+         <div *ngIf="!terminos" class="errorForm">Debe aceptar los Términos y Condiciones para continuar..</div>
                 </form>
         </div>
     </div>
