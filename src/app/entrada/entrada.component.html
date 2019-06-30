@@ -29,29 +29,29 @@
             <!-- sidebar-->
             <div class="span3" id="sidebar">
                 <div class="row">
-                  <!--  <img src="./assets/img/icon-cca-sidebar.png">-->
+                   <img src="./assets/img/icon-cca-sidebar.png">
                 </div>
                 <div class="row">
                     <div class="info_detalle">
-                        <!--<h5>PELICULA SELECCIONADA</h5>
+                        <h5>PELICULA SELECCIONADA</h5>
                         <p>
-                            Complejo: <span>Ambassador</span><br/>
-                            Pel&iacute;cula<span> ALADDIN - 2D SUB</span><br/>
-                            Fecha: <span>Miércoles 22 de Mayo</span><br/>
-                            Horario: <span>17:40</span><br/>
-                        </p>-->
+                            Complejo: <span>Cinemacenter San Luis</span><br/>
+                            Pel&iacute;cula<span> {{entradaControlador.$nombrePelicula}}</span><br/>
+                            Fecha: <span>{{entradaControlador.$fecha}}</span><br/>
+                           <!-- Horario: <span>17:40</span><br/>-->
+                        </p>
                     </div>
                 </div>
                 <div class="row ">
                     <div class="info_detalle">
-                        <!--<h5>TIPO DE ENTRADA</h5>
+                        <h5>TICKET</h5><!--<h5>TIPO DE ENTRADA</h5>-->
                         <p>
-                            Tipo de Ticket: <span>1xGENERAL</span><br/>
-                            Butaca: <span>66</span><br/>
-                            Candy: <span>$0.00</span><br/>
-                            Cargo administrativo: <span>$15,00 x Ticket</span><br/>
-                            Total:<span> $255.00</span><small> Incluyendo IVA</small>
-                        </p>-->
+                           <!--Tipo de Ticket: <span>1xGENERAL</span><br/>
+                            Butaca: <span>66</span><br/>--> 
+                            Candy: <span>${{entradaControlador.$precioCombo}}</span><br/>
+                            <!--Cargo administrativo: <span>$15,00 x Ticket</span><br/>-->
+                            Total:<span>${{entradaControlador.$precioCombo+entradaControlador.$precioEntrada}}</span><small> Incluyendo IVA</small>
+                        </p>
                     </div>
                     <!--Mensaje de error-->
                     <div *ngIf="alerta" class="col-md-3 mb-2">
