@@ -2,12 +2,12 @@
     <div class="row-fluid">
 
         <div class="row-fluid">
-            <!--<div class="span3 text-center" id="izq">
+            <div class="span3 text-center" id="izq">
                 <img id="header_izq" src="./assets/img/header_paso3.png" alt="img movie">
-                <h5 class="letra myriad rojo text-left">HOMBRES DE NEGRO: INTERNACIONAL - 3D CAST</h5>
-                <img  id="img_izq" src="./assets/img/peliculas/2007_img2.jpg" alt="img movie">
+                <h5 class="letra myriad rojo text-left">{{entradaControlador.$nombrePelicula}}</h5>
+                <img  id="img_izq" src="./assets/img/peliculas/{{entradaControlador.$idPelicula}}.jpg" alt="img movie">
                 <small class="gris"><b>Clasificaci&oacute;n:</b> ATP</small>
-            </div>-->
+            </div>
             <div class="span9" id="derecho">
                 <table>
                     <thead>
@@ -27,14 +27,14 @@
                         <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarBeneficio(beneficio.ID_BENEFICIO)">
                         <option value="2" >2</option>
                         <option value="4">4</option>
-                        </select></div>
+                        </select></div> 
                         </td>
                         <td ><span class="bold" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
                         <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
                         </tr>
                         
                         
-                        
+                         
                         
                         
                         </tbody>

@@ -10,21 +10,37 @@ import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
   styleUrls: ['./paso-cinco.component.css']
 })
 export class PasoCincoComponent implements OnInit {
+
   private usuario:any;
   private isUserLoggedIn:boolean;
   
-  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService,private gestorUsuario:GestorUsuarioService) {
-      this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
-      if(this.isUserLoggedIn){
-          this.usuario=this.gestorUsuario.getUsuarioActual();
-      }
-    }
 
-  ngOnInit() {
+  tarjeta: string="";
+  terminos: boolean=false;
+  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService,private gestorUsuario:GestorUsuarioService) { 
+	   this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
+		  if(this.isUserLoggedIn){
+			  this.usuario=this.gestorUsuario.getUsuarioActual();
+		  }
+	}
+
+
+  ngOnInit() { 
+
+    
   }
-  
- public finalizar(paso5Form:NgForm): void {
+
+  guardarTarjeta(){
+    this.entradaControlador.$tarjeta=this.tarjeta;
+  }
+
+  guardarTerminos(){
+
+    this.entradaControlador.$terminos=this.terminos;
+  }
+ /** public finalizar(paso5Form:NgForm): void {
+>>>>>>> origin/manuel
         let value=paso5Form.value;
         console.log("llegueee paso5. Tarjeta:"+value.tarjeta+".Acepta terminos y condiciones: "+value.terminos);
-  }
+  }*/
 }

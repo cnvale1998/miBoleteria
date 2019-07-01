@@ -11,21 +11,22 @@
                         <th><h5 class="letra myriad bold">SUBTOTAL:</h5></th>
                         <th></th>
                     </tr>
-                </thead>
+                </thead> 
                 <tbody *ngFor="let combo of combos">
                         <tr>
                                 <td><div class="text-right violeta">@{{combo.NOMBRE}}:</div></td>
                                 <td>
-                                    <div class="text-center"><select id="selc1">
-                                            <option>0</option>
+                                    <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarCombo(combo.ID_COMBO)">
+                                        <option>0</option>
                                             <option>1</option>
-                                            <option>2</option>
+                                            <option>2</option>  
                                            
                                         </select>
                                     </div>
                                 </td>
-                                <td ><span class="bold">$270.00</span></td>
-                                <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                                <td ><span class="bold" *ngIf="this.entradaControlador.$idCombo==combo.ID_COMBO">${{this.entradaControlador.$precioCombo}}</span></td>
+                                <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idCombo==combo.ID_COMBO">${{this.entradaControlador.$precioCombo}}</span></td>
+                                
                             </tr>
                     <!--<tr ><td colspan="4"><a style='cursor: pointer;' data-toggle="modal" data-target="#combos_modal" ><h5 class="azul myriad" id="masInfo"><u>HACE CLICK AQUÍ PARA MÁS INFORMACIÓN SOBRE NUESTROS PRODUCTOS</u></h5></a></td></tr>
                     <tr>

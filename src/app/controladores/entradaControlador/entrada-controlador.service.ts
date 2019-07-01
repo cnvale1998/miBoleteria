@@ -10,7 +10,42 @@ export class EntradaControladorService {
   private idBeneficio:number=0;
   private precioEntrada:number=0;
   private precioCombo:number=0;
-  private idCombo:number=0;
+  private idCombo:number=1;
+  private tarjeta:string="";
+  private terminos: boolean=false;
+
+    /**
+     * Getter $tarjeta
+     * @return {string}
+     */
+	public get $tarjeta(): string {
+		return this.tarjeta;
+	}
+
+    /**
+     * Getter $terminos
+     * @return {boolean}
+     */
+	public get $terminos(): boolean {
+		return this.terminos;
+	}
+
+    /**
+     * Setter $tarjeta
+     * @param {string} value
+     */
+	public set $tarjeta(value: string) {
+		this.tarjeta = value;
+	}
+
+    /**
+     * Setter $terminos
+     * @param {boolean} value
+     */
+	public set $terminos(value: boolean) {
+		this.terminos = value;
+	}
+  
     /**
      * Getter $precioCombo
      * @return {number}
