@@ -57,7 +57,13 @@ GuardarEntrada(reserva: any): Observable<any>{
     
     return this.conector.post('http://localhost:3000/API/USUARIOS/getUser/',datos);
   }
-  
+  updateUsuarioMail(datos:Object){
+    return this.conector.post('http://localhost:3000/API/USUARIOS/updateMail/',datos).subscribe((res) =>{ console.log(res);alert(res["message"]);});
+  }
+  updateUsuarioContrasenia(datos:Object){
+     
+    return this.conector.post('http://localhost:3000/API/USUARIOS/updatePass/',datos).subscribe((res) =>{ console.log(res);alert(res["message"]);});
+  }
   ObtenerProvincias(){ 
     return this.conector.get(`http://localhost:3000/API/Provincias/`);
   }

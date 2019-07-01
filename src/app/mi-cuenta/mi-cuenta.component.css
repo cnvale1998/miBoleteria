@@ -1,0 +1,7 @@
+.boton_violeta button{background: #c111c3;}
+#cuenta_modal .modal-body {
+    max-height: 500px;
+}
+#cuenta_modal  input[type="password"].input_mod {
+    width: 640px;
+}

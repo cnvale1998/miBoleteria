@@ -103,7 +103,8 @@
     <div class="cont">
         <div class="modal-body">
             <div class="row-fluid"> 
-                <div class="span6"><img src="assets/img/logo-med.png"></div><div class="span6" style="margin-top: 20px;"><h4><strong> <span class="celeste">LLENE </span></strong>CON SUS <strong> <span class="celeste">DATOS PERSONALES</span></strong></h4></div></div>
+                <div class="span6"><img src="assets/img/logo-med.png"></div>
+                <div class="span6" style="margin-top: 20px;"><h4><strong> <span class="celeste">LLENE </span></strong>CON SUS <strong> <span class="celeste">DATOS PERSONALES</span></strong></h4></div></div>
               
                 <form ngNativeValidate #registroForm="ngForm" (ngSubmit)=(registrarUsuario(registroForm))>
                   
@@ -154,15 +155,17 @@
             
             <div class="row-fluid" style="margin-top: 10px;width:640px;">
                 <div class="button btn_log boton_gris" id="regis">
-                    <button type="submit" (click)="contador==0" ><span>registrarme</span></button>
+                    <button type="submit" ><span>registrarme</span></button>
                 </div>
             </div>
+            
+              </form> 
             <div class="row-fluid">
                 <div class="errorForm" *ngIf="passMatch==false"  >ERROR: LAS CONTRASE&Ntilde;AS NO SON IGUALES.</div>
                 <div class="errorForm" *ngIf="contador==1"  >ERROR: EL CORREO INGRESADO PERTENECE A UN USUARIO YA REGISTRADO.</div>
                 <small >LOS DATOS QUE TE SOLICITAMOS A CONTINUACI&Oacute;N SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small>
             </div>
-        </form> 
+       
         
 
 

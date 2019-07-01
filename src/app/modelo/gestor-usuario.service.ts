@@ -85,6 +85,17 @@ export class GestorUsuarioService {
         return this.userLoggedIn;
     }
     
+    public cambiarContrasenia(passAnt:string,passNueva:string,email:string){
+        passAnt=this.encrypt(passAnt);
+        passNueva=this.encrypt(passNueva);
+        this.conector.updateUsuarioContrasenia({CONTRASENIA:passNueva,CONTRASENIA_ANT:passAnt,EMAIL:email});
+    }
+    
+    public cambiarMail(mailAnt:string,dni:string,mailNuevo:string){
+       
+        this.conector.updateUsuarioMail({EMAIL:mailNuevo, DOC:dni,EMAIL_ANT:mailAnt});
+    }
+    
   encrypt(data: string) {
     let _key = CryptoJS.enc.Utf8.parse("0123456789123456");
     let _iv = CryptoJS.enc.Utf8.parse("0123456789123456");

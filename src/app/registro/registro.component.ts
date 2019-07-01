@@ -30,22 +30,24 @@ ngOnInit() {
 
 public registrarUsuario(registroForm:NgForm): void {
     let value=registroForm.value;
-    
-    if(value.pass!=value.pass2){
-        this.passMatch=false;
-    }
-    else{
-       let value=registroForm.value;  
-        this.gestorPersona.crearPersona(1,value.nombre,value.apellido,value.email,value.tipoDoc,value.nroDoc,"",value.telefono,"usuario");
-        this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc,value.provincia,value.ciudad);
-        $('#registrarse_modal').modal('hide');
-        registroForm.reset();
+    if(this.contador==0){
+        if(value.pass!=value.pass2){
+            this.passMatch=false;
+        }
+        else{ 
+            let cad1=value.email.replace(/\s/g, "");
+            this.gestorPersona.crearPersona(1,value.nombre,value.apellido,cad1,value.tipoDoc,value.nroDoc,"",value.telefono,"usuario");
+            this.gestorUsuario.crearUsuario(value.email,value.pass,value.codPostal,value.direc,value.provincia,value.ciudad);
+            $('#registrarse_modal').modal('hide');
+            registroForm.reset();
+        }
     }
 }
 
 public usuarioExiste(email:string){
     if(email){
-        this.gestorUsuario.existe(email).subscribe(res => {this.contador = res;});
+        let cad1=email.replace(/\s/g, "");
+        this.gestorUsuario.existe(cad1).subscribe(res => {this.contador = res;});
     }
 }
 
@@ -56,7 +58,8 @@ public back(){
 public iniciarSesion(loginForm:NgForm) {
     let value=loginForm.value;
     
-    this.gestorUsuario.iniciarSesion(value.correo, value.contrasenia);
+    let cad1=value.correo.replace(/\s/g, "");
+    this.gestorUsuario.iniciarSesion(cad1, value.contrasenia);
 }
 
 

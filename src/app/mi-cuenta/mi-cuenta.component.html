@@ -3,8 +3,8 @@
         <a data-dismiss="modal" aria-hidden="true" > <div class="cerrar" (click)="this.back()"><h4><strong>CERRAR <span class="celeste">X</span></strong></h4></div></a>
     </div>
     <div class="modal-header">
-
-        <h3 id="myModalLabelA" >MI CUENTA</h3>
+        <div class="row-fluid"><div class="span6"><h5 class="text-left" style="margin-left: 20px;">MIS DATOS</h5></div>
+        <div class="span6"><h3 id="myModalLabelA" >MI CUENTA</h3></div></div>
       
     </div>
     <div class="cont">
@@ -14,18 +14,47 @@
                 <div class="span6">
                     <img src="assets/img/logo-med.png">
                 </div>
-                <div class="span6" style="margin-top: 20px;"><h4  style="margin-left: 60px;text-transform: uppercase"><strong> <span class="celeste" *ngIf="isUserLoggedIn==true">BIENVENIDO </span></strong>{{usuario.getNombre()}} {{usuario.getApellido()}}</h4></div>
+                <div class="span6" style="margin-top: 20px;"><h4  style="text-transform: uppercase;float:right;margin-right:30px"><strong> <span class="celeste" *ngIf="isUserLoggedIn==true">BIENVENIDO </span></strong>{{usuario.getNombre()}} {{usuario.getApellido()}}</h4></div>
                 </div>
+                <div class="span6">
+                    
+                </div>
+                
               </div>
-                   <form ngNativeValidate #registroForm="ngForm" (ngSubmit)=(registrarUsuario(registroForm))>
+            <div class="row-fluid" >
+                <div style="padding-left:50px;">
+                <div class="ocultar"> <h4  style="text-transform: uppercase">MODIFICAR <strong> <span class="celeste" > EMAIL </span></strong></h4>
+                   <form ngNativeValidate #formMail="ngForm" (ngSubmit)=(cambiarMail(formMail))>
+                      <input type="text" id="dni" autofocus name="dni"  minlength="7" maxlength="8"  pattern="\d*" [(ngModel)]="dni" class="input-block-level input_mod" placeholder="DNI"  required />
+                <input type="email" id="email1" name="email1" [(ngModel)]="email1" class="input-block-level input_mod" placeholder="EMAIL ANTERIOR"  required />
+                <input type="email" id="email2" name="email2" [(ngModel)]="email2" class="input-block-level input_mod" placeholder="EMAIL NUEVO"  required />
+            
+                 <div class="row-fluid" style="margin-top: 10px;width:640px;">
+                <div  class="button btn_log boton_violeta " id="ingresar">
+                    <button type="submit"  >MODIFICAR</button>
+
+                </div>
+            </div>
+        </form> </div>
+            <div class="errorForm" *ngIf="dataMatch==false"  >ERROR: MAIL O DNI INCORRECTO.</div>
+            
+            
+            <h4  style="text-transform: uppercase">MODIFICAR <strong> <span class="celeste" > CONTRASE&Ntilde;IA </span></strong></h4>
+    <form ngNativeValidate #formContrasenia="ngForm" (ngSubmit)=(cambiarContrasenia(formContrasenia))>
                   
-                  <input type="text" id="nombre" name="nombre"[(ngModel)]="nombre" class="input-block-level input_mod" placeholder="NOMBRE"  required />
-                <input type="text" id="apellido" name="apellido" [(ngModel)]="apellido" class="input-block-level input_mod" placeholder="APELLIDO"  required />
-               
-        </form> 
+          <input type="password" id="passAnt" minlength="6" name="passAnt"[(ngModel)]="passAnt" class="input-block-level input_mod" placeholder="CONTRASE&Ntilde;A ANTERIOR"  required />
+        <input type="password" id="pass1" minlength="6" name="pass1" [(ngModel)]="pass1" class="input-block-level input_mod" placeholder="NUEVA CONTRASE&Ntilde;A"  required />
+        <input type="password" id="pass2" minlength="6" name="pass2" [(ngModel)]="pass2" class="input-block-level input_mod" placeholder="VERIFICAR CONTRASE&Ntilde;A NUEVA"  required />
+              <div class="row-fluid" style="margin-top: 10px;width:640px;">
+        <div  class="button btn_log boton_violeta " id="ingresar">
+                    <button type="submit"  >MODIFICAR</button>
+
+                </div></div>
         
-
-
+<div class="errorForm" *ngIf="passMatch==false"  >ERROR: LAS CONTRASE&Ntilde;AS NO COINCIDEN.</div>
+        </form> 
+          </div> </div>
+           <small>LOS DATOS QUE TE SOLICITAMOS A CONTINUACIÓN SON PARA TU SEGURIDAD AL MOMENTO DE REALIZAR TUS COMPRAS.</small>
     </div>
 
 </div>
