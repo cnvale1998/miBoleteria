@@ -111,7 +111,8 @@ export class EntradaComponent implements OnInit {
         ID_BENEFICIO: this.entradaControlador.$idBeneficio,
         FECHA: this.entradaControlador.$fecha,
         TOTAL: this.entradaControlador.$precioCombo+this.entradaControlador.$precioEntrada,
-        ID_COMBO: this.entradaControlador.$idCombo
+        ID_COMBO: this.entradaControlador.$idCombo,
+        EMAIL: "manuelnc53@gmail.com"
       }).subscribe();
 
 
