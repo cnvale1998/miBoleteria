@@ -2,6 +2,9 @@
     <div class="row-fluid" style="padding:15px;">
         <div class="span2"></div>
         <div class="span10"> 
+           
+            <a style='cursor: pointer;' data-toggle="modal" data-target="#combos_modal" ><h5 class="azul myriad" id="masInfo"><u>HACE CLICK AQUÍ PARA MÁS INFORMACIÓN SOBRE NUESTROS PRODUCTOS</u></h5></a>
+            <div class="modal-body" >
             <table>
                 <thead>
                     <tr>
@@ -12,6 +15,7 @@
                         <th></th>
                     </tr>
                 </thead> 
+                
                 <tbody *ngFor="let combo of combos">
                         <tr>
                                 <td><div class="text-right violeta">@{{combo.NOMBRE}}:</div></td>
@@ -78,13 +82,16 @@
                     </tr>-->
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span3"></div>
-        <div class="span9"><small class="gris">Le recordamos que si selecciona productos de Candy solo podrá utilizar la opción de compra con tarjeta de crédito o débito para finalizar su operación.</small></div>
+            <div class="row-fluid">
+<small class="gris">Le recordamos que si selecciona productos de Candy solo podrá utilizar la opción de compra con tarjeta de crédito o débito para finalizar su operación.</small>
 
     </div>
+            </div>
+            
+           
+        </div>
+    </div>
+    
 </div>
 <div id="combos_modal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 

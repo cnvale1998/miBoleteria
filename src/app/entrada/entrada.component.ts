@@ -69,7 +69,7 @@ export class EntradaComponent implements OnInit {
 
   generarPDF() {
 
-    if(this.entradaControlador.$tarjeta=="" && this.entradaControlador.$terminos==false){
+    if(this.entradaControlador.$tarjeta=="" || this.entradaControlador.$terminos==false){
       this.mensaje_alerta="Le falta completar informacion";
       this.alerta=true;
     }else{

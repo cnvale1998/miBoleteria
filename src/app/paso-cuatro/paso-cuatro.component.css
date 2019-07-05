@@ -1,3 +1,4 @@
+
 #cont_paso4{
     background: #fff url(./../../assets/img/fondo_cont4.jpg) no-repeat;
     height: 420px;
@@ -58,4 +59,12 @@
     position:relative;
     margin-top:-20px;
     background:#dadada;
+}
+.modal-body {
+    position: relative;
+    max-height: 330px;
+    left: -20px;
+    padding: 15px;
+    overflow-y: auto;
+    height: 500px;
 }
