@@ -100,17 +100,15 @@
                 <button (click)="this.pasarPaso()" ><span>Continuar</span></button>
             </div>
 
-            <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                <button  (click)="this.generarPDF()"><span>Finalizar</span></button>
-               <!-- <button onclick="document.getElementById('formulario').click()"><span>Finalizar</span></button>-->
-                <!--funcionamiento: para cualquiera de los botones 
-                por ejemplo en el paso 1 al elegir la ciudad en el form tenes un boton oculto que haga el submit
-                <input type="submit" id="ciudad" name="ciudad" class="hide" />
-                entonces al hacer click en el boton que es visible la accion es hacer click en el boton oculto que hace el submit del form
-                 <button onclick="ciudad.click();"><span>Continuar</span></button>
-                -->
-
+           <div class="button comprar" [ngClass]="{'ocultar': paso!=5}" *ngIf="isUserLoggedIn==true else notShow">
+                 <button  (click)="this.generarPDF()"><span>Finalizar</span></button>
+             </div>
+            <ng-template #notShow>
+             <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                <button routerLink="/registro" onClick="alert('Debes iniciar sesi\363n para continuar')"><span>Finalizar</span></button>
+           
             </div>
+            </ng-template>
         </div>
     </div>
     <div class="row-fluid" style="position: absolute;z-index:0;top:-25px">

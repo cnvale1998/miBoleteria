@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import * as jsPDF from 'jspdf';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
+import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
 
 @Component({
   selector: 'app-entrada',
@@ -15,12 +16,19 @@ export class EntradaComponent implements OnInit {
   private idCiudad:number;
   private mensaje_alerta:String="";
   private alerta:boolean=false;
-  constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService) { 
+  private usuario:any;
+  private isUserLoggedIn:boolean;
+  
+  constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
       if(this._route.snapshot.paramMap.get('idCiudad')){
         this.idCiudad=Number(this._route.snapshot.paramMap.get('idCiudad'));
         //guardar en la sesion
       }
+    this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
+    if(this.isUserLoggedIn){
+            this.usuario=this.gestorUsuario.getUsuarioActual();
+    }
   }
 
   ngOnInit() {
