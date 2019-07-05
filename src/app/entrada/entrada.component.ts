@@ -18,16 +18,18 @@ export class EntradaComponent implements OnInit {
   private alerta:boolean=false;
   private usuario:any;
   private isUserLoggedIn:boolean;
+  private complejo:string;
   
   constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
       if(this._route.snapshot.paramMap.get('idCiudad')){
         this.idCiudad=Number(this._route.snapshot.paramMap.get('idCiudad'));
-        //guardar en la sesion
+        
       }
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
     if(this.isUserLoggedIn){
             this.usuario=this.gestorUsuario.getUsuarioActual();
+            this.complejo= this.gestorUsuario.getComplejo();
     }
   }
 
@@ -111,8 +113,10 @@ export class EntradaComponent implements OnInit {
       this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
       documento.text("$"+this.entradaControlador.$precioEntrada.toString(), 42, 41);
 
-      
-      
+      let correo="";
+       if(this.isUserLoggedIn){
+           correo=this.usuario.getEmail();
+       }
       documento.output("dataurlnewwindow");
   
       this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
@@ -122,8 +126,8 @@ export class EntradaComponent implements OnInit {
         this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+"0:00",
         TOTAL: this.entradaControlador.$precioCombo+this.entradaControlador.$precioEntrada,
         ID_COMBO: this.entradaControlador.$idCombo,
-        EMAIL: "manuelnc53@gmail.com"
-      }).subscribe();
+        EMAIL: correo
+      }).subscribe((res) =>{ console.log(res);});
 
 
     }

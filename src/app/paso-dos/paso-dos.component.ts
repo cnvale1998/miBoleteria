@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 import { disableBindings } from '@angular/core/src/render3';
+import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
+
 
 @Component({
   selector: 'app-paso-dos',
@@ -12,12 +14,15 @@ export class PasoDosComponent implements OnInit {
   peliculas:any[];
   hoy:number=new Date().getDay();
   opcion:number=-1
+  private isUserLoggedIn:boolean;
+  private complejo:string;
   
-
   
-  
-  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ) { 
-
+  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService) { 
+    this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
+       if(this.isUserLoggedIn){
+            this.complejo= this.gestorUsuario.getComplejo();
+    }
 
   }
 

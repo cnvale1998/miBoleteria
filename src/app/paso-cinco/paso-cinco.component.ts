@@ -15,7 +15,7 @@ export class PasoCincoComponent implements OnInit {
   private isUserLoggedIn:boolean;
   
 
-  tarjeta: string="";
+  private tarjeta: string="";
   terminos: boolean=false;
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService,private gestorUsuario:GestorUsuarioService) { 
 	   this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
@@ -30,8 +30,10 @@ export class PasoCincoComponent implements OnInit {
     
   }
 
-  guardarTarjeta(){
+  guardarTarjeta(tt:string){
+    this.tarjeta=tt;
     this.entradaControlador.$tarjeta=this.tarjeta;
+     
   }
 
   guardarTerminos(){

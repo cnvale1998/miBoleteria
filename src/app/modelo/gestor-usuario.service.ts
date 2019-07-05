@@ -53,6 +53,7 @@ export class GestorUsuarioService {
      public cerrarSesion() {
         localStorage.removeItem("infoUsuario");
         localStorage.removeItem("sesionIniciada");
+        localStorage.removeItem("complejo");
         //localStorage.clear();
         this.userLoggedIn = false;
         this.navegar();//TENGO QUE HACER UN RELOAD
@@ -69,6 +70,14 @@ export class GestorUsuarioService {
     public setUsuarioActual(dato:Object){
         localStorage.setItem('sesionIniciada', JSON.stringify('si'));
         localStorage.setItem('infoUsuario', JSON.stringify(dato));
+    }
+    public setComplejo(complejo:string){
+        localStorage.setItem("complejo", JSON.stringify(complejo));
+    }
+    public getComplejo(){
+        let res:string;
+        res= JSON.parse(localStorage.getItem('complejo'));
+        return res;  
     }
 
     public getUsuarioActual(){

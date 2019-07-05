@@ -5,7 +5,7 @@
             <div class="modal-body" id="cartelera"><!--------ESTE DIV TIENE UN SCROLLBAR ------->
 
                 <ul>
-                    <li class="cinema">CINEMACENCER SAN LUIS - <span class="city">San Luis</span></li>
+                    <li class="cinema">CINEMACENCER {{complejo}} - <span class="city">{{complejo}}</span></li>
 
                     <div *ngFor="let pelicula of peliculas">
                     <li *ngIf="pelicula.ID_PELICULA!=this.entradaControlador.$idPelicula; else seleccionado"><a (click)="guardarPelicula(pelicula.NOMBRE,pelicula.ID_PELICULA)" >{{pelicula.NOMBRE}}</a>
