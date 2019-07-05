@@ -99,7 +99,8 @@ export class EntradaComponent implements OnInit {
       documento.setFontStyle("normal");
       documento.setTextColor(0, 0, 0);
       documento.text(this.entradaControlador.$nombrePelicula, 42, 25);
-      documento.text(this.entradaControlador.$fecha, 42, 33);
+      documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
+      this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
       documento.text("$"+this.entradaControlador.$precioEntrada.toString(), 42, 41);
 
       
@@ -109,7 +110,8 @@ export class EntradaComponent implements OnInit {
       this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
         PRECIO:this.entradaControlador.$precioEntrada,
         ID_BENEFICIO: this.entradaControlador.$idBeneficio,
-        FECHA: this.entradaControlador.$fecha,
+        FECHA: this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
+        this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+"0:00",
         TOTAL: this.entradaControlador.$precioCombo+this.entradaControlador.$precioEntrada,
         ID_COMBO: this.entradaControlador.$idCombo,
         EMAIL: "manuelnc53@gmail.com"

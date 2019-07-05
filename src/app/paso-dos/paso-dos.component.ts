@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
+import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-paso-dos',
@@ -9,6 +10,10 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
 })
 export class PasoDosComponent implements OnInit {
   peliculas:any[];
+  hoy:number=new Date().getDay();
+  opcion:number=-1
+  
+
   
   
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ) { 
@@ -19,6 +24,15 @@ export class PasoDosComponent implements OnInit {
   ngOnInit() {
     var hoy=new Date();
     this.ObtenerCartelera(this.calcularPeriodo(hoy));
+    let date: Date = new Date(2017, 4, 13, 17, 23, 42, 11);  
+    
+    console.log("Year = " + date.getFullYear());  
+    console.log("Date = " + date.getDate());  
+    console.log("Month = " + date.getMonth());  
+    console.log("Day = " + date.getDay());  
+    console.log("Hours = " + date.getHours());  
+    console.log("Minutes = " + date.getMinutes());  
+    console.log("Seconds = " + date.getSeconds());  
     
   }
   ObtenerCartelera(fecha:String){
@@ -26,8 +40,14 @@ export class PasoDosComponent implements OnInit {
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
-  guardarFecha(fecha:Date){
-    this.entradaControlador.$fecha=fecha;
+  guardarFecha(dia:number, horas:number, minutos: number){
+    var diaPelicula=new Date();
+    this.opcion=dia;
+    diaPelicula.setDate(diaPelicula.getDate()+(dia-this.hoy));
+    diaPelicula.setHours(horas);
+    diaPelicula.setMinutes(minutos);
+    diaPelicula.setSeconds(0);
+    this.entradaControlador.$fecha=diaPelicula;
    /// window.alert(this.entradaControlador.$fecha);
     
   }
@@ -36,6 +56,9 @@ guardarPelicula(nombre: String, id:number){
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
     
+}
+mayor(valor:number):boolean{
+  return valor>=this.hoy;
 }
 
 calcularPeriodo(hoy:Date):String{
