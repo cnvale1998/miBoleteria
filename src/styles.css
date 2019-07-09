@@ -305,7 +305,7 @@ div.button.continuar span {
 #registrarse_modal .modal-body,#contacto_modal .modal-body {
     max-height: 550px;
 }   
-#registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4,#cuenta_modal h4{
+#registrarse_modal h4,#contacto_modal h4,#clasificaciones_modal h4,#comoComprar_modal h4,#combos_modal h4,#cuenta_modal h4,#butacas_modal h4{
     font-family: 'PT Sans', sans-serif;
     font-weight: lighter;
     margin: 0;
@@ -424,3 +424,4 @@ input[type="password"].input_mod{
     outline: none;
     border-radius: 0px;
 }/* You can add global styles to this file, and also import other style files */
+

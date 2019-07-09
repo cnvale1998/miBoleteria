@@ -1,12 +1,12 @@
 <app-header [paso]="paso"></app-header>
 <div class="row-fluid ">
-<div class=" cont_entrada">
-    
+    <div class=" cont_entrada">
+
         <div class="span12 sombraCont">
             <!-- sidebar-->
             <div class="span3" id="sidebar">
                 <div class="row">
-                   <img src="./assets/img/icon-cca-sidebar.png">
+                    <img src="./assets/img/icon-cca-sidebar.png">
                 </div>
                 <div class="row">
                     <div class="info_detalle">
@@ -15,7 +15,7 @@
                             Complejo: <span>{{complejo}}</span><br/>
                             Pel&iacute;cula<span> {{entradaControlador.$nombrePelicula}}</span><br/>
                             Fecha: <span>{{entradaControlador.$fecha}}</span><br/>
-                           <!-- Horario: <span>17:40</span><br/>-->
+                            <!-- Horario: <span>17:40</span><br/>-->
                         </p>
                     </div>
                 </div>
@@ -23,38 +23,38 @@
                     <div class="info_detalle">
                         <h5>TICKET</h5><!--<h5>TIPO DE ENTRADA</h5>-->
                         <p>
-                           <!--Tipo de Ticket: <span>1xGENERAL</span><br/>
-                            Butaca: <span>66</span><br/>--> 
+                            <!--Tipo de Ticket: <span>1xGENERAL</span><br/>
+                             Butaca: <span>66</span><br/>--> 
                             Candy: <span>${{entradaControlador.$precioCombo}}</span><br/>
                             <!--Cargo administrativo: <span>$15,00 x Ticket</span><br/>-->
-                            Total:<span>${{entradaControlador.$precioCombo+entradaControlador.$precioEntrada}}</span><small> Incluyendo IVA</small>
+                            Total:<span>${{entradaControlador.$precioCombo + entradaControlador.$precioEntrada}}</span><small> Incluyendo IVA</small>
                         </p>
                     </div>
                     <!--Mensaje de error-->
                     <div *ngIf="alerta" class="col-md-3 mb-2">
                         <div  class="alert alert-danger" ng-value="obraAv">
-                             <strong>{{mensaje_alerta}}</strong>
+                            <strong>{{mensaje_alerta}}</strong>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <!--fin sidebar-->
-           
+
             <div class="span9" id="contenedor">
                 <!--comienzo de los divs de los pasos -->
-                   <div [ngSwitch]="paso">
+                <div [ngSwitch]="paso">
                     <div *ngSwitchCase="2">
                         <app-paso-dos></app-paso-dos>
-                       
+
                     </div>
                     <div *ngSwitchCase="3">
                         <app-paso-tres></app-paso-tres>
                     </div>
-                       <div *ngSwitchCase="4">
+                    <div *ngSwitchCase="4">
                         <app-paso-cuatro></app-paso-cuatro>
                     </div>
-                       <div *ngSwitchCase="5">
+                    <div *ngSwitchCase="5">
                         <app-paso-cinco></app-paso-cinco>
                     </div>
                 </div>
@@ -66,53 +66,110 @@
 </div>
 
 <div class="row-fluid" style="margin-top:14px">
-    
-<div style="position:relative">
-    <div class="row-fluid " style="position: absolute; z-index:1;top:-14px;">
-        <div class="span10">
-            <!-- no cambiar el orden de los divs-->
-            <!--boton butacas-->
-            <div  class="button butacas" [ngClass]="{'ocultar': paso!=3}"><!-- para no mostrar añadir class ocultar a este div-->
-                <button onclick=""><span>Selecciona</span> tus Butacas</button>
+
+    <div style="position:relative">
+        <div class="row-fluid " style="position: absolute; z-index:1;top:-14px;">
+            <div class="span10">
+                <!-- no cambiar el orden de los divs-->
+                <!--boton butacas-->
+                <div  class="button butacas" [ngClass]="{'ocultar': paso!=3}"><!-- para no mostrar añadir class ocultar a este div-->
+                      <button style='cursor: pointer;' data-toggle="modal" data-target="#butacas_modal" ><span>Selecciona</span> tus Butacas</button>
+
+
+                </div>
+                <!-- boton anular operacion-->
+                <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                     <button onclick=""><span>Anular</span></button>
+                </div>
+                <!--navbar de pasos-->
+                <nav id="pasos-footer" class="pasos-footer">
+                    <ul>
+                        <li><a routerLink="/inicio" class="uno active" alt="TU CIUDAD">Paso 1</a></li><!-- class active cambia la img del paso a activo-->
+                        <li><a class="dos active" >Paso 2</a></li>
+                        <li><a   class="tres " [ngClass]="{'active': paso >=3}" >Paso 3</a></li>
+                        <li><a class="cuatro " [ngClass]="{'active': paso >=4}"  href="#">Paso 4</a></li>
+                        <li><a class="cinco " [ngClass]="{'active': paso==5}">Paso 5</a></li>
+                    </ul>
+                </nav>
+
+
 
             </div>
-            <!-- boton anular operacion-->
-            <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                <button onclick=""><span>Anular</span></button>
+
+            <div class="span2">
+                <div class="button continuar " [ngClass]="{'ocultar': paso==5}" ><!-- para no mostrar añadir class ocultar a este div-->
+                    <button (click)="this.pasarPaso()" ><span>Continuar</span></button>
+                </div>
+
+                <div class="button comprar" [ngClass]="{'ocultar': paso!=5}" *ngIf="isUserLoggedIn==true else notShow">
+                     <button  (click)="this.generarPDF()"><span>Finalizar</span></button>
+                </div>
+                <ng-template #notShow>
+                    <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                         <button routerLink="/registro" onClick="alert('Debes iniciar sesi\363n para continuar')"><span>Finalizar</span></button>
+
+                    </div>
+                </ng-template>
             </div>
-            <!--navbar de pasos-->
-            <nav id="pasos-footer" class="pasos-footer">
-                <ul>
-                    <li><a routerLink="/inicio" class="uno active" alt="TU CIUDAD">Paso 1</a></li><!-- class active cambia la img del paso a activo-->
-                    <li><a class="dos active" >Paso 2</a></li>
-                    <li><a   class="tres " [ngClass]="{'active': paso >=3}" >Paso 3</a></li>
-                    <li><a class="cuatro " [ngClass]="{'active': paso >=4}"  href="#">Paso 4</a></li>
-                    <li><a class="cinco " [ngClass]="{'active': paso==5}">Paso 5</a></li>
-                </ul>
-            </nav>
-
-
-
         </div>
-
-        <div class="span2">
-            <div class="button continuar " [ngClass]="{'ocultar': paso==5}" ><!-- para no mostrar añadir class ocultar a este div-->
-                <button (click)="this.pasarPaso()" ><span>Continuar</span></button>
-            </div>
-
-           <div class="button comprar" [ngClass]="{'ocultar': paso!=5}" *ngIf="isUserLoggedIn==true else notShow">
-                 <button  (click)="this.generarPDF()"><span>Finalizar</span></button>
-             </div>
-            <ng-template #notShow>
-             <div class="button comprar" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                <button routerLink="/registro" onClick="alert('Debes iniciar sesi\363n para continuar')"><span>Finalizar</span></button>
-           
-            </div>
-            </ng-template>
+        <div class="row-fluid" style="position: absolute;z-index:0;top:-25px">
+            <img src="./assets/img/bg_shadow.png">
         </div>
-    </div>
-    <div class="row-fluid" style="position: absolute;z-index:0;top:-25px">
-        <img src="./assets/img/bg_shadow.png">
     </div>
 </div>
+
+
+<div id="butacas_modal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header ">
+        <h4><strong> <span class="celeste">SELECCIONA </span></strong>TUS <strong> <span class="celeste">BUTACAS</span></strong></h4>
     </div>
+    
+    <div id='cine_butaca'>
+        <div class="row-fluid cine_top">
+            <div id="rect_gris">
+                <h4 class="text-center"><strong style="font-size: 14px;">PANTALLA</strong></h4>
+            </div>
+        </div>
+        <div class="row-fluid" style="height: 295px;padding-left: 300px;">
+            <div class="modal-body">
+                <table id="tabla_butacas" >
+                    <tbody >
+                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td class="seleccionado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td class="ocupado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    </tbody >
+                </table>
+            </div>
+        </div>
+        <div class="row-fluid" style="height: 30px;">
+            <div id="cine_bottom">
+                <!--h4 ><strong style="font-size: 14px;"><span class="celeste">DISPONIBLE</span> NO DISPONIBLE SELECCIONADA  </strong></h4-->
+                <img src="./assets/img/butaca_disponible.png"><span class=" myriad celeste">DISPONIBLE</span>
+                <img src="./assets/img/butaca_nodisponible.png"><span class=" myriad">NO DISPONIBLE</span>
+                <img src="./assets/img/butaca_seleccionada.png"><span class=" myriad">SELECCIONADA</span>
+                <strong class="myriad" style="font-size: 14px;float:right">BUTACAS SELECCIONADAS: <span class="celeste"> 0</span> </strong>
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="row-fluid" style="padding-bottom:5px;">
+        <div class="button continuar"  >
+            <button ><span>Continuar</span></button>
+        </div>
+        <div  class="button btn_log boton_violeta ">
+            <button  data-dismiss="modal" aria-hidden="true"  >CANCELAR</button>
+        </div>
+    </div>
+
+
+</div>
