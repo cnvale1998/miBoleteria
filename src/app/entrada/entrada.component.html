@@ -79,7 +79,7 @@
                 </div>
                 <!-- boton anular operacion-->
                 <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                     <button onclick=""><span>Anular</span></button>
+                     <button ><span>Anular</span></button>
                 </div>
                 <!--navbar de pasos-->
                 <nav id="pasos-footer" class="pasos-footer">
@@ -134,19 +134,10 @@
             <div class="modal-body">
                 <table id="tabla_butacas" >
                     <tbody >
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td class="seleccionado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td class="ocupado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    </tbody >
+                    <tr *ngFor="let fila of ['A','B','C','D','E','F','G','H','I','J','K','L'];" >
+                        <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                    </tr>
+                     </tbody >
                 </table>
             </div>
         </div>
