@@ -21,109 +21,122 @@
                     </thead>
 
 
-                    <tbody *ngFor="let beneficio of beneficios" ><tr>
-                        <td ><div class="text-right">{{beneficio.NOMBRE}}</div></td>
-                        <td >
-                        <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarBeneficio(beneficio.ID_BENEFICIO)">
-                        <option value="2" >2</option>
-                        <option value="4">4</option>
-                        </select></div> 
-                        </td>
-                        <td ><span class="bold" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
-                        <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
-                        </tr>
-                        
-                        
-                         
-                        
-                        
-                        </tbody>
-                   <!--<tbody>
+                    <tbody>
                         <tr>
                             <td><div class="text-right">GENERAL 3D:</div></td>
-                            <td><div class="text-center"><select id="selc1">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
+                            <td>
+                                <div class="text-center">
+                                    <select id="selc1">
+                                        <option *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10];" value="i">{{i}}</option>
+                                    </select>
+                                </div>
                             </td>
-                            <td ><span class="bold">$250.00</span></td>
+                            <td ><span class="bold">$240.00</span></td>
                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
                         </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 3D BANCO SANTANDER RIO:</div></td>
-                            <td><div class="text-center"><select id="selc2">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
+                        <tr *ngFor="let beneficio of beneficios">
+                            <td ><div class="text-right">2X1 {{beneficio.NOMBRE}}</div></td>
+                            <td >
+                                <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarBeneficio(beneficio.ID_BENEFICIO)">
+                                        <option value="2" >2</option>
+                                        <option value="4">4</option>
+                                    </select></div> 
                             </td>
-                            <td><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                            <td ><span class="bold" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
+                            <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
                         </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 TARJETA CENCOSUD:</div></td>
-                            <td><div class="text-center"><select id="selc3">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 TARJETA CENCOSUD:</div></td>
-                            <td><div class="text-center"><select id="selc3">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 3D CLUB PERSONAL:</div></td>
-                            <td><div class="text-center"><select id="selc4">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 3D TELEFÓNICA MOVISTAR:</div></td>
-                            <td><div class="text-center"><select id="selc5">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 MEDIFE:</div></td>
-                            <td><div class="text-center"><select id="selc6">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr>
-                            <td><div class="text-right">2X1 ASE:</div></td>
-                            <td><div class="text-center"><select id="selc7">
-                                    <option>0</option>
-                                    <option>2</option>
-                                </select></div>
-                            </td>
-                            <td ><span class="bold">$125.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        
-                    </tbody>--> 
+
+
+
+
+
+                    </tbody>
+                    <!--<tbody>
+                         <tr>
+                             <td><div class="text-right">GENERAL 3D:</div></td>
+                             <td><div class="text-center"><select id="selc1">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$250.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 3D BANCO SANTANDER RIO:</div></td>
+                             <td><div class="text-center"><select id="selc2">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 TARJETA CENCOSUD:</div></td>
+                             <td><div class="text-center"><select id="selc3">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 TARJETA CENCOSUD:</div></td>
+                             <td><div class="text-center"><select id="selc3">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 3D CLUB PERSONAL:</div></td>
+                             <td><div class="text-center"><select id="selc4">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 3D TELEFÓNICA MOVISTAR:</div></td>
+                             <td><div class="text-center"><select id="selc5">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 MEDIFE:</div></td>
+                             <td><div class="text-center"><select id="selc6">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         <tr>
+                             <td><div class="text-right">2X1 ASE:</div></td>
+                             <td><div class="text-center"><select id="selc7">
+                                     <option>0</option>
+                                     <option>2</option>
+                                 </select></div>
+                             </td>
+                             <td ><span class="bold">$125.00</span></td>
+                             <td class="text-center"><span class="bold rojo">$0.00</span></td>
+                         </tr>
+                         
+                     </tbody>--> 
                 </table>
                 <fieldset>
-                        <legend></legend>
+                    <legend></legend>
                 </fieldset>
             </div>
         </div>
