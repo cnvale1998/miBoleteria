@@ -14,7 +14,7 @@
                         <p>
                             Complejo: <span>{{complejo}}</span><br/>
                             Pel&iacute;cula<span> {{entradaControlador.$nombrePelicula}}</span><br/>
-                            Fecha: <span>{{entradaControlador.$fecha}}</span><br/>
+                            Fecha: <span *ngIf='entradaControlador.$fecha!=null'>{{entradaControlador.$fecha.toLocaleString()}}</span><br/>
                             <!-- Horario: <span>17:40</span><br/>-->
                         </p>
                     </div>

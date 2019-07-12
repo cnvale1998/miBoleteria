@@ -18,6 +18,7 @@ import {ApiControladorService} from './controladores/apiControlador/api-controla
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { VerHorariosComponent } from './paso-dos/ver-horarios/ver-horarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
     ContactoComponent,
     RegistroComponent,
     HeaderComponent,
-    MiCuentaComponent
+    MiCuentaComponent,
+    VerHorariosComponent
   ],
   imports: [
     BrowserModule,

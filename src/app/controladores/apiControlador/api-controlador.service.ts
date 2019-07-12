@@ -71,7 +71,12 @@ GuardarEntrada(reserva: any): Observable<any>{
   ObtenerCiudades(){ 
      return this.conector.get(`http://localhost:3000/API/Ciudades/`);
   }
- 
+  
+  getTransmision(id_pelicula: Number){    
+
+    return this.conector.get<any[]>(`http://localhost:3000/API/Transmiten/${id_pelicula}`);
+  }
+
 
 
 }
