@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { VerHorariosComponent } from './paso-dos/ver-horarios/ver-horarios.component';
+import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { VerHorariosComponent } from './paso-dos/ver-horarios/ver-horarios.compo
     RegistroComponent,
     HeaderComponent,
     MiCuentaComponent,
-    VerHorariosComponent
+    VerHorariosComponent,
+    PaginaNoEncontradaComponent
   ],
   imports: [
     BrowserModule,

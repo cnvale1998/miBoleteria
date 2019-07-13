@@ -11,7 +11,7 @@
                     <select id="ciudad" name="ciudad" [(ngModel)]="ciudad.status"  class="selectCiudad " required oninvalid="this.setCustomValidity('Debes elegir una ciudad')"
  oninput="setCustomValidity('')">
                         <option [value]="''" [selected]="ciudad.status ==''" disabled >(ELIJA UNA  CIUDAD)</option>
-                        <option  *ngFor="let ciudad of ciudades" [value]="ciudad.getNombre()">
+                        <option name="elegido" *ngFor="let ciudad of ciudades" [value]="ciudad.getNombre()">
                             {{ciudad.getNombre()}}
                     </option>
 

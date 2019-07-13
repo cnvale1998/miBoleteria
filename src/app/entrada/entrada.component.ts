@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import * as jsPDF from 'jspdf';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -25,11 +25,16 @@ export class EntradaComponent implements OnInit {
   private maxButacaSelec:number=5;
   private errorButacas:boolean=false;
   
-  constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
+  constructor(private r:Router,private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
-      if(this._route.snapshot.paramMap.get('idCiudad')){
+      
+      /*if(this._route.snapshot.paramMap.get('idCiudad')){
         this.idCiudad=Number(this._route.snapshot.paramMap.get('idCiudad'));
         
+      }*/
+      if(this._route.snapshot.paramMap.get('nombreCiudad')){
+        this.complejo=this._route.snapshot.paramMap.get('nombreCiudad');
+        this.paso=2;
       }
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
     if(this.isUserLoggedIn){
@@ -42,6 +47,7 @@ export class EntradaComponent implements OnInit {
   }
    public pasarPaso(){
      //console.log(this.entradaControlador.$fecha)
+     console.log("presione continuar, paso: "+this.paso);
      switch(this.paso){
       case 2:{  
               if(this.entradaControlador.$nombrePelicula==""){
@@ -53,9 +59,17 @@ export class EntradaComponent implements OnInit {
                 this.alerta=true;
               }else{this.alerta=false;
                 this.paso= this.paso+1;
-                this.location.go("entrada/"+this.paso);} 
-
+                //this.location.go("entrada/"+this.paso);}
+                let idPelicula= this.entradaControlador.$idPelicula;
+                //this.location.go("entrada/"+this.complejo+"/"+idPelicula);
+                let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+                let paso=this.paso;
+                this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula}]);
+                //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
+                //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
+                //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
             } 
+          }
           
         
       }break;
@@ -66,16 +80,35 @@ export class EntradaComponent implements OnInit {
               else{
               this.alerta=false;
               this.paso= this.paso+1;
-              this.location.go("entrada/"+this.paso);
-              }
+              //this.location.go("entrada/"+this.paso);
+              let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+              
+              let idPelicula= this._route.snapshot.paramMap.get('pelicula');
+              let idBeneficio=this.entradaControlador.$idBeneficio;
+              let paso=this.paso;
+              //this.location.go("entrada/"+this.complejo+"/"+idPelicula+"/"+idBeneficio);
+              this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]);  
+              console.log("paso 3");
+              //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
+              //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
+              //console.log("beneficio elegido"+this._route.snapshot.paramMap.get('idBeneficio'));
+            }
       } break;
       case 4:{
               this.alerta=false;
               this.paso= this.paso+1;
-              this.location.go("entrada/"+this.paso);
-
-
+              //this.location.go("entrada/"+this.paso);
+              let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+              let idPelicula= this._route.snapshot.paramMap.get('pelicula');
+              let idBeneficio= this._route.snapshot.paramMap.get('beneficio');
+              let idCombo=this.entradaControlador.$idCombo;
+              let paso=this.paso;
+              //this.location.go("entrada/"+this.complejo+"/"+idPelicula+"/"+idBeneficio+"/"+idCombo);
+              this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio,combo:idCombo}]);  
+              
+              
       }break;
+
       
      }
       
@@ -169,5 +202,30 @@ export class EntradaComponent implements OnInit {
         }
         document.getElementById('butacaSelec').innerHTML = ''+this.butacaList.length;
         console.log(this.butacaList);
+    }
+
+    volver(numero:number){
+
+      console.log(numero);
+      switch(numero){
+        case 2:{
+          let paso=this.paso=2;
+          let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+          this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad}]);
+
+        }
+        break;
+        case 3:{
+          //this.r.navigate(['/entrada',paso,nombreCiudad,{pelicula:idPelicula}]);
+          this.paso=3;
+        }
+        break;
+        case 4:{
+          this.paso=4;
+
+        }
+        break;
+
+      }
     }
 }

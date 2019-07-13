@@ -12,7 +12,7 @@
             <li><a routerLink="/contacto">CONTACTO</a></li>
         </ul>
         <div class="logo_nav"><img src="./assets/img/logo.png"></div>
-        <img  class="img_paso" src="./assets/img/paso{{paso}}_bg.png"> 
+        <img *ngIf='paso!=null' class="img_paso" src="./assets/img/paso{{paso}}_bg.png"> 
         <!-- INFO SESION-->
 
         <div class="span4 logged " [ngClass]="{'noMostrar': isUserLoggedIn ==false}"> 
