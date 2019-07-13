@@ -49,7 +49,7 @@
 
                     </div>
                     <div *ngSwitchCase="3">
-                        <app-paso-tres></app-paso-tres>
+                        <app-paso-tres ></app-paso-tres>
                     </div>
                     <div *ngSwitchCase="4">
                         <app-paso-cuatro></app-paso-cuatro>
@@ -79,7 +79,7 @@
                 </div>
                 <!-- boton anular operacion-->
                 <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
-                     <button onclick=""><span>Anular</span></button>
+                     <button ><span>Anular</span></button>
                 </div>
                 <!--navbar de pasos-->
                 <nav id="pasos-footer" class="pasos-footer">
@@ -134,19 +134,10 @@
             <div class="modal-body">
                 <table id="tabla_butacas" >
                     <tbody >
-                    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td class="seleccionado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td class="ocupado"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    </tbody >
+                    <tr *ngFor="let fila of ['A','B','C','D','E','F','G','H','I','J','K','L'];" >
+                        <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                    </tr>
+                     </tbody >
                 </table>
             </div>
         </div>
@@ -156,13 +147,14 @@
                 <img src="./assets/img/butaca_disponible.png"><span class=" myriad celeste">DISPONIBLE</span>
                 <img src="./assets/img/butaca_nodisponible.png"><span class=" myriad">NO DISPONIBLE</span>
                 <img src="./assets/img/butaca_seleccionada.png"><span class=" myriad">SELECCIONADA</span>
-                <strong class="myriad" style="font-size: 14px;float:right">BUTACAS SELECCIONADAS: <span class="celeste"> 0</span> </strong>
+                <strong class="myriad" style="font-size: 14px;float:right">BUTACAS SELECCIONADAS: <span class="celeste" id="butacaSelec">0</span> </strong>
                
             </div>
         </div>
     </div>
     
     <div class="row-fluid" style="padding-bottom:5px;">
+        <span class="errorForm" style="margin-left:10px;" *ngIf="errorButacas==true"  >YA SELECCIONO TODAS LAS BUTACAS</span>
         <div class="button continuar"  >
             <button ><span>Continuar</span></button>
         </div>

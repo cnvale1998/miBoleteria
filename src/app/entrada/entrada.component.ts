@@ -5,6 +5,8 @@ import * as jsPDF from 'jspdf';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-entrada',
@@ -19,6 +21,9 @@ export class EntradaComponent implements OnInit {
   private usuario:any;
   private isUserLoggedIn:boolean;
   private complejo:string;
+  private butacaList=[];
+  private maxButacaSelec:number=5;
+  private errorButacas:boolean=false;
   
   constructor(private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
       this.paso=Number(this._route.snapshot.paramMap.get('paso'));
@@ -132,6 +137,37 @@ export class EntradaComponent implements OnInit {
 
     }
 
-}
+    }
 
+    agregarButaca(r:string,c:number){
+        
+        if(this.butacaList.length < this.maxButacaSelec){
+            this.butacaList.push({fila:r, butaca: c});
+            document.getElementById(r+'_'+c).classList.add('seleccionado');
+        }
+        else{
+            this.errorButacas=true;
+        }
+    }
+    borrarButaca(r:string,c:number):boolean{
+        let exito=false;
+        for(var i=0;i<this.butacaList.length;i++){
+            if(this.butacaList[i]["fila"]==r && this.butacaList[i]["butaca"]==c){
+                this.butacaList.splice(i,1);
+                document.getElementById(r+'_'+c).classList.remove('seleccionado');
+                exito=true;
+                 this.errorButacas=false;
+            }
+        }
+        
+        return exito;
+    }
+    elegirButaca(r:string,c:number){
+        let exito=this.borrarButaca(r,c);
+        if(!exito){
+            this.agregarButaca(r,c);
+        }
+        document.getElementById('butacaSelec').innerHTML = ''+this.butacaList.length;
+        console.log(this.butacaList);
+    }
 }
