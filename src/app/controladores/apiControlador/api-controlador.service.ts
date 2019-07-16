@@ -37,6 +37,10 @@ GuardarEntrada(reserva: any): Observable<any>{
   };
    return this.conector.put<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
 }
+getTransmision(id_pelicula: Number){    
+
+  return this.conector.get<any[]>(`http://localhost:3000/API/Transmiten/${id_pelicula}`);
+}
   crearConsulta(datos:Object){  
     this.conector.post('http://localhost:3000/API/Consultas/', datos ).subscribe((res) =>{ console.log(res);alert(res["message"]);});
   }

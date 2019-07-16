@@ -17,7 +17,6 @@ export class PasoDosComponent implements OnInit {
   private isUserLoggedIn:boolean;
   private complejo:string;
   
-  
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService) { 
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
        if(this.isUserLoggedIn){
@@ -54,13 +53,12 @@ export class PasoDosComponent implements OnInit {
     diaPelicula.setSeconds(0);
     this.entradaControlador.$fecha=diaPelicula;
    /// window.alert(this.entradaControlador.$fecha);
-    
+   
   }
   
 guardarPelicula(nombre: String, id:number){ 
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
-    
 }
 mayor(valor:number):boolean{
   return valor>=this.hoy;
