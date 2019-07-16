@@ -1,0 +1,20 @@
+
+<div *ngFor="let dia of dias"><!--recorre los días de la semana restantes donde la cartelera sea válida-->
+<div class="cuadro-horario" style="margin-bottom: 15px;">
+<span>{{dia[0]}}</span>
+  <br>
+    <a *ngIf='seleccionado!=dia[0]+" "+dia[2].horario1;else selec' class="horario" (click)="guardarHorario(dia[0],dia[1],dia[2].horario1)">{{dia[2].horario1}}</a>
+    
+        <ng-template #selec>
+                <a [ngStyle]="{'color':'black', 'background-color':'#01c5fe','cursor':'pointer'}" class="horario" (click)="guardarHorario(dia[0],dia[1],dia[2].horario1)">{{dia[2].horario1}}</a>
+    
+        </ng-template>
+    <br>
+        <a *ngIf='seleccionado!=dia[0]+" "+dia[2].horario2;else selec2' class="horario" (click)="guardarHorario(dia[0],dia[1],dia[2].horario2)">{{dia[2].horario2}}</a>
+    
+    <ng-template #selec2>
+                <a [ngStyle]="{'color':'black', 'background-color':'#01c5fe','cursor':'pointer'}" class="horario" (click)="guardarHorario(dia[0],dia[1],dia[2].horario2)">{{dia[2].horario2}}</a>
+        
+        </ng-template>
+</div>
+</div>

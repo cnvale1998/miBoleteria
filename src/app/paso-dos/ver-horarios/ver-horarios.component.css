@@ -1,0 +1,11 @@
+a.horario {
+    color:grey;
+
+}
+
+a.horario:hover{
+    color:red;
+    cursor:pointer;
+}
+
+

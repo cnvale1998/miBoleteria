@@ -7,13 +7,13 @@
                     <li class="cinema">CINEMACENCER {{complejo}} - <span class="city">{{complejo}}</span></li>
 
                     <div *ngFor="let pelicula of peliculas">
-                    <li *ngIf="pelicula.ID_PELICULA!=this.entradaControlador.$idPelicula; else seleccionado"><a (click)="guardarPelicula(pelicula.NOMBRE,pelicula.ID_PELICULA)" >{{pelicula.NOMBRE}}</a>
+                    <li *ngIf="pelicula.ID_PELICULA!=this.entradaControlador.$idPelicula; else seleccionado"><a style="cursor:pointer;" (click)="guardarPelicula(pelicula.NOMBRE,pelicula.ID_PELICULA)" >{{pelicula.NOMBRE}}</a>
                         
                        
                     </li>
                     <ng-template #seleccionado  >
                             <li >
-                                <a [ngStyle]="{'color': 'blue'}">{{pelicula.NOMBRE}}</a>
+                                <a [ngStyle]="{'color':'black', 'background-color':'#01c5fe','cursor':'pointer'}">{{pelicula.NOMBRE}}</a>
                             </li>
                             
                     </ng-template>
@@ -29,6 +29,7 @@
         <div class="span3">
             <h4 class="titulo" id="horario"><span>HORARIOS</span></h4>
             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
+
                 <div *ngIf='mayor(1)'>
                 <ul *ngIf="this.opcion!=1; else seleccionadoFecha1" >
                     <li class="date">Lunes </li>
@@ -85,107 +86,12 @@
                                 </ul>
                             
                     </ng-template>
+
+                <div *ngFor="let h of horario">
+                    <app-ver-horarios [hoy]="hoy" [horarios]="h.HORARIOS" (evento)="horarioSeleccionado=$event"></app-ver-horarios>
+
                 </div>
-                <div *ngIf='mayor(5)'>
-                        <ul *ngIf="this.opcion!=5; else seleccionadoFecha2">
-                            <li class="date">Viernes </li>
-                            <li><a (click)="guardarFecha(5,16,00)">16:00</a></li>
-                           
-                        </ul>
-                        <ng-template #seleccionadoFecha2  >
-                                <ul >
-                                        <li class="date">Viernes  </li>
-                            <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                                    </ul>
-                                
-                        </ng-template>
-                    </div>
-                    <div *ngIf='mayor(6)'>
-                            <ul *ngIf="this.opcion!=6; else seleccionadoFecha2">
-                                <li class="date">Sabado  </li>
-                                <li><a (click)="guardarFecha(6,16,00)">16:00</a></li>
-                               
-                            </ul>
-                            <ng-template #seleccionadoFecha2  >
-                                    <ul >
-                                            <li class="date">Sabado  </li>
-                                <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                                        </ul>
-                                    
-                            </ng-template>
-                        </div>
-                        <div *ngIf='mayor(0)'>
-                                <ul *ngIf="this.opcion!=0; else seleccionadoFecha2">
-                                    <li class="date">Domingo  </li>
-                                    <li><a (click)="guardarFecha(0,16,00)">16:00</a></li>
-                                   
-                                </ul>
-                                <ng-template #seleccionadoFecha2  >
-                                        <ul >
-                                                <li class="date">Domingo  </li>
-                                    <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                                            </ul>
-                                        
-                                </ng-template>
-                            </div>
-                           
-                       
-                   
-               
-                <!-- <ul>
-                    <li class="date">Miércoles 22 de Mayo </li>
-                    <li><a href="">22:40</a></li>
-                </ul>
-
-                <ul>
-                    <li class="date">Jueves 23 de Mayo </li>
-                    <li><a href="">16:00</a></li>
-                    <li><a href="">19:50</a></li>
-                </ul>
-
-                <ul>
-                    <li class="date">Viernes 24 de Mayo </li>
-                    <li><a href="#">15:00</a></li>
-                    <li><a href="#">18:50</a></li>
-                    <li><a href="#">19:30</a></li>
-                    <li><a href="#">21:30</a></li>
-                </ul>
-
-                <ul>
-                    <li class="date">Sábado 25 de Mayo </li>
-                    <li><a href="#">19:30</a></li>
-                    <li><a href="#">21:30</a></li>
-                </ul>
-
-                <ul>
-                    <li class="date">Domingo 26 de Mayo </li>
-                    <li><a href="#">15:00</a></li>
-                    <li><a href="#">18:50</a></li>
-                    <li><a href="#">19:30</a></li>
-                    <li><a href="#">21:30</a></li>
-
-
-                </ul>
-                <ul>
-                    <li class="date">Lunes 27 de Mayo </li>
-                    <li><a href="#">15:00</a></li>
-                    <li><a href="#">18:50</a></li>
-                </ul>
-                <ul>
-                    <li class="date">Martes 28 de Mayo </li>
-                    <li><a href="#">15:00</a></li>
-                    <li><a href="#">18:50</a></li>
-                    <li><a href="#">19:30</a></li>
-                    <li><a href="#">21:30</a></li>
-                </ul>
-                <ul>
-                    <li class="date">Miércoles 29 de Mayo </li>
-                    <li><a href="#">15:00</a></li>
-                    <li><a href="#">18:50</a></li>
-                    <li><a href="#">19:30</a></li>
-                    <li><a href="#">21:30</a></li>
-                </ul>-->
-
+                
             </div>
             <div class="hints">
                 <p>* Los horarios en color <span class="matinee">Azul</span> corresponden a las funciones de <span class="matinee">MATINEE</span>.</p>

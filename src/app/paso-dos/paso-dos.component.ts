@@ -16,6 +16,8 @@ export class PasoDosComponent implements OnInit {
   opcion:number=-1
   private isUserLoggedIn:boolean;
   private complejo:string;
+
+  private horario:any[];
   
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService) { 
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
@@ -28,19 +30,11 @@ export class PasoDosComponent implements OnInit {
   ngOnInit() {
     var hoy=new Date();
     this.ObtenerCartelera(this.calcularPeriodo(hoy));
-    let date: Date = new Date(2017, 4, 13, 17, 23, 42, 11);  
-    
-    console.log("Year = " + date.getFullYear());  
-    console.log("Date = " + date.getDate());  
-    console.log("Month = " + date.getMonth());  
-    console.log("Day = " + date.getDay());  
-    console.log("Hours = " + date.getHours());  
-    console.log("Minutes = " + date.getMinutes());  
-    console.log("Seconds = " + date.getSeconds());  
     
   }
   ObtenerCartelera(fecha:String){
     
+
     this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
 
   }
@@ -53,16 +47,24 @@ export class PasoDosComponent implements OnInit {
     diaPelicula.setSeconds(0);
     this.entradaControlador.$fecha=diaPelicula;
    /// window.alert(this.entradaControlador.$fecha);
-   
+  
+    this.conector.ObetenerCartelera(fecha).subscribe(res => {
+      this.peliculas = res;
+    });
+    
+
   }
+  
   
 guardarPelicula(nombre: String, id:number){ 
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
+
+    this.conector.getTransmision(id).subscribe(res=> {this.horario=res;});
+
 }
-mayor(valor:number):boolean{
-  return valor>=this.hoy;
-}
+
+
 
 calcularPeriodo(hoy:Date):String{
   let diaSemana:number=hoy.getDay();

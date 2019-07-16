@@ -1,0 +1,203 @@
+
+/*estilo para comprar entrada------*/
+/*----nav pasos*/
+nav.pasos-footer {
+    padding: 27px 30px 0 0;
+    float:right;
+}
+nav.pasos-footer ul, nav.pasos-footer ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav.pasos-footer ul li {
+    
+    display: inline;
+    margin-right: -5px;
+}
+nav.pasos-footer ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.pasos-footer a {
+    height: 22px;
+    display: block;
+    background: url(./../../assets/img/bg_menu.png);
+    overflow: hidden;
+    text-indent: -9999px;
+    cursor: default;
+}
+
+
+nav.pasos-footer a.uno.active {
+    background-position: 0 0;
+    cursor: pointer;
+}
+nav.pasos-footer a.uno {
+    width: 108px;
+    background-position: 0 -30px;
+}
+nav.pasos-footer a.dos.active {
+    background-position: -108px 0;
+    cursor: pointer;
+}
+
+nav.pasos-footer a.dos {
+    width: 94px;
+    background-position: -108px -30px;
+}
+nav.pasos-footer a.tres {
+    width: 99px;
+    background-position: -202px -30px;
+}
+nav.pasos-footer a.tres.active {
+    background-position: -202px 0;
+    cursor: pointer;
+}
+nav.pasos-footer a.cuatro {
+    width: 95px;
+    background-position: -301px -30px;
+}
+nav.pasos-footer a.cuatro.active {
+    background-position: -301px 0;
+    cursor: pointer;
+}
+nav.pasos-footer a.cinco {
+    width: 49px;
+    background-position: -395px -30px;
+}
+nav.pasos-footer a.cinco.active {
+    background-position: -395px 0;
+    cursor: pointer;
+}
+
+
+.ocultarLog{
+    visibility: hidden;
+}
+/*-------------------------------------------*/
+/*clases para el contenedor de comprar entrada*/
+.cont_entrada{
+    margin-top:0px;
+    height: 420px;
+}
+#sidebar{
+    height: 420px;
+    background: #000 url(./../../assets/img/bg_sidebar.png) no-repeat;
+    font-size: 14px;
+    line-height: 1;
+    padding-left: 30px;
+}
+#sidebar img{
+    margin-left: 40px;
+    margin-top: 10px;
+}
+.span9#contenedor{
+    margin:0px;
+    height: 420px;
+    width:733px;
+
+}
+#cont_paso2{ 
+    background: #fff url(./../../assets/img/fondo_cont2.jpg) no-repeat;
+    height: 420px;
+}
+
+
+.sombraCont{
+    width: 960px;
+    height: 366px;
+    -moz-box-shadow: 0px 0px 5px 0px #000;
+    /* -webkit-box-shadow: 0px 0px 5px 0px #000; */
+    box-shadow: 0px 0px 5px 0px #000;
+
+}
+.info_detalle{
+
+    padding: 0 10px 40px 20px;
+    background: url(./../../assets/img/arrow.png) 0 2px no-repeat;
+}
+.info_detalle h5{
+    color:#ffffff;
+    font-family: myriad-pro,"Arial black", Arial;
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 0px;
+    font-size: 14px;  
+}
+.info_detalle p{
+    font: 12px 'Tahoma';
+    margin: 0;
+    color: #ffffff;
+
+}
+.info_detalle span{    
+    color: #01c5fe;
+}
+/*-------------------------------------------------*/
+.titulo{
+    font-family: myriad-pro,"Arial black", Arial;
+    color: #000;
+    letter-spacing: -1px;
+}
+.titulo span{
+    color: #e20000;
+}
+
+li.cinema {
+    list-style: disc url(./../../assets/img/ico_cinema.png);
+    color: #000;
+    text-transform:uppercase;
+    pointer-events: none;
+}
+div.hints {
+    width: 320px;
+    bottom: -50px;
+}
+div.hints p {
+    line-height: 14px;
+    margin: 0;
+    font-size: 9px;
+    color: #949393;
+}
+.date {
+    width: 100%;
+    clear: both;
+    color: #000;
+    cursor: text;
+}
+
+.span3#sidebar{
+    width: 227px;
+}
+
+.cont_entrada .span12{
+    position: relative;
+    top:-40px;
+}
+.cine_top{
+    height: 35px;
+    border-color: black;
+    border-bottom: 1px solid;
+}
+#rect_gris{
+    background: #393938;
+    width: 540px;
+    margin-left: 204.5px;
+    margin-top: 10px;
+}
+#cine_bottom{
+    background: black;
+    width:910px;
+    height: 25px;
+    margin-left: 12px;
+    padding-left: 15px;
+    font-size: 11px;
+    color:white;
+    font-weight: lighter;
+}
+#cine_bottom span{
+    margin-right: 25px;
+    margin-left: 5px;
+}
