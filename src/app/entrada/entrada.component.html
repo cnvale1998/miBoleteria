@@ -134,8 +134,24 @@
             <div class="modal-body">
                 <table id="tabla_butacas" >
                     <tbody >
-                    <tr *ngFor="let fila of ['A','B','C','D','E','F','G','H','I','J','K','L'];" >
+                    <tr *ngFor="let fila of ['A']">
+                       <td style=" background-image: none"></td>
+                         <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                    </tr>
+                    <tr *ngFor="let fila of ['B']">
+                       <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12,13];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                       <td style=" background-image: none"></td>
+                    </tr>
+                    <tr *ngFor="let fila of ['C','D','E','F','G','H','I','J','K','L'];" >
                         <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12,13,14];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                    </tr>
+                    <tr *ngFor="let fila of ['M']">
+                       <td style=" background-image: none"></td>
+                         <td *ngFor="let butaca of [1,2,3,4,5,6,7,8,9,10,11,12,13];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
+                    </tr>
+                    <tr *ngFor="let fila of ['N']">
+                       <td style=" background-image: none" *ngFor="let X of [1,2,3,4,5];"></td>
+                       <td *ngFor="let butaca of [1,2,3,4];" id="{{fila}}_{{butaca}}" (click)="this.elegirButaca(fila,butaca)" ></td>
                     </tr>
                      </tbody >
                 </table>

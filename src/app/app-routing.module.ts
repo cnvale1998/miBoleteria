@@ -12,8 +12,6 @@ import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-en
 const routes: Routes =[
 {path:"inicio", component:PasoUnoComponent},
 {path:"entrada/:paso", component: EntradaComponent},
-//{path:"entrada/:paso", component: EntradaComponent},
-//{path:"entrada/:paso/:idCiudad", component: EntradaComponent},
 {path:"registro", component: RegistroComponent},
 {path:"contacto", component: ContactoComponent},
 {path:"clasificaciones", component: ClasificacionesComponent},

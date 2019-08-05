@@ -26,20 +26,13 @@ export class EntradaComponent implements OnInit {
   private errorButacas:boolean=false;
   
   constructor(private r:Router,private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
-      this.paso=Number(this._route.snapshot.paramMap.get('paso'));
-      
-      /*if(this._route.snapshot.paramMap.get('idCiudad')){
-        this.idCiudad=Number(this._route.snapshot.paramMap.get('idCiudad'));
-        
-      }*/
-      if(this._route.snapshot.paramMap.get('nombreCiudad')){
-        this.complejo=this._route.snapshot.paramMap.get('nombreCiudad');
-        this.paso=2;
-      }
+    this.paso=Number(this._route.snapshot.paramMap.get('paso'));
+    this.complejo= this.gestorUsuario.getComplejo();
+    
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
     if(this.isUserLoggedIn){
             this.usuario=this.gestorUsuario.getUsuarioActual();
-            this.complejo= this.gestorUsuario.getComplejo();
+            
     }
   }
 
@@ -62,9 +55,9 @@ export class EntradaComponent implements OnInit {
                 //this.location.go("entrada/"+this.paso);}
                 let idPelicula= this.entradaControlador.$idPelicula;
                 //this.location.go("entrada/"+this.complejo+"/"+idPelicula);
-                let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+               
                 let paso=this.paso;
-                this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula}]);
+                this.r.navigate(['/entrada',paso,{pelicula:idPelicula}]);
                 //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
                 //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
                 //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
@@ -87,6 +80,7 @@ export class EntradaComponent implements OnInit {
               let idBeneficio=this.entradaControlador.$idBeneficio;
               let paso=this.paso;
               //this.location.go("entrada/"+this.complejo+"/"+idPelicula+"/"+idBeneficio);
+             //this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]); 
               this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]);  
               console.log("paso 3");
               //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
@@ -143,28 +137,33 @@ export class EntradaComponent implements OnInit {
       documento.text("Fecha", 12, 33);
       documento.text("Precio", 12, 41);
       
-    
-      documento.setFontStyle("normal");
+   
+    alert(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
+        this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00");
+      
+        documento.setFontStyle("normal");
       documento.setTextColor(0, 0, 0);
       documento.text(this.entradaControlador.$nombrePelicula, 42, 25);
       documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
       this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
       documento.text("$"+this.entradaControlador.$precioEntrada.toString(), 42, 41);
-
+//this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
       let correo="";
        if(this.isUserLoggedIn){
            correo=this.usuario.getEmail();
        }
       documento.output("dataurlnewwindow");
-  
+
       this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
         PRECIO:this.entradaControlador.$precioEntrada,
         ID_BENEFICIO: this.entradaControlador.$idBeneficio,
         FECHA: this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
-        this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+"0:00",
+        this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00",
         TOTAL: this.entradaControlador.$precioCombo+this.entradaControlador.$precioEntrada,
         ID_COMBO: this.entradaControlador.$idCombo,
-        EMAIL: correo
+        EMAIL: correo,
+        MODOPAGO:this.entradaControlador.$tarjeta,
+        ID_CIUDAD: this.complejo
       }).subscribe((res) =>{ console.log(res);});
 
 

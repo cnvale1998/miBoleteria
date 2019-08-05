@@ -24,8 +24,7 @@ export class PasoUnoComponent implements OnInit {
          let idCiudad=(ciudadForm.value.ciudad);//es un string ---se puede guardar en la sesion
          this.gestorUsuario.setComplejo(idCiudad);
          //this._route.navigate(["/entrada/2/"]);
-         let nombreCiudad=ciudadForm.value.ciudad;
          let paso=2;
-         this._route.navigate(['/entrada',paso,{ciudad:nombreCiudad}]);
+         this._route.navigate(['/entrada',paso]);
   }
 }

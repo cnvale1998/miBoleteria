@@ -3,6 +3,7 @@
         <div class="span6" id="info_cartelera">
             <h4 class="titulo"><span>SELECCIONA </span>TU PELICULA</h4>
             <div class="modal-body" id="cartelera"><!--------ESTE DIV TIENE UN SCROLLBAR ------->
+
                 <ul>
                     <li class="cinema">CINEMACENCER {{complejo}} - <span class="city">{{complejo}}</span></li>
 
@@ -29,67 +30,8 @@
         <div class="span3">
             <h4 class="titulo" id="horario"><span>HORARIOS</span></h4>
             <div class="modal-body" id="horarios" ><!--------ESTE DIV TIENE UN SCROLLBAR ------->
-
-                <div *ngIf='mayor(1)'>
-                <ul *ngIf="this.opcion!=1; else seleccionadoFecha1" >
-                    <li class="date">Lunes </li>
-                    <li><a (click)="guardarFecha(1,22,40)">22:40</a></li>
-                </ul>
-                <ng-template #seleccionadoFecha1  >
-                        <ul >
-                                <li class="date">Lunes  </li>
-                                <li><a  [ngStyle]="{'color': 'blue'}" >22:40</a></li>
-                            </ul>
-                        
-                </ng-template>
-                 </div>
-                 <div *ngIf='mayor(2)'>
-                <ul *ngIf="this.opcion!=2; else seleccionadoFecha2">
-                    <li class="date">Martes  </li>
-                    <li><a (click)="guardarFecha(2,16,00)">16:00</a></li>
-                   
-                </ul>
-                <ng-template #seleccionadoFecha2  >
-                        <ul >
-                                <li class="date">Martes  </li>
-                    <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                            </ul>
-                        
-                </ng-template>
-                    
-            </div>
-
-            <div *ngIf='mayor(3)'>
-                <ul *ngIf="this.opcion!=3; else seleccionadoFecha2">
-                    <li class="date">Miercoles  </li>
-                    <li><a (click)="guardarFecha(3,16,00)">16:00</a></li>
-                   
-                </ul>
-                <ng-template #seleccionadoFecha2  >
-                        <ul >
-                                <li class="date">Miercoles  </li>
-                    <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                            </ul>
-                        
-                </ng-template>
-            </div>
-            <div *ngIf='mayor(4)'>
-                    <ul *ngIf="this.opcion!=4; else seleccionadoFecha2">
-                        <li class="date">Jueves  </li>
-                        <li><a (click)="guardarFecha(4,16,00)">16:00</a></li>
-                       
-                    </ul>
-                    <ng-template #seleccionadoFecha2  >
-                            <ul >
-                                    <li class="date">Jueves  </li>
-                        <li><a [ngStyle]="{'color': 'blue'}">16:00</a></li>
-                                </ul>
-                            
-                    </ng-template>
-
                 <div *ngFor="let h of horario">
                     <app-ver-horarios [hoy]="hoy" [horarios]="h.HORARIOS" (evento)="horarioSeleccionado=$event"></app-ver-horarios>
-
                 </div>
                 
             </div>

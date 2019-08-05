@@ -16,15 +16,11 @@ export class PasoDosComponent implements OnInit {
   opcion:number=-1
   private isUserLoggedIn:boolean;
   private complejo:string;
-
   private horario:any[];
   
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService) { 
-    this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
-       if(this.isUserLoggedIn){
-            this.complejo= this.gestorUsuario.getComplejo();
-    }
-
+    this.complejo=this.gestorUsuario.getComplejo();
+   
   }
 
   ngOnInit() {
@@ -34,20 +30,6 @@ export class PasoDosComponent implements OnInit {
   }
   ObtenerCartelera(fecha:String){
     
-
-    this.conector.ObetenerCartelera(fecha).subscribe(res => {this.peliculas = res; });
-
-  }
-  guardarFecha(dia:number, horas:number, minutos: number){
-    var diaPelicula=new Date();
-    this.opcion=dia;
-    diaPelicula.setDate(diaPelicula.getDate()+(dia-this.hoy));
-    diaPelicula.setHours(horas);
-    diaPelicula.setMinutes(minutos);
-    diaPelicula.setSeconds(0);
-    this.entradaControlador.$fecha=diaPelicula;
-   /// window.alert(this.entradaControlador.$fecha);
-  
     this.conector.ObetenerCartelera(fecha).subscribe(res => {
       this.peliculas = res;
     });
@@ -59,9 +41,8 @@ export class PasoDosComponent implements OnInit {
 guardarPelicula(nombre: String, id:number){ 
     this.entradaControlador.$nombrePelicula=nombre;
     this.entradaControlador.$idPelicula=id;
-
     this.conector.getTransmision(id).subscribe(res=> {this.horario=res;});
-
+    
 }
 
 
