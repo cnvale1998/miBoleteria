@@ -28,6 +28,9 @@ export class ApiControladorService {
   BuscarBeneficiosDisponibles(){    
     return this.conector.get<any[]>(`http://localhost:3000/API/Beneficios/`);
 }
+getBenefEntrada(tipo:number){
+    return this.conector.get<any[]>(`http://localhost:3000/API/Beneficios/getBenefEntrada/${tipo}`);
+}
 
 GuardarEntrada(reserva: any): Observable<any>{
   const httpOptions = {
@@ -37,6 +40,11 @@ GuardarEntrada(reserva: any): Observable<any>{
   };
    return this.conector.put<any>(`http://localhost:3000/API/Entradas/`, JSON.stringify(reserva), httpOptions);
 }
+
+getButacasOcupadas(datos:Object){
+    return this.conector.post('http://localhost:3000/API/Entradas/getButacasEntrada/',datos);
+}
+
 getTransmision(id_pelicula: Number){    
 
   return this.conector.get<any[]>(`http://localhost:3000/API/Transmiten/${id_pelicula}`);

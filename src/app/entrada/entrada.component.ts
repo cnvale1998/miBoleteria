@@ -6,7 +6,7 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
 import { map, switchMap } from 'rxjs/operators';
-
+declare var $: any;
 
 @Component({
   selector: 'app-entrada',
@@ -22,8 +22,9 @@ export class EntradaComponent implements OnInit {
   private isUserLoggedIn:boolean;
   private complejo:string;
   private butacaList=[];
-  private maxButacaSelec:number=5;
+  private maxButacaSelec:number=0;
   private errorButacas:boolean=false;
+  private butacasOcupadas:any;
   
   constructor(private r:Router,private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
     this.paso=Number(this._route.snapshot.paramMap.get('paso'));
@@ -40,7 +41,6 @@ export class EntradaComponent implements OnInit {
   }
    public pasarPaso(){
      //console.log(this.entradaControlador.$fecha)
-     console.log("presione continuar, paso: "+this.paso);
      switch(this.paso){
       case 2:{  
               if(this.entradaControlador.$nombrePelicula==""){
@@ -66,26 +66,32 @@ export class EntradaComponent implements OnInit {
           
         
       }break;
-      case 3:{if(this.entradaControlador.$idBeneficio==0){
-                this.mensaje_alerta="No ha seleccionado un metodo de pago";
+      case 3:{if(this.entradaControlador.$precioEntrada==0){
+                this.mensaje_alerta="No ha seleccionado un tipo de tickets";
                 this.alerta=true;
               }
               else{
-              this.alerta=false;
-              this.paso= this.paso+1;
-              //this.location.go("entrada/"+this.paso);
-              let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
-              
-              let idPelicula= this._route.snapshot.paramMap.get('pelicula');
-              let idBeneficio=this.entradaControlador.$idBeneficio;
-              let paso=this.paso;
-              //this.location.go("entrada/"+this.complejo+"/"+idPelicula+"/"+idBeneficio);
-             //this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]); 
-              this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]);  
-              console.log("paso 3");
-              //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
-              //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
-              //console.log("beneficio elegido"+this._route.snapshot.paramMap.get('idBeneficio'));
+                if(document.getElementById('butacaSelec').innerHTML=="0"){
+                    this.mensaje_alerta="No ha seleccionado las butacas";
+                    this.alerta=true;
+                } 
+                else{
+                    this.alerta=false;
+                    this.paso= this.paso+1;
+                    //this.location.go("entrada/"+this.paso);
+                    let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+
+                    let idPelicula= this._route.snapshot.paramMap.get('pelicula');
+                    let idBeneficio=this.entradaControlador.$idBeneficio;
+                    let paso=this.paso;
+                    //this.location.go("entrada/"+this.complejo+"/"+idPelicula+"/"+idBeneficio);
+                   //this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]); 
+                    this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad,pelicula:idPelicula,beneficio:idBeneficio}]);  
+                   // console.log("paso 3");
+                    //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
+                    //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
+                    //console.log("beneficio elegido"+this._route.snapshot.paramMap.get('idBeneficio'));
+                }
             }
       } break;
       case 4:{
@@ -138,8 +144,7 @@ export class EntradaComponent implements OnInit {
       documento.text("Precio", 12, 41);
       
    
-    alert(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
-        this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00");
+   
       
         documento.setFontStyle("normal");
       documento.setTextColor(0, 0, 0);
@@ -163,7 +168,8 @@ export class EntradaComponent implements OnInit {
         ID_COMBO: this.entradaControlador.$idCombo,
         EMAIL: correo,
         MODOPAGO:this.entradaControlador.$tarjeta,
-        ID_CIUDAD: this.complejo
+        ID_CIUDAD: this.complejo,
+        BUTACAS: this.entradaControlador.$butacaList
       }).subscribe((res) =>{ console.log(res);});
 
 
@@ -172,7 +178,7 @@ export class EntradaComponent implements OnInit {
     }
 
     agregarButaca(r:string,c:number){
-        
+        this.maxButacaSelec=Number((<HTMLInputElement>document.getElementById("cantidadEntradas")).value);
         if(this.butacaList.length < this.maxButacaSelec){
             this.butacaList.push({fila:r, butaca: c});
             document.getElementById(r+'_'+c).classList.add('seleccionado');
@@ -194,13 +200,26 @@ export class EntradaComponent implements OnInit {
         
         return exito;
     }
+    borrarTodo(r:string,c:number){
+        let exito=false;
+        for(var i=0;i<this.butacaList.length;i++){
+              document.getElementById(this.butacaList[i]["fila"]+'_'+this.butacaList[i]["butaca"]).classList.remove('seleccionado');  
+        }
+        for(var i=0;i<this.butacasOcupadas.length;i++){
+            document.getElementById(this.butacasOcupadas[i]["HILERA"]+'_'+this.butacasOcupadas[i]["NUMERO"]).classList.remove('ocupado');  
+        }
+        this.butacaList=[];
+        this.errorButacas=false;
+        document.getElementById('butacaSelec').innerHTML ="0";
+        
+    }
     elegirButaca(r:string,c:number){
         let exito=this.borrarButaca(r,c);
         if(!exito){
             this.agregarButaca(r,c);
         }
         document.getElementById('butacaSelec').innerHTML = ''+this.butacaList.length;
-        console.log(this.butacaList);
+       
     }
 
     volver(numero:number){
@@ -226,5 +245,41 @@ export class EntradaComponent implements OnInit {
         break;
 
       }
+    }
+    
+    abrirVentanaButaca(){
+        if((<HTMLInputElement>document.getElementById("cantidadEntradas")).value == "0"){
+            this.mensaje_alerta="No ha seleccionado un tipo de tickets";
+            this.alerta=true;
+        }
+        else{
+             this.alerta=false;
+            $('#butacas_modal').modal('show');
+            let fecha =this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00";
+          
+             this.conector.getButacasOcupadas({ID_CIUDAD: this.complejo, FECHA:fecha,ID_PELICULA:this.entradaControlador.$idPelicula}).subscribe(
+        (res : any) => {
+                this.butacasOcupadas = res;
+            let i:number;
+            if(res && res.length > 0){
+                for(i=0;i<res.length;i++){
+                    document.getElementById(res[i]['HILERA']+'_'+res[i]['NUMERO']).classList.add('ocupado');
+                }
+              }
+        }         
+    );
+            
+        }
+    }
+    guardarButacas(){
+         if(Number((<HTMLInputElement>document.getElementById("cantidadEntradas")).value) == this.butacaList.length){
+             this.entradaControlador.$butacaList=this.butacaList;
+             this.pasarPaso();
+             $('#butacas_modal').modal('hide');
+         }
+         else{
+             let cant=Number((<HTMLInputElement>document.getElementById("cantidadEntradas")).value)- this.butacaList.length;
+             alert("Debe seleccionar "+cant+" butacas más");
+         }
     }
 }

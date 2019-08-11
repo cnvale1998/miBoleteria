@@ -10,7 +10,7 @@ import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
   styleUrls: ['./paso-cinco.component.css']
 })
 export class PasoCincoComponent implements OnInit {
-
+//hola
   private usuario:any;
   private isUserLoggedIn:boolean;
   

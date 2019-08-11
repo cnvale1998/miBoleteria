@@ -4,7 +4,9 @@
         <ul class="nav nav-pills pull-right">
             <li ><a routerLink="/inicio">INICIO</a></li>
             <li class="separador">|</li>
-            <li *ngIf="isUserLoggedIn==true else notShow"><a  href="#">MI CUENTA</a></li>
+            <li *ngIf="isUserLoggedIn==true else notShow">
+                <a   routerLink="/miCuenta" >MI CUENTA</a>
+            </li>
             <ng-template #notShow>
                 <li><a routerLink="/registro">REGISTRAR/<span class="celeste">INICIAR</span></a></li>
             </ng-template>

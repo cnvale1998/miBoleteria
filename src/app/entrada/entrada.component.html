@@ -50,6 +50,7 @@
                     </div>
                     <div *ngSwitchCase="3">
                         <app-paso-tres ></app-paso-tres>
+                        <input id="cantidadEntradas" type="hidden" value="0">
                     </div>
                     <div *ngSwitchCase="4">
                         <app-paso-cuatro></app-paso-cuatro>
@@ -73,7 +74,7 @@
                 <!-- no cambiar el orden de los divs-->
                 <!--boton butacas-->
                 <div  class="button butacas" [ngClass]="{'ocultar': paso!=3}"><!-- para no mostrar añadir class ocultar a este div-->
-                      <button style='cursor: pointer;' data-toggle="modal" data-target="#butacas_modal" ><span>Selecciona</span> tus Butacas</button>
+                      <button style='cursor: pointer;'  (click)="abrirVentanaButaca()"><span>Selecciona</span> tus Butacas</button>
 
 
                 </div>
@@ -172,10 +173,10 @@
     <div class="row-fluid" style="padding-bottom:5px;">
         <span class="errorForm" style="margin-left:10px;" *ngIf="errorButacas==true"  >YA SELECCIONO TODAS LAS BUTACAS</span>
         <div class="button continuar"  >
-            <button ><span>Continuar</span></button>
+            <button  (click)="this.guardarButacas()" ><span>Continuar</span></button>
         </div>
         <div  class="button btn_log boton_violeta ">
-            <button  data-dismiss="modal" aria-hidden="true"  >CANCELAR</button>
+            <button  data-dismiss="modal" aria-hidden="true" (click)="this.borrarTodo()"  >CANCELAR</button>
         </div>
     </div>
 

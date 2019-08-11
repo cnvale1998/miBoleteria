@@ -7,13 +7,13 @@ export class EntradaControladorService {
   private nombrePelicula: String="";
   private fecha:Date;
   private idPelicula: number=0;
-  private idBeneficio:number=0;
+  private idBeneficio:number=-1;
   private precioEntrada:number=0;
   private precioCombo:number=0;
   private idCombo:number=1;
   private tarjeta:string="";
   private terminos: boolean=false;
-
+  private butacaList=[];
     /**
      * Getter $tarjeta
      * @return {string}
@@ -159,7 +159,14 @@ export class EntradaControladorService {
 	public get $nombrePelicula(): String {
 		return this.nombrePelicula;
 	}
-
+        
+        public set $butacaList(value: any) {
+		this.butacaList = value;
+	}
+        
+        public get $butacaList(): any {
+		return this.butacaList;
+	}
     
 
     

@@ -392,3 +392,7 @@ div.hints p {
     cursor: pointer;
     background-image: url(./../../assets/img/seat-selected.png);
 }
+.modal-backdrop {
+    background-color: #08576e;
+    pointer-events: none;
+}

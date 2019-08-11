@@ -5,7 +5,7 @@
             <div class="span3 text-center" id="izq">
                 <img id="header_izq" src="./assets/img/header_paso3.png" alt="img movie">
                 <h5 class="letra myriad rojo text-left">{{entradaControlador.$nombrePelicula}}</h5>
-                <img  id="img_izq" src="./assets/img/peliculas/{{entradaControlador.$idPelicula}}.jpg" alt="img movie">
+                <img  id="img_izq" src="./assets/img/peliculas/{{idPelicula}}.jpg" alt="img movie">
                 <small class="gris"><b>Clasificaci&oacute;n:</b> ATP</small>
             </div>
             <div class="span9" id="derecho">
@@ -22,30 +22,41 @@
 
 
                     <tbody>
-                        <tr>
-                            <td><div class="text-right">GENERAL 3D:</div></td>
-                            <td>
-                                <div class="text-center">
-                                    <select id="selc1">
-                                        <option *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10];" value="i">{{i}}</option>
-                                    </select>
+                       
+                        <tr *ngFor="let beneficio of beneficios">
+                            <td >
+                                <div class="text-right">
+                                    <span *ngIf="beneficio.ID_BENEFICIO!=0">2X1</span>{{beneficio.NOMBRE}}
                                 </div>
                             </td>
-                            <td ><span class="bold">$240.00</span></td>
-                            <td class="text-center"><span class="bold rojo">$0.00</span></td>
-                        </tr>
-                        <tr *ngFor="let beneficio of beneficios">
-                            <td ><div class="text-right">2X1 {{beneficio.NOMBRE}}</div></td>
-                            <td >
-                                <div class="text-center"><select  [(ngModel)]="opcionSeleccionado" (change)="capturarBeneficio(beneficio.ID_BENEFICIO)">
-                                        <option value="2" >2</option>
-                                        <option value="4">4</option>
-                                    </select></div> 
+                            <td *ngIf="beneficio.ID_BENEFICIO==0">
+                                 <div class="text-center" >
+                                    <select  id="s_{{beneficio.ID_BENEFICIO}}" (change)="capturarBeneficio(beneficio.ID_BENEFICIO,beneficio.COSTO)">
+                                        <option *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10];" value="{{i}}">{{i}}</option>
+                                    </select>
+                                </div>
+                                 </td> 
+                            <td *ngIf="beneficio.ID_BENEFICIO!=0">
+                                 
+                                <div class="text-center" >
+                                    <select id="s_{{beneficio.ID_BENEFICIO}}" (change)="capturarBeneficio(beneficio.ID_BENEFICIO,beneficio.COSTO)">
+                                        
+                                        <option value="0" >0</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div> 
                             </td>
-                            <td ><span class="bold" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
-                            <td class="text-center"><span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span></td>
+                            <td >
+                                <span class="bold" >${{beneficio.COSTO}}</span>
+                            </td>
+                            <td class="text-center">
+                                 <span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio!=beneficio.ID_BENEFICIO">$0</span>
+                           
+                                <span class="bold rojo" *ngIf="this.entradaControlador.$idBeneficio==beneficio.ID_BENEFICIO">${{this.entradaControlador.$precioEntrada}}</span>
+                            </td>
+                           
                         </tr>
-
+ 
 
 
 
