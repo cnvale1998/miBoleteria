@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiControladorService } from '../controladores/apiControlador/api-controlador.service';
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-paso-cuatro',
@@ -8,18 +9,30 @@ import { EntradaControladorService } from '../controladores/entradaControlador/e
   styleUrls: ['./paso-cuatro.component.css']
 })
 export class PasoCuatroComponent implements OnInit {
-  combos: any[];
-  opcionSeleccionado: number  = 0;
-  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService) { }
+  private combos: any[];
+  private cant:number;
+  private complejo:string;
+  
+  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService,private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.conector.ObetenerCombosDisponibles("San Luis").subscribe(res => {this.combos=res}); 
-  
+    this.complejo= this._route.snapshot.paramMap.get('ciudad');
+    this.conector.ObetenerCombosDisponibles(this.complejo).subscribe(
+        (res : any) => {
+                this.combos = res;
+                this.cant=res.length;  
+        }         
+    );
   }
-  capturarCombo(id_combo:number){
-    console.log(this.opcionSeleccionado);
+  capturarCombo(id_combo:number,precio:number){
+    let i:number;
     this.entradaControlador.$idCombo=id_combo;
-    this.entradaControlador.$precioCombo=270*this.opcionSeleccionado;
-}
+    this.entradaControlador.$precioCombo= precio * (Number((<HTMLInputElement>document.getElementById("c_"+id_combo)).value));
+    for(i=1;i<this.cant;i++){
+        if(id_combo !=i){
+         (<HTMLInputElement>document.getElementById("c_"+i)).value="0";
+         }
+    }
+  }
 
 }

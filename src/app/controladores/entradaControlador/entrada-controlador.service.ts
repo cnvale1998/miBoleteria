@@ -10,7 +10,7 @@ export class EntradaControladorService {
   private idBeneficio:number=-1;
   private precioEntrada:number=0;
   private precioCombo:number=0;
-  private idCombo:number=1;
+  private idCombo:number=0;
   private tarjeta:string="";
   private terminos: boolean=false;
   private butacaList=[];

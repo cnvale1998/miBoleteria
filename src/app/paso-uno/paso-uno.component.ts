@@ -21,9 +21,6 @@ export class PasoUnoComponent implements OnInit {
 
   
  public elegirCiudad(ciudadForm:NgForm): void{
-         let idCiudad=(ciudadForm.value.ciudad);//es un string ---se puede guardar en la sesion
-         this.gestorUsuario.setComplejo(idCiudad);
-         //this._route.navigate(["/entrada/2/"]);
          let nombreCiudad=ciudadForm.value.ciudad;
          let paso=2;
          this._route.navigate(['/entrada',paso,{ciudad:nombreCiudad}]);

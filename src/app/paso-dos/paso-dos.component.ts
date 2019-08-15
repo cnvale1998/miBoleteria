@@ -3,7 +3,7 @@ import { ApiControladorService } from '../controladores/apiControlador/api-contr
 import { EntradaControladorService } from '../controladores/entradaControlador/entrada-controlador.service';
 import { disableBindings } from '@angular/core/src/render3';
 import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
-
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-paso-dos',
@@ -18,8 +18,8 @@ export class PasoDosComponent implements OnInit {
   private complejo:string;
   private horario:any[];
   
-  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService) { 
-    this.complejo=this.gestorUsuario.getComplejo();
+  constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService,private _route: ActivatedRoute) { 
+    this.complejo=this._route.snapshot.paramMap.get('ciudad');
    
   }
 

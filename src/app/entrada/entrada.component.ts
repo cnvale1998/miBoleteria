@@ -28,7 +28,7 @@ export class EntradaComponent implements OnInit {
   
   constructor(private r:Router,private _route: ActivatedRoute,private location: Location,private entradaControlador: EntradaControladorService,private conector:ApiControladorService,private gestorUsuario:GestorUsuarioService) { 
     this.paso=Number(this._route.snapshot.paramMap.get('paso'));
-    this.complejo= this.gestorUsuario.getComplejo();
+    this.complejo= this._route.snapshot.paramMap.get('ciudad');
     
     this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
     if(this.isUserLoggedIn){
@@ -57,7 +57,8 @@ export class EntradaComponent implements OnInit {
                 //this.location.go("entrada/"+this.complejo+"/"+idPelicula);
                
                 let paso=this.paso;
-                this.r.navigate(['/entrada',paso,{pelicula:idPelicula}]);
+                let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+                this.r.navigate(['/entrada',paso,{pelicula:idPelicula,ciudad:nombreCiudad}]);
                 //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
                 //console.log("pelicula elegida"+this._route.snapshot.paramMap.get('idPelicula'));
                 //console.log("ciudad elegida"+this._route.snapshot.paramMap.get('nombreCiudad'));
@@ -222,28 +223,35 @@ export class EntradaComponent implements OnInit {
        
     }
 
-    volver(numero:number){
+    volver(numero:number, pasoActual:number){
+      if(pasoActual>=numero){
+        switch(numero){
+          case 2:{
+            this.entradaControlador.$idPelicula=0;
+            let paso=this.paso=2;
+            let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+            this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad}]);
 
-      console.log(numero);
-      switch(numero){
-        case 2:{
-          let paso=this.paso=2;
-          let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
-          this.r.navigate(['/entrada',paso,{ciudad:nombreCiudad}]);
+          }
+          break;
+          case 3:{
+            //this.r.navigate(['/entrada',paso,nombreCiudad,{pelicula:idPelicula}]);
+            this.entradaControlador.$precioEntrada=0;
+            this.paso=3;
+          }
+          break;
+          case 4:{
+            this.entradaControlador.$precioCombo=0;
+            this.entradaControlador.$idCombo=0;
+            this.paso=4;
+            let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
+            this.r.navigate(['/entrada',this.paso,{ciudad:nombreCiudad}]);
+            
+
+          }
+          break;
 
         }
-        break;
-        case 3:{
-          //this.r.navigate(['/entrada',paso,nombreCiudad,{pelicula:idPelicula}]);
-          this.paso=3;
-        }
-        break;
-        case 4:{
-          this.paso=4;
-
-        }
-        break;
-
       }
     }
     

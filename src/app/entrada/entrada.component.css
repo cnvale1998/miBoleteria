@@ -386,7 +386,7 @@ div.hints p {
 }
 #tabla_butacas tr > td.ocupado,#tabla_butacas tr > td.ocupado:hover{
     background-image: url(./../../assets/img/seat-unavailable.png) !important; 
-    cursor: auto;
+    pointer-events: none;
 }
 #tabla_butacas tr > td.seleccionado{
     cursor: pointer;
