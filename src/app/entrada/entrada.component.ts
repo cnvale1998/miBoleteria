@@ -170,13 +170,13 @@ export class EntradaComponent implements OnInit {
         documento.text("Sala", 12, 73);
         documento.text("Butacas", 12, 81);
        // documento.text("Precio", 12, 41);
-
+alert(this.entradaControlador.$fecha+"---mes: "+this.entradaControlador.$fecha.getMonth());
           documento.setFontStyle("normal");
         documento.setTextColor(0, 0, 0);
         documento.text(this.usuario.getApellido()+" "+this.usuario.getNombre(), 42, 33);
         documento.text("Cinemacenter "+this.complejo, 42, 41);
-        documento.text(this.entradaControlador.$nombrePelicula, 42, 49);
-        documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate(), 42, 57);
+        documento.text(this.entradaControlador.$nombrePelicula, 42, 49);    //getMonth() es una funcion que comienza en 0, va de 0 a 11 
+        documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+(this.entradaControlador.$fecha.getMonth()+1)+"-"+this.entradaControlador.$fecha.getDate(), 42, 57);
         documento.text(this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 65);
         documento.text(""+this.entradaControlador.$sala+"", 42, 73);
         var cadena="";
@@ -203,7 +203,7 @@ export class EntradaComponent implements OnInit {
       this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
         PRECIO:this.entradaControlador.$precioEntrada,
         ID_BENEFICIO: this.entradaControlador.$idBeneficio,
-        FECHA: this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
+        FECHA: this.entradaControlador.$fecha.getFullYear()+"-"+(this.entradaControlador.$fecha.getMonth()+1)+"-"+this.entradaControlador.$fecha.getDate()+" "+
         this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00",
         TOTAL: this.entradaControlador.$precioCombo+this.entradaControlador.$precioEntrada,
         ID_COMBO: this.entradaControlador.$idCombo,
