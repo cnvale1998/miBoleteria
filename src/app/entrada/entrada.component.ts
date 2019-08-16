@@ -112,6 +112,7 @@ export class EntradaComponent implements OnInit {
 
       
      }
+     
       
       
   }
@@ -125,34 +126,73 @@ export class EntradaComponent implements OnInit {
       this.mensaje_alerta="";
       this.alerta=false;
       let documento = new jsPDF();
-      documento.setFont("Courier");
-      documento.setFontStyle("bold");
-      documento.setFontSize(20);
-      documento.text("Entrada", 65, 15);
+      var b=this.entradaControlador.$butacaList;
+      var img = new Image()
+      img.src = 'assets/img/logo-med.png'
+
     
-      documento.setFillColor(50,50,50);
-      documento.rect(10, 20, 30, 8, "FD");
-      documento.rect(10, 28, 30, 8, "FD");
-      documento.rect(10, 36, 30, 8, "FD");
-      documento.rect(40, 20, 160, 8, "S");
-      documento.rect(40, 28, 160, 8, "S");
-      documento.rect(40, 36, 160, 8, "S");
-    
-      documento.setFontSize(12);
-      documento.setTextColor(255, 255, 255);
-      documento.text("Pelicula", 12, 25);
-      documento.text("Fecha", 12, 33);
-      documento.text("Precio", 12, 41);
+        documento.setFont("Courier");
+        documento.setFontStyle("bold");
+        documento.setFontSize(20);
+       
+
+        documento.setFillColor(50,50,50);
+        documento.rect(10, 12, 190, 16, "FD");
+        documento.addImage(img, 'png', 10, 12);
+         documento.setTextColor(255, 255, 255);
+        documento.text("Entrada", 135, 22);
+        documento.setFillColor(50,50,50);
+        documento.rect(10, 28, 30, 8, "FD");
+        documento.rect(10, 36, 30, 8, "FD");
+        documento.rect(10, 44, 30, 8, "FD");
+        documento.rect(10, 52, 30, 8, "FD");
+        documento.rect(10, 60, 30, 8, "FD");
+        documento.rect(10, 68, 30, 8, "FD");
+        documento.rect(10, 76, 30, 8*b.length, "FD");
+        
+        documento.rect(40, 28, 160, 8, "S");
+        documento.rect(40, 36, 160, 8, "S");
+        documento.rect(40, 44, 160, 8, "S");
+        documento.rect(40, 52, 160, 8, "S");
+        documento.rect(40, 60, 160, 8, "S");
+        documento.rect(40, 68, 160, 8, "S");
+        var k=68;
+        for(var i=0;i< b.length;i++){
+            k+=8;
+            documento.rect(40, k, 160, 8, "S");
+        }
+        documento.setFontSize(12);
+        documento.text("Cliente", 12, 33);
+        documento.text("Complejo", 12, 41);
+        documento.text("Película", 12, 49);
+        documento.text("Fecha", 12, 57);
+        documento.text("Sesión", 12, 65);
+        documento.text("Sala", 12, 73);
+        documento.text("Butacas", 12, 81);
+       // documento.text("Precio", 12, 41);
+
+          documento.setFontStyle("normal");
+        documento.setTextColor(0, 0, 0);
+        documento.text(this.usuario.getApellido()+" "+this.usuario.getNombre(), 42, 33);
+        documento.text("Cinemacenter "+this.complejo, 42, 41);
+        documento.text(this.entradaControlador.$nombrePelicula, 42, 49);
+        documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate(), 42, 57);
+        documento.text(this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 65);
+        documento.text(""+this.entradaControlador.$sala+"", 42, 73);
+        var cadena="";
+        var j=73;
+        for(var i=0;i< b.length;i++){
+            cadena= "Fila: "+b[i]["fila"]+" | Asiento: "+b[i]["butaca"];
+            j=j+8;
+            documento.text(cadena, 42, j);
+        } 
+        documento.setFontStyle("italic");
+        documento.setFontSize(8);
+        cadena="Conserve este ticket, válido sólo para el día y hora de la función en las butacas indicadas.";
+        documento.text(cadena, 12, j+=9);
+        cadena="No es posible realizar cambios de asientos";
+        documento.text(cadena, 12, j+=4);
       
-   
-   
-      
-        documento.setFontStyle("normal");
-      documento.setTextColor(0, 0, 0);
-      documento.text(this.entradaControlador.$nombrePelicula, 42, 25);
-      documento.text(this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+
-      this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
-      documento.text("$"+this.entradaControlador.$precioEntrada.toString(), 42, 41);
 //this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
       let correo="";
        if(this.isUserLoggedIn){

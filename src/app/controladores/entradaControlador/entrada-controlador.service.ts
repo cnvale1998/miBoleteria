@@ -15,6 +15,7 @@ export class EntradaControladorService {
   private tarjeta:string="";
   private terminos: boolean=false;
   private butacaList=[];
+  private sala:number=0;
     /**
      * Getter $tarjeta
      * @return {string}
@@ -55,7 +56,7 @@ export class EntradaControladorService {
 	public get $precioCombo(): number {
 		return this.precioCombo;
 	}
-        
+      
         public get $cantCombo(): number {
 		return this.cantCombo;
 	}
@@ -66,11 +67,17 @@ export class EntradaControladorService {
 	public get $idCombo(): number {
 		return this.idCombo;
 	}
+        public get $sala(): number {
+		return this.sala;
+	}
 
     /**
      * Setter $precioCombo
      * @param {number} value
      */
+     public set $sala(value: number) {
+		this.sala = value;
+	}
 	public set $precioCombo(value: number) {
 		this.precioCombo = value;
 	}

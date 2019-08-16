@@ -13,7 +13,7 @@ export class PasoCincoComponent implements OnInit {
 //hola
   private usuario:any;
   private isUserLoggedIn:boolean;
-  
+  private sala:number;
 
   private tarjeta: string="";
   terminos: boolean=false;
@@ -22,6 +22,8 @@ export class PasoCincoComponent implements OnInit {
 		  if(this.isUserLoggedIn){
 			  this.usuario=this.gestorUsuario.getUsuarioActual();
 		  }
+    this.conector.getTransmision(this.entradaControlador.$idPelicula).subscribe(res=> {this.sala=res[0]["ID_SALA"];});
+    
 	}
 
 
@@ -34,6 +36,7 @@ export class PasoCincoComponent implements OnInit {
     this.tarjeta=tt;
     this.entradaControlador.$tarjeta=this.tarjeta;
      
+    this.entradaControlador.$sala=this.sala;
   }
 
   guardarTerminos(){
