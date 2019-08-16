@@ -17,6 +17,8 @@ export class PasoCincoComponent implements OnInit {
 
   private tarjeta: string="";
   terminos: boolean=false;
+  private tarjeta2={'status':""};
+   
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService,private gestorUsuario:GestorUsuarioService) { 
 	   this.isUserLoggedIn=this.gestorUsuario.sesionIniciada();
 		  if(this.isUserLoggedIn){

@@ -12,7 +12,7 @@ import { GestorUsuarioService } from './../modelo/gestor-usuario.service';
 })
 export class PasoUnoComponent implements OnInit {
   private ciudades:any[]=[];
-   private ciudad={'status':""};
+  
   constructor(private _route: Router,private gestorCiudad:GestorCiudadService,private gestorUsuario:GestorUsuarioService) { }
 
    ngOnInit() {

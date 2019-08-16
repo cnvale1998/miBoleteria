@@ -170,7 +170,7 @@ export class EntradaComponent implements OnInit {
         documento.text("Sala", 12, 73);
         documento.text("Butacas", 12, 81);
        // documento.text("Precio", 12, 41);
-alert(this.entradaControlador.$fecha+"---mes: "+this.entradaControlador.$fecha.getMonth());
+
           documento.setFontStyle("normal");
         documento.setTextColor(0, 0, 0);
         documento.text(this.usuario.getApellido()+" "+this.usuario.getNombre(), 42, 33);
@@ -307,7 +307,7 @@ alert(this.entradaControlador.$fecha+"---mes: "+this.entradaControlador.$fecha.g
         else{
              this.alerta=false;
             $('#butacas_modal').modal('show');
-            let fecha =this.entradaControlador.$fecha.getFullYear()+"-"+this.entradaControlador.$fecha.getMonth()+"-"+this.entradaControlador.$fecha.getDate()+" "+this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00";
+            let fecha =this.entradaControlador.$fecha.getFullYear()+"-"+(this.entradaControlador.$fecha.getMonth()+1)+"-"+this.entradaControlador.$fecha.getDate()+" "+this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes()+":00";
           
              this.conector.getButacasOcupadas({ID_CIUDAD: this.complejo, FECHA:fecha,ID_PELICULA:this.entradaControlador.$idPelicula}).subscribe(
         (res : any) => {

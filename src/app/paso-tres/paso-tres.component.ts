@@ -21,10 +21,11 @@ export class PasoTresComponent implements OnInit {
      let tipo:number=2;
     if(this.entradaControlador.$nombrePelicula.indexOf("3D") > -1) {tipo=3;}
     this.entradaControlador.$idBeneficio=-1;
-    this.conector.getBenefEntrada(tipo).subscribe(
+    let ciu=this._route.snapshot.paramMap.get('ciudad');
+    this.conector.getBenefEntrada({TIPO:tipo,CIUDAD:ciu}).subscribe(
         (res : any) => {
                 this.beneficios = res;
-                this.cant=res.length;  
+                this.cant=res.length;
         }         
     );
     

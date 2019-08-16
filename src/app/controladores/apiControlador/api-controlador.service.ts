@@ -28,8 +28,9 @@ export class ApiControladorService {
   BuscarBeneficiosDisponibles(){    
     return this.conector.get<any[]>(`http://localhost:3000/API/Beneficios/`);
 }
-getBenefEntrada(tipo:number){
-    return this.conector.get<any[]>(`http://localhost:3000/API/Beneficios/getBenefEntrada/${tipo}`);
+getBenefEntrada(datos:Object){
+    
+    return this.conector.post(`http://localhost:3000/API/Beneficios/getBenefEntrada/`,datos);
 }
 
 GuardarEntrada(reserva: any): Observable<any>{
