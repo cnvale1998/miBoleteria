@@ -28,6 +28,7 @@ export class PasoCuatroComponent implements OnInit {
     let i:number;
     this.entradaControlador.$idCombo=id_combo;
     this.entradaControlador.$precioCombo= precio * (Number((<HTMLInputElement>document.getElementById("c_"+id_combo)).value));
+    this.entradaControlador.$cantCombo=(Number((<HTMLInputElement>document.getElementById("c_"+id_combo)).value));
     for(i=1;i<this.cant;i++){
         if(id_combo !=i){
          (<HTMLInputElement>document.getElementById("c_"+i)).value="0";

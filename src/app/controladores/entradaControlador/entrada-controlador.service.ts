@@ -11,6 +11,7 @@ export class EntradaControladorService {
   private precioEntrada:number=0;
   private precioCombo:number=0;
   private idCombo:number=0;
+  private cantCombo:number=0;
   private tarjeta:string="";
   private terminos: boolean=false;
   private butacaList=[];
@@ -29,6 +30,7 @@ export class EntradaControladorService {
 	public get $terminos(): boolean {
 		return this.terminos;
 	}
+        
 
     /**
      * Setter $tarjeta
@@ -53,7 +55,10 @@ export class EntradaControladorService {
 	public get $precioCombo(): number {
 		return this.precioCombo;
 	}
-
+        
+        public get $cantCombo(): number {
+		return this.cantCombo;
+	}
     /**
      * Getter $idCombo
      * @return {number}
@@ -70,6 +75,9 @@ export class EntradaControladorService {
 		this.precioCombo = value;
 	}
 
+        public set $cantCombo(value: number) {
+		this.cantCombo = value;
+	}
     /**
      * Setter $idCombo
      * @param {number} value

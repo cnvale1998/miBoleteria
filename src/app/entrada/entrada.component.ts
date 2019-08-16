@@ -170,7 +170,8 @@ export class EntradaComponent implements OnInit {
         EMAIL: correo,
         MODOPAGO:this.entradaControlador.$tarjeta,
         ID_CIUDAD: this.complejo,
-        BUTACAS: this.entradaControlador.$butacaList
+        BUTACAS: this.entradaControlador.$butacaList,
+        CANT_COMBO: this.entradaControlador.$cantCombo
       }).subscribe((res) =>{ console.log(res);});
 
 
