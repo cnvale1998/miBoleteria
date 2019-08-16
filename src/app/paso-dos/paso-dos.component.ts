@@ -20,7 +20,7 @@ export class PasoDosComponent implements OnInit {
   
   constructor(private conector:ApiControladorService,private entradaControlador: EntradaControladorService ,private gestorUsuario:GestorUsuarioService,private _route: ActivatedRoute) { 
     this.complejo=this._route.snapshot.paramMap.get('ciudad');
-   
+    this.entradaControlador.$idPelicula=0;
   }
 
   ngOnInit() {

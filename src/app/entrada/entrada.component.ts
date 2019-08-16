@@ -202,7 +202,7 @@ export class EntradaComponent implements OnInit {
         
         return exito;
     }
-    borrarTodo(r:string,c:number){
+    borrarTodo(){
         let exito=false;
         for(var i=0;i<this.butacaList.length;i++){
               document.getElementById(this.butacaList[i]["fila"]+'_'+this.butacaList[i]["butaca"]).classList.remove('seleccionado');  
@@ -228,6 +228,8 @@ export class EntradaComponent implements OnInit {
       if(pasoActual>=numero){
         switch(numero){
           case 2:{
+            this.entradaControlador.$precioCombo=0;
+            this.entradaControlador.$precioEntrada=0;
             this.entradaControlador.$idPelicula=0;
             let paso=this.paso=2;
             let nombreCiudad=this._route.snapshot.paramMap.get('ciudad');
@@ -237,6 +239,7 @@ export class EntradaComponent implements OnInit {
           break;
           case 3:{
             //this.r.navigate(['/entrada',paso,nombreCiudad,{pelicula:idPelicula}]);
+            this.entradaControlador.$precioCombo=0;
             this.entradaControlador.$precioEntrada=0;
             this.paso=3;
           }
@@ -284,6 +287,7 @@ export class EntradaComponent implements OnInit {
          if(Number((<HTMLInputElement>document.getElementById("cantidadEntradas")).value) == this.butacaList.length){
              this.entradaControlador.$butacaList=this.butacaList;
              this.pasarPaso();
+             this.borrarTodo();
              $('#butacas_modal').modal('hide');
          }
          else{
