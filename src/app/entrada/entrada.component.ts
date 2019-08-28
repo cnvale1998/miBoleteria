@@ -171,7 +171,7 @@ export class EntradaComponent implements OnInit {
         documento.text("Butacas", 12, 81);
        // documento.text("Precio", 12, 41);
 
-          documento.setFontStyle("normal");
+        documento.setFontStyle("normal");
         documento.setTextColor(0, 0, 0);
         documento.text(this.usuario.getApellido()+" "+this.usuario.getNombre(), 42, 33);
         documento.text("Cinemacenter "+this.complejo, 42, 41);
@@ -193,13 +193,13 @@ export class EntradaComponent implements OnInit {
         cadena="No es posible realizar cambios de asientos";
         documento.text(cadena, 12, j+=4);
       
-//this.entradaControlador.$fecha.getHours()+":"+this.entradaControlador.$fecha.getMinutes(), 42, 33);
-      let correo="";
+       documento.output("dataurlnewwindow");
+       documento.save('entradaMiBoleteria.pdf');
+       let correo="";
        if(this.isUserLoggedIn){
            correo=this.usuario.getEmail();
        }
-      documento.output("dataurlnewwindow");
-
+       
       this.conector.GuardarEntrada({ID_PELICULA:this.entradaControlador.$idPelicula, 
         PRECIO:this.entradaControlador.$precioEntrada,
         ID_BENEFICIO: this.entradaControlador.$idBeneficio,
