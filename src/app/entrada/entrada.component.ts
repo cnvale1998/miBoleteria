@@ -118,7 +118,7 @@ export class EntradaComponent implements OnInit {
   }
 
   generarPDF() {
-
+    this.volver(1,this.paso);
     if(this.entradaControlador.$tarjeta=="" || this.entradaControlador.$terminos==false){
       this.mensaje_alerta="Le falta completar informacion";
       this.alerta=true;
@@ -267,6 +267,12 @@ export class EntradaComponent implements OnInit {
     volver(numero:number, pasoActual:number){
       if(pasoActual>=numero){
         switch(numero){
+          case 1:{
+            this.entradaControlador.$precioCombo=0;
+            this.entradaControlador.$precioEntrada=0;
+           this.r.navigateByUrl('/inicio');
+            break;
+          }
           case 2:{
             this.entradaControlador.$precioCombo=0;
             this.entradaControlador.$precioEntrada=0;

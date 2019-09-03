@@ -79,13 +79,13 @@
 
                 </div>
                 <!-- boton anular operacion-->
-                <div class="button anular" [ngClass]="{'ocultar': paso!=5}"><!-- para no mostrar añadir class ocultar a este div-->
+                <div class="button anular" [ngClass]="{'ocultar': paso!=5}" (click)="volver(1,paso)"><!-- para no mostrar añadir class ocultar a este div-->
                      <button ><span>Anular</span></button>
                 </div>
                 <!--navbar de pasos-->
                 <nav id="pasos-footer" class="pasos-footer">
                     <ul>
-                        <li><a routerLink="/inicio" class="uno active" alt="TU CIUDAD">Paso 1</a></li><!-- class active cambia la img del paso a activo-->
+                        <li><a class="uno active" (click)="volver(1,paso)" alt="TU CIUDAD">Paso 1</a></li><!-- class active cambia la img del paso a activo-->
                         <li><a class="dos active" (click)="volver(2,paso)" >Paso 2</a></li>
                         <li><a   class="tres " (click)="volver(3,paso)" [ngClass]="{'active': paso >=3}"  >Paso 3</a></li>
                         <li><a class="cuatro " (click)="volver(4,paso)" [ngClass]="{'active': paso >=4}" >Paso 4</a></li>
@@ -98,8 +98,11 @@
             </div>
 
             <div class="span2">
-                <div class="button continuar " [ngClass]="{'ocultar': paso==5}" ><!-- para no mostrar añadir class ocultar a este div-->
+                <div class="button continuar " [ngClass]="{'ocultar': paso==5 || paso==3 }" ><!-- para no mostrar añadir class ocultar a este div-->
                     <button (click)="this.pasarPaso()" ><span>Continuar</span></button>
+                </div>
+                <div class="button continuar " [ngClass]="{'ocultar':  paso!=3 }" ><!-- para no mostrar añadir class ocultar a este div-->
+                    <button (click)="this.abrirVentanaButaca()" ><span>Continuar</span></button>
                 </div>
 
                 <div class="button comprar" [ngClass]="{'ocultar': paso!=5}" *ngIf="isUserLoggedIn==true else notShow">
